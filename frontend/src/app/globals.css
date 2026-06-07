@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-sans:    var(--font-inter);
+  --font-jakarta: var(--font-plus-jakarta-sans);
+
+  /* Brand palette — extracted from Figma: 6YGRUjIrwbXUk1X9RPgAKv */
+  --color-navy:   #032445; /* primary headings & dark text */
+  --color-blue:   #0666c6; /* accent — buttons, highlights, labels */
+  --color-sky:    #ebf5ff; /* light blue section backgrounds */
+  --color-footer: #0c1e33; /* footer background */
+  --color-body:   #4b6070; /* body / paragraph text */
+  --color-body2:  #596067; /* secondary text (Figma exact) */
+  --color-border: #e2eaf0; /* card borders & dividers */
+  --color-star:   #f59e0b; /* review star colour */
+  --color-label:  #f6c90e; /* yellow discount badge */
+  --color-block:  #dbeaff; /* discount section bg */
+  --color-fade:   #c2ddfd; /* decorative circles */
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-navy);
+  scroll-behavior: smooth;
+}
+
+/* Remove default <summary> disclosure triangle in all browsers */
+summary::-webkit-details-marker,
+summary::marker {
+  display: none;
+}
