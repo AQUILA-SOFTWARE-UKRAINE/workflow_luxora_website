@@ -2,7 +2,7 @@
 
 @theme {
   /* Fonts */
-  --font-sans:    var(--font-inter);
+  --font-sans:    -apple-system, BlinkMacSystemFont, var(--font-inter), sans-serif;
   --font-jakarta: var(--font-plus-jakarta-sans);
 
   /* Brand palette — extracted from Figma: 6YGRUjIrwbXUk1X9RPgAKv */

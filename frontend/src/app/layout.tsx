@@ -16,30 +16,31 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Luxora — Професійна хімчистка | Виїзд та оцінка безкоштовно",
+  title: "Luxora Reinigungsservice — Professional Home Cleaning Berlin",
   description:
-    "Luxora — професійна хімчистка, прання, чищення шкіри, килимів і штор по всій Україні. Залиш заявку — спеціаліст приїде на огляд. Ціна фіксується після оцінки.",
+    "Professional cleaning services in Berlin and surrounding areas. Sofas, windows, apartments, driveways, car interiors. Free estimate. Reply in 10 minutes.",
   openGraph: {
-    siteName: "Luxora",
+    siteName: "Luxora Reinigungsservice",
     type: "website",
-    locale: "uk_UA",
-    title: "Luxora — Професійна хімчистка",
+    locale: "de_DE",
+    title: "Luxora — Professional Home Cleaning Berlin",
     description:
-      "Хімчистка з виїздом та індивідуальною оцінкою. Залиш заявку — передзвонимо за 10 хвилин.",
+      "From sofas and windows to full apartments. Professional cleaning at your door across Berlin. New clients get 20% off.",
   },
   robots: { index: true, follow: true },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "DryCleaningOrLaundry",
-  name: "Luxora",
+  "@type": "HomeAndConstructionBusiness",
+  name: "Luxora Reinigungsservice",
   description:
-    "Професійна хімчистка та прання з виїздом і індивідуальною оцінкою речей.",
-  url: "https://luxora.ua",
-  telephone: "+380XXXXXXXXX",
-  areaServed: { "@type": "Country", name: "Ukraine" },
-  priceRange: "₴₴",
+    "Professional cleaning services in Berlin and surrounding areas.",
+  url: "https://luxsora.de",
+  telephone: "+4916343250808",
+  email: "hello@luxsora.de",
+  areaServed: { "@type": "City", name: "Berlin" },
+  priceRange: "€€",
 };
 
 export default function RootLayout({
@@ -48,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="uk" className={`${inter.variable} ${plusJakartaSans.variable}`}>
+    <html lang="de" className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <body className="font-sans bg-white">
         <Nav />
         {children}
