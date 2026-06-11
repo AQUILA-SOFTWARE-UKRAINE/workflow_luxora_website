@@ -666,7 +666,10 @@ function ServiceCard({
   footnote?: string;
 }) {
   return (
-    <div className="rounded-[20px] border border-[#e2eaf0] overflow-hidden flex flex-col">
+    <Link
+      href="/contact"
+      className="rounded-[20px] border border-[#e2eaf0] overflow-hidden flex flex-col cursor-pointer hover:border-[#0666c6]/50 hover:shadow-[0_4px_20px_rgba(6,102,198,0.10)] transition-all duration-200"
+    >
       <div className="relative h-[189px] shrink-0">
         <Image src={img} alt={name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
       </div>
@@ -694,6 +697,6 @@ function ServiceCard({
           </div>
         )}
       </div>
-    </div>
+    </Link>
   );
 }

@@ -1,18 +1,18 @@
 import Link from "next/link";
 
 const COMPANY_LINKS = [
-  { href: "/about", label: "About Us" },
-  { href: "/how-it-works", label: "How It Works" },
+  { href: "#why-us", label: "About Us" },
   { href: "/#services", label: "Pricing" },
   { href: "/#reviews", label: "Reviews" },
   { href: "/contact", label: "Contact Us" },
 ];
 
 const SERVICE_LINKS = [
-  { href: "/#services", label: "Sofa & Upholstery Cleaning" },
+  { href: "/#services", label: "Upholstery & Carpet Cleaning" },
   { href: "/#services", label: "Window Cleaning" },
-  { href: "/#services", label: "Apartment Cleaning" },
-  { href: "/#services", label: "Move-out Cleaning" },
+  { href: "/#services", label: "Apartment & House Cleaning" },
+  { href: "/#services", label: "Driveway & Patio Washing" },
+  { href: "/#services", label: "Car Interior Detailing" },
 ];
 
 export default function Footer() {
