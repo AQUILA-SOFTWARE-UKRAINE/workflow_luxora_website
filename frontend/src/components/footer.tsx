@@ -8,11 +8,11 @@ const COMPANY_LINKS = [
 ];
 
 const SERVICE_LINKS = [
-  { href: "/#services", label: "Upholstery & Carpet Cleaning" },
-  { href: "/#services", label: "Window Cleaning" },
-  { href: "/#services", label: "Apartment & House Cleaning" },
-  { href: "/#services", label: "Driveway & Patio Washing" },
-  { href: "/#services", label: "Car Interior Detailing" },
+  { href: "/contact?service=upholstery", label: "Upholstery & Carpet Cleaning" },
+  { href: "/contact?service=windows",    label: "Window Cleaning" },
+  { href: "/contact?service=apartment",  label: "Apartment & House Cleaning" },
+  { href: "/contact?service=driveway",   label: "Driveway & Patio Washing" },
+  { href: "/contact?service=car",        label: "Car Interior Detailing" },
 ];
 
 export default function Footer() {

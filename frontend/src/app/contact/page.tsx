@@ -8,7 +8,13 @@ export const metadata: Metadata = {
     "Get a free estimate. Fill in your details and a manager will call you within 10 minutes to confirm the details and arrange a specialist visit.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string }>;
+}) {
+  const { service } = await searchParams;
+
   return (
     <>
       {/* Back link */}
@@ -41,7 +47,7 @@ export default function ContactPage() {
 
         {/* Form */}
         <div className="max-w-[814px] mx-auto">
-          <RequestForm />
+          <RequestForm preselect={service} />
         </div>
       </section>
     </>
