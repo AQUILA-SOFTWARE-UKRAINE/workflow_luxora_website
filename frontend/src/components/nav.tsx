@@ -26,7 +26,8 @@ export default function Nav() {
         scrolled ? "shadow-sm" : ""
       }`}
     >
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-16 py-6 flex items-center justify-between">
+      {/* Updated Container */}
+      <div className="w-full px-16 py-6 flex items-center justify-between">
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0">
@@ -52,7 +53,7 @@ export default function Nav() {
         </Link>
 
         {/* Location */}
-        <div className="hidden xl:flex items-center gap-1.5 text-[#032445] text-[16px] leading-6 shrink-0">
+        <div className="hidden lg:flex items-center gap-1.5 text-[#032445] text-[16px] leading-6 shrink-0">
           <div className="relative size-5 shrink-0 overflow-hidden">
             <svg
               className="absolute"
@@ -69,7 +70,7 @@ export default function Nav() {
         </div>
 
         {/* Language */}
-        <div className="hidden xl:flex items-center gap-2 px-2 py-0.5 rounded-[8px] shrink-0">
+        <div className="hidden lg:flex items-center gap-2 px-2 py-0.5 rounded-[8px] shrink-0">
           <Image
             src="/images/flag-de.png"
             alt="German flag"

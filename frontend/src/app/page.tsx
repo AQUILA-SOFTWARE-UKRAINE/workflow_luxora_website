@@ -24,91 +24,94 @@ function Kicker({ children }: { children: React.ReactNode }) {
 export default function HomePage() {
   return (
     <>
-      {/* ══════════════════════════════════════════════════════
-          HERO
-      ══════════════════════════════════════════════════════ */}
-      <section className="relative w-full min-h-[640px] md:min-h-[816px] overflow-hidden">
-        <Image
-          src="/images/hero-bg.png"
-          alt="Professional cleaning service"
-          fill
-          priority
-          quality={90}
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        {/* Figma gradient: 270deg right→left, transparent to white */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(270deg, rgba(217, 217, 217, 0.00) 0%, rgba(217, 217, 217, 0.06) 45.38%, rgba(217, 217, 217, 0.52) 63.52%, rgba(217, 217, 217, 0.72) 79.53%, rgba(217, 217, 217, 0.80) 100%)"
-          }}
-        />
+     {/* ══════════════════════════════════════════════════════
+        HERO
+══════════════════════════════════════════════════════ */}
+<section className="relative w-full min-h-[500px] h-[90vh] max-h-[730px] overflow-hidden flex justify-center">
+  {/* Картинка з оптимальним фокусом */}
+  <Image
+    src="/images/hero-bg.png"
+    alt="Professional cleaning service"
+    fill
+    priority
+    quality={90}
+    /* object-[85%_80%] працює як ідеальний важіль:
+      - 85% тримає чоловіка з пилососом притиснутими до правого краю вікна.
+      - 80% фіксує підлогу та диван. Тепер, коли ви граєтесь із висотою секції (наприклад, зменшуєте h-[vh]), 
+        браузер жорстко обрізає саме СТЕЛЮ, але залишає безпечний запас, щоб не зачепити голову прибиральника.
+    */
+    className="object-cover object-[85%_80%]"
+    sizes="100vw"
+  />
 
-        {/* Figma: content left=147px top=164px w=586px, flex-col gap-40px */}
-        <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:pl-[147px] md:pr-[64px] pt-[72px] pb-[72px] md:pt-[164px] md:pb-[164px]">
-          <div className="max-w-[586px] flex flex-col gap-[40px]">
+ {/* Надійний градієнт + легкий блюр фону. 
+    w-full розтягує його на весь екран, забезпечуючи ідеальну плавність. */}
+<div 
+  className="absolute inset-0 pointer-events-none w-full bg-gradient-to-r from-[#fafcff] via-[#fafcff]/10 to-transparent " 
+/>
 
-            {/* Heading block: flex-col gap-[16px] */}
-            <div className="flex flex-col gap-[16px]">
-              <h1 className="font-bold leading-[1.1] text-[#032445] text-[2.5rem] md:text-[56px]">
-                Professional
-                <br />
-                <span className="text-[#0666c6]">Home Cleaning</span>
-                <br />
-                You Can Trust
-              </h1>
-              <p className="text-[16px] text-[#032445] leading-[1.5] max-w-[477px]">
-                From sofas and windows to full apartments, driveways and car
-                interiors. Professional cleaning at your door across Berlin
-              </p>
+  {/* Контент (код залишається вашим) */}
+  <div className="relative z-10 max-w-[1440px] mx-auto w-full px-6 md:pl-[80px] md:pr-[64px] pt-[60px] pb-[60px] md:pt-[80px] md:pb-[80px]">
+    <div className="max-w-[586px] flex flex-col gap-[40px]">
+
+      {/* Heading block */}
+      <div className="flex flex-col gap-[16px]">
+        <h1 className="font-bold leading-[1.1] text-[#032445] text-[2.5rem] md:text-[56px]">
+          Professional
+          <br />
+          <span className="text-[#0666c6]">Home Cleaning</span>
+          <br />
+          You Can Trust
+        </h1>
+        <p className="text-[16px] text-[#032445] leading-[1.5] max-w-[477px]">
+          From sofas and windows to full apartments, driveways and car
+          interiors. Professional cleaning at your door across Berlin
+        </p>
+      </div>
+
+      {/* Checkmarks + button */}
+      <div className="flex flex-col gap-[24px]">
+        <div className="flex flex-wrap gap-x-6 gap-y-3">
+          {["Discount for new clients", "Reply in 10 min", "500+ clients"].map((b) => (
+            <div key={b} className="flex items-center gap-2 text-[16px] text-[#032445]">
+              <svg className="size-5 text-[#0666c6] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              {b}
             </div>
-
-            {/* Checkmarks + button: flex-col gap-[24px] */}
-            <div className="flex flex-col gap-[24px]">
-              <div className="flex flex-wrap gap-x-6 gap-y-3">
-                {["Discount for new clients", "Reply in 10 min", "500+ clients"].map((b) => (
-                  <div key={b} className="flex items-center gap-2 text-[16px] text-[#032445]">
-                    <svg className="size-5 text-[#0666c6] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                    {b}
-                  </div>
-                ))}
-              </div>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-[#0666c6] text-white font-medium text-[18px] pl-[40px] pr-[36px] h-[53px] rounded-[12px] hover:bg-[#0555aa] transition-colors self-start"
-              >
-                Request a Free Estimate
-                <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-              </Link>
-            </div>
-
-          </div>
+          ))}
         </div>
-      </section>
+        <Link
+          href="/contact"
+          className="inline-flex items-center gap-[8px] bg-[#0666c6] text-white font-[510] text-[18px] py-4 pl-[40px] pr-[36px] rounded-[12px] hover:bg-[#0555aa] transition-colors self-start"
+        >
+          Request a Free Estimate
+          <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+          </svg>
+        </Link>
+      </div>
 
+    </div>
+  </div>
+</section>
       {/* ══════════════════════════════════════════════════════
           WHY CHOOSE US
       ══════════════════════════════════════════════════════ */}
       <section id="why-us" className="bg-white py-[80px] px-6 md:px-[64px]">
         <div className="max-w-[1440px] mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-stretch">
 
-            {/* Left: 2×2 photo grid */}
-            <div className="relative">
-              <div className="grid grid-cols-2 gap-0 rounded-[20px] overflow-clip">
+            {/* Left: 2×2 photo grid — stretches to match the right column's natural height */}
+            <div className="relative h-full flex flex-col">
+              <div className="flex-1 grid grid-cols-2 grid-rows-2 gap-0 rounded-[20px] overflow-clip">
                 {[
                   { src: "/images/why-1.jpg", name: "Anna Müller", service: "Sofa Cleaning, Berlin" },
                   { src: "/images/why-2.jpg", name: "Laura Schreiber", service: "Apartment Cleaning, Mitte" },
                   { src: "/images/why-3.jpg", name: "Felix & Jana Becker", service: "Apartment Cleaning, Berlin" },
                   { src: "/images/why-4.jpg", name: "Markus Hoffmann", service: "Window Cleaning, Kreuzberg" },
                 ].map((photo) => (
-                  <div key={photo.name} className="relative aspect-square">
+                  <div key={photo.name} className="relative w-full h-full min-h-[200px]">
                     <Image
                       src={photo.src}
                       alt={photo.service}
@@ -124,30 +127,35 @@ export default function HomePage() {
                 ))}
               </div>
               {/* Floating badge */}
-                <div className="absolute -top-4 -left-4 bg-[#043565] rounded-[12px] px-6 py-3 shadow-lg z-10 flex flex-col justify-center items-center gap-1">
-                  <p className="text-[#EAEBEC] text-[24px] font-bold leading-normal">
-                    500+
-                  </p>
-                  <p className="text-[#EAEBEC] text-[14px] font-[510] leading-[150%]">
-                    Happy Homeowners
-                  </p>
+              <div className="absolute -top-4 -left-4 bg-[#043565] rounded-[12px] px-6 py-3 shadow-lg z-10 flex flex-col justify-center items-center gap-1">
+                <p className="text-[#EAEBEC] text-[24px] font-bold leading-normal">
+                  500+
+                </p>
+                <p className="text-[#EAEBEC] text-[14px] font-[510] leading-[150%]">
+                  Happy Homeowners
+                </p>
               </div>
             </div>
 
             {/* Right: content */}
-            <div>
-              <Kicker>WHY CLIENTS TRUST US</Kicker>
-              <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-[#032445] leading-[1.2] mb-4">
-                We Don&apos;t Just Clean.
-                <br />
-                We <span className="text-[#0666c6]">Care For Your Space</span>
-              </h2>
-              <p className="text-[#4b6070] text-[16px] leading-relaxed mb-8">
-                Trusted professionals, consistent quality, and attention to every
-                detail — creating a home that feels fresh, comfortable, and cared for
-              </p>
+            <div className="flex flex-col gap-16">
+              <div className="flex flex-col gap-12">
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-2">
+                    <Kicker>WHY CLIENTS TRUST US</Kicker>
+                    <h2 className="text-[2.5rem] font-bold text-[#032445] leading-[48px]">
+                      We Don&apos;t Just Clean.
+                      <br />
+                      We <span className="text-[#0666c6]">Care For Your Space</span>
+                    </h2>
+                  </div>
+                  <p className="text-[#4b6070] text-[16px] leading-6">
+                    Trusted professionals, consistent quality, and attention to every
+                    detail — creating a home that feels fresh, comfortable, and cared for
+                  </p>
+                </div>
 
-             <div className="flex flex-col gap-[40px]">
+                <div className="flex flex-col gap-10">
   {[
     {
       title: "Cleaning On Your Schedule",
@@ -197,23 +205,24 @@ export default function HomePage() {
     const Icon = b.icon;
     
     return (
-      <div key={b.title} className="flex gap-4">
-        {}
-        <div className="size-11 rounded-full bg-[#dbeaff] flex items-center justify-center shrink-0">
+      <div key={b.title} className="flex items-start gap-6">
+        <div className="size-16 rounded-full bg-[#dbeaff] flex items-center justify-center shrink-0">
           <Icon />
         </div>
-        <div>
-          <p className="font-semibold text-[#032445] mb-0.5">{b.title}</p>
+        <div className="flex flex-col gap-1">
+          <p className="text-[20px] font-semibold text-[#032445] leading-8">{b.title}</p>
           <p className="text-[#596067] text-[16px] leading-6">{b.desc}</p>
         </div>
       </div>
     );
   })}
-</div>
+                </div>
+              </div>
 
               <Link
                 href="/contact"
-                className="mt-10 inline-flex items-center gap-2 bg-[#0666c6] text-white font-medium text-[16px] pl-8 pr-7 h-[53px] rounded-[12px] hover:bg-[#0555aa] transition-colors"
+                // Додано клас w-fit на початку
+                className="w-fit inline-flex items-center gap-2 bg-[#0666c6] text-white font-medium text-[16px] pl-8 pr-7 h-[53px] rounded-[12px] hover:bg-[#0555aa] transition-colors"
               >
                 Book a Cleaning
                 <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
