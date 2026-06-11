@@ -87,14 +87,14 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="text-[16px] font-[590] leading-6 text-[#032445] hover:text-[#0666c6] transition-colors whitespace-nowrap"
+              className="text-[16px] font-[590] leading-6 text-[#032445] hover:text-[#0666c6] transition-colors duration-150 whitespace-nowrap"
             >
               {l.label}
             </a>
           ))}
           <a
             href="/contact"
-            className="flex items-center gap-2 text-[16px] font-[590] leading-6 text-[#0666c6] hover:text-[#0666c6]/80 transition-colors whitespace-nowrap"
+            className="flex items-center gap-2 text-[16px] font-[590] leading-6 text-[#0666c6] hover:text-[#0666c6]/80 transition-colors duration-150 whitespace-nowrap"
           >
             Contact Us
             <div className="relative shrink-0 size-[18px] overflow-hidden">

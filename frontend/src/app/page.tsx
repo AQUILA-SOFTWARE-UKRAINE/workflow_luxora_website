@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BeforeAfterSlider from "@/components/before-after-slider";
 import ReviewsCarousel from "@/components/reviews-carousel";
+import FAQ from "@/components/FaqSection";
 
 export const metadata: Metadata = {
   title: "Luxora — Professional Home Cleaning Berlin",
@@ -83,7 +84,7 @@ export default function HomePage() {
         </div>
         <Link
           href="/contact"
-          className="inline-flex items-center gap-[8px] bg-[#0666c6] text-white font-[510] text-[18px] py-4 pl-[40px] pr-[36px] rounded-[12px] hover:bg-[#0555aa] transition-colors self-start"
+          className="inline-flex items-center gap-[8px] bg-[#0666c6] text-white font-[510] text-[18px] py-4 pl-[40px] pr-[36px] rounded-[12px] hover:bg-[#064a8d] active:bg-[#043565] transition-colors duration-150 self-start"
         >
           Request a Free Estimate
           <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -222,7 +223,7 @@ export default function HomePage() {
               <Link
                 href="/contact"
                 // Додано клас w-fit на початку
-                className="w-fit inline-flex items-center gap-2 bg-[#0666c6] text-white font-medium text-[16px] pl-8 pr-7 h-[53px] rounded-[12px] hover:bg-[#0555aa] transition-colors"
+                className="w-fit inline-flex items-center gap-2 bg-[#0666c6] text-white font-medium text-[16px] pl-8 pr-7 h-[53px] rounded-[12px] hover:bg-[#064a8d] active:bg-[#043565] transition-colors duration-150"
               >
                 Book a Cleaning
                 <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -318,7 +319,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#0666c6] text-white font-medium text-[16px] pl-7 pr-6 h-[53px] rounded-[12px] hover:bg-[#0555aa] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#0666c6] text-white font-medium text-[16px] pl-7 pr-6 h-[53px] rounded-[12px] hover:bg-[#064a8d] active:bg-[#043565] transition-colors duration-150"
             >
               Request a Free Estimate
               <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -372,13 +373,13 @@ export default function HomePage() {
               Follow us to see before-and-after cleaning results
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#" className="inline-flex items-center gap-2 bg-[#0666c6] text-white font-[510] text-[18px] pl-[40px] pr-[36px] h-[53px] rounded-[12px] hover:bg-[#0555aa] transition-colors">
+              <a href="#" className="inline-flex items-center gap-2 bg-[#0666c6] text-white font-[510] text-[18px] pl-[40px] pr-[36px] h-[53px] rounded-[12px] hover:bg-[#064a8d] active:bg-[#043565] transition-colors duration-150">
                 Our Facebook
                 <svg className="size-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
               </a>
-              <a href="#" className="inline-flex items-center gap-2 bg-[#0666c6] text-white font-[510] text-[18px] pl-[40px] pr-[36px] h-[53px] rounded-[12px] hover:bg-[#0555aa] transition-colors">
+              <a href="#" className="inline-flex items-center gap-2 bg-[#0666c6] text-white font-[510] text-[18px] pl-[40px] pr-[36px] h-[53px] rounded-[12px] hover:bg-[#064a8d] active:bg-[#043565] transition-colors duration-150">
                 Our Instagram
                 <svg className="size-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
@@ -392,22 +393,24 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════════
           REVIEWS
       ══════════════════════════════════════════════════════ */}
-      <section id="reviews" className="bg-white pt-[80px] pb-[160px] px-6 md:px-[64px] border-t border-[#e2eaf0]">
-        <div className="max-w-[1440px] mx-auto">
-          {/* Header — centered */}
-          <div className="text-center mb-12">
-            <Kicker>CLIENT REVIEWS</Kicker>
-            <h2 className="text-[2rem] md:text-[2.5rem] font-bold leading-[1.15] mb-3">
-              <span className="text-[#032445]">What Our </span>
-              <span className="text-[#0666c6]">Clients</span>
-              <span className="text-[#032445]"> Say</span>
-            </h2>
-            <p className="text-[#4b6070] text-[16px]">Real feedback from real people across Berlin and surrounding areas</p>
-          </div>
+      <section id="reviews" className="bg-white pt-[80px] pb-[160px] border-t border-[#e2eaf0] overflow-hidden">
+        
+        {/* Header — центрований та обмежений по ширині */}
+        <div className="max-w-[1440px] mx-auto px-6 md:px-[64px] text-center mb-12">
+          <Kicker>CLIENT REVIEWS</Kicker>
+          <h2 className="text-[2rem] md:text-[2.5rem] font-bold leading-[1.15] mb-3">
+            <span className="text-[#032445]">What Our </span>
+            <span className="text-[#0666c6]">Clients</span>
+            <span className="text-[#032445]"> Say</span>
+          </h2>
+          <p className="text-[#4b6070] text-[16px]">Real feedback from real people across Berlin and surrounding areas</p>
+        </div>
 
-          {/* Review carousel — 3 per page, paginated */}
+       {/* Review carousel — на всю ширину до 1600px, далі по центру */}
+        <div className="w-full max-w-[1600px] mx-auto">
           <ReviewsCarousel />
         </div>
+
       </section>
 
       {/* ══════════════════════════════════════════════════════
@@ -511,7 +514,7 @@ export default function HomePage() {
                     Know someone whose home could use a good clean? Send them our way. You get 15% off your next booking. They get 20% off their first.
                   </p>
                 </div>
-                <button className="shrink-0 h-12 px-6 rounded-[12px] border-2 border-[#0666c6] text-[#0666c6] text-[14px] font-[510] leading-[21px] hover:bg-[#0666c6]/5 transition-colors whitespace-nowrap">
+                <button className="shrink-0 h-12 px-6 rounded-[12px] border-2 border-[#0666c6] text-[#0666c6] text-[14px] font-[510] leading-[21px] hover:border-[#0759aa] hover:text-[#0759aa] active:border-[#064a8d] active:text-[#064a8d] transition-colors duration-150 whitespace-nowrap">
                   Share With a Friend
                 </button>
               </div>
@@ -530,7 +533,7 @@ export default function HomePage() {
                     Loved your cleaning? Leave a quick review on Google or Instagram and receive 10% off your next service.
                   </p>
                 </div>
-                <button className="shrink-0 h-12 px-6 rounded-[12px] border-2 border-[#0666c6] text-[#0666c6] text-[14px] font-[510] leading-[21px] hover:bg-[#0666c6]/5 transition-colors whitespace-nowrap">
+                <button className="shrink-0 h-12 px-6 rounded-[12px] border-2 border-[#0666c6] text-[#0666c6] text-[14px] font-[510] leading-[21px] hover:border-[#0759aa] hover:text-[#0759aa] active:border-[#064a8d] active:text-[#064a8d] transition-colors duration-150 whitespace-nowrap">
                   Leave a Review
                 </button>
               </div>
@@ -541,7 +544,7 @@ export default function HomePage() {
           <div className="flex flex-col items-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#0666c6] text-[#eaebec] font-[510] text-[18px] pl-[40px] pr-[36px] h-[53px] rounded-[12px] hover:bg-[#0555aa] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#0666c6] text-[#eaebec] font-[510] text-[18px] pl-[40px] pr-[36px] h-[53px] rounded-[12px] hover:bg-[#064a8d] active:bg-[#043565] transition-colors duration-150"
             >
               Request a Free Estimate
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -553,107 +556,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════════
-          FAQ
+     {/* ══════════════════════════════════════════════════════
+          FAQ СЕКЦІЯ (Тепер це просто один рядок коду!)
       ══════════════════════════════════════════════════════ */}
-      <section id="faq" className="bg-white pt-[80px] pb-[160px] px-6 md:px-[64px]">
-        <div className="max-w-[980px] mx-auto flex flex-col gap-[56px]">
-
-          {/* Header */}
-          <div className="flex flex-col items-center gap-2">
-            <p className="text-[#0666c6] text-[14px] font-[510] uppercase leading-[21px]">FAQ</p>
-            <h2 className="text-[40px] font-bold leading-[48px] text-center">
-              <span className="text-[#032445]">Got </span>
-              <span className="text-[#0666c6]">Questions?</span>
-              <span className="text-[#032445]"><br />We Have Answers</span>
-            </h2>
-            <p className="text-[#596067] text-[16px] leading-6 text-center">
-              Can&apos;t find your answer here? Write to us. We reply within 10 minutes
-            </p>
-          </div>
-
-          {/* Accordion */}
-          <div className="flex flex-col gap-4">
-
-            {/* Open items — blue tinted, border-radius 20px */}
-            {[
-              {
-                q: "What should I prepare before the cleaning?",
-                a: "Please ensure access to water and electricity, and clear the areas to be cleaned from personal items. This helps us work efficiently and deliver the best result.",
-              },
-              {
-                q: "How do I pay?",
-                a: "We accept cash, bank transfer and PayPal. Payment is made after the service is completed and you are happy with the result. We will confirm the payment details when we call to confirm your booking.",
-              },
-              {
-                q: "Can I cancel or reschedule?",
-                a: "Yes, you can cancel or reschedule free of charge up to 24 hours before the appointment. For cancellations with less than 24 hours notice, a small travel fee may apply. Just call or message us and we will sort it out.",
-              },
-            ].map((item) => (
-              <details
-                key={item.q}
-                open
-                className="group bg-white rounded-[20px] outline outline-1 outline-[#c2ddfd] shadow-[0px_0px_4px_rgba(194,221,253,0.50)] overflow-hidden"
-              >
-                <summary className="px-6 py-6 bg-[#ebf3ff] flex items-center justify-between cursor-pointer gap-4 list-none">
-                  <span className="text-[#032445] text-[16px] font-[590] leading-6">{item.q}</span>
-                  <span className="size-6 shrink-0 text-[#0666c6]">
-                    <svg className="size-6 hidden group-open:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                    </svg>
-                    <svg className="size-6 group-open:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="px-6 py-6">
-                  <p className="text-[#596067] text-[16px] font-normal leading-6">{item.a}</p>
-                </div>
-              </details>
-            ))}
-
-            {/* Closed items — plain white, border-radius 16px */}
-            {[
-              {
-                q: "How much does a cleaning cost?",
-                a: "Prices start from €60 for window cleaning, €80 for upholstery/carpet, €120 for apartments. Final price depends on size and condition — we give you an exact quote before starting.",
-              },
-              {
-                q: "Can I cancel or reschedule?",
-                a: "Yes, you can cancel or reschedule free of charge up to 24 hours before the appointment. For cancellations with less than 24 hours notice, a small travel fee may apply.",
-              },
-              {
-                q: "Do you bring your own equipment?",
-                a: "Yes, absolutely. Our team brings all professional cleaning equipment and eco-friendly products. You don't need to provide anything except access to water and a standard power outlet.",
-              },
-              {
-                q: "What areas do you cover?",
-                a: "We cover Berlin and all surrounding areas within a 100 km radius. If you're unsure whether we service your area, just ask — we'll confirm within minutes.",
-              },
-            ].map((item) => (
-              <details
-                key={`closed-${item.q}`}
-                className="group bg-white rounded-[16px] outline outline-1 outline-[#dfe0e2] overflow-hidden"
-              >
-                <summary className="px-6 py-6 flex items-center justify-between cursor-pointer gap-4 list-none">
-                  <span className="text-[#032445] text-[16px] font-[590] leading-6">{item.q}</span>
-                  <span className="size-6 shrink-0 text-[#0666c6]">
-                    <svg className="size-6 hidden group-open:block" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
-                    </svg>
-                    <svg className="size-6 group-open:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="px-6 py-6">
-                  <p className="text-[#596067] text-[16px] font-normal leading-6">{item.a}</p>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQ />
 
       {/* ══════════════════════════════════════════════════════
           FINAL CTA (blue, before footer)
@@ -728,13 +634,13 @@ export default function HomePage() {
           <div className="w-full pt-[29px] flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-[#0666c6] text-[#eaebec] font-[510] text-[18px] px-[40px] h-[53px] rounded-[12px] hover:bg-[#0555aa] transition-colors"
+              className="inline-flex items-center justify-center bg-[#0666c6] text-[#eaebec] font-[510] text-[18px] px-[40px] h-[53px] rounded-[12px] hover:bg-[#064a8d] active:bg-[#043565] transition-colors duration-150"
             >
               Claim Your 20% Discount
             </Link>
             <a
               href="tel:+4916343250808"
-              className="inline-flex items-center justify-center text-[#0666c6] font-[510] text-[18px] px-[40px] h-[53px] rounded-[12px] outline outline-2 outline-[#0666c6] hover:bg-[#0666c6]/5 transition-colors"
+              className="inline-flex items-center justify-center text-[#0666c6] font-[510] text-[18px] px-[40px] h-[53px] rounded-[12px] outline outline-2 outline-[#0666c6] hover:outline-[#0759aa] hover:text-[#0759aa] active:outline-[#064a8d] active:text-[#064a8d] transition-colors duration-150"
             >
               Get Help By Phone
             </a>

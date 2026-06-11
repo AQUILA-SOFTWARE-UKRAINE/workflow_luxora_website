@@ -136,7 +136,7 @@ export default function RequestForm() {
       <button
         type="submit"
         disabled={state === "submitting"}
-        className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-blue text-white font-medium px-8 py-4 rounded-xl hover:bg-blue/90 transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed"
+        className="mt-8 w-full inline-flex items-center justify-center gap-2 bg-blue text-white font-medium px-8 py-4 rounded-xl hover:bg-[#064a8d] active:bg-[#043565] transition-colors duration-150 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {state === "submitting" ? (
           <>
