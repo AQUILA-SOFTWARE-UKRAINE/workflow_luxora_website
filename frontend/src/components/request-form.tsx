@@ -306,7 +306,7 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
             href="https://wa.me/4916343250808"
             target="_blank"
             rel="noreferrer"
-            className="flex-1 h-[51px] flex items-center justify-center gap-2 border-2 border-[#0666c6] text-[#0666c6] font-[510] text-[18px] rounded-[12px] hover:border-[#0759aa] hover:text-[#0759aa] active:border-[#064a8d] active:text-[#064a8d] transition-colors duration-150"
+            className="flex-1 h-[51px] flex items-center justify-center gap-2 border-2 border-[#0666c6] text-[#0666c6] font-[510] text-[18px] rounded-[12px] hover:bg-[#ebf5ff] hover:border-[#0759aa] hover:text-[#0759aa] active:bg-[#dbeaff] active:border-[#064a8d] active:text-[#064a8d] transition-colors duration-150"
           >
             Write on WhatsApp
             <svg className="size-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
@@ -315,7 +315,7 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
           </a>
           <a
             href="tel:+4916343250808"
-            className="flex-1 h-[51px] flex items-center justify-center gap-2 border-2 border-[#0666c6] text-[#0666c6] font-[510] text-[18px] rounded-[12px] hover:border-[#0759aa] hover:text-[#0759aa] active:border-[#064a8d] active:text-[#064a8d] transition-colors duration-150"
+            className="flex-1 h-[51px] flex items-center justify-center gap-2 border-2 border-[#0666c6] text-[#0666c6] font-[510] text-[18px] rounded-[12px] hover:bg-[#ebf5ff] hover:border-[#0759aa] hover:text-[#0759aa] active:bg-[#dbeaff] active:border-[#064a8d] active:text-[#064a8d] transition-colors duration-150"
           >
             Call: +49 163 432 5808
             <svg className="size-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
