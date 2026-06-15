@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FooterBottomPad from "./FooterBottomPad";
 
 const COMPANY_LINKS = [
   { href: "#why-us", label: "About Us" },
@@ -18,7 +19,7 @@ const SERVICE_LINKS = [
 export default function Footer() {
   return (
     <footer className="bg-[#021527]">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-[64px] pt-[64px]">
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-[64px] pt-12 md:pt-[64px]">
 
         {/* Main row */}
         <div className="flex flex-col lg:flex-row justify-between items-start gap-12 pb-[56px]">
@@ -65,7 +66,7 @@ export default function Footer() {
           </div>
 
           {/* Right — nav columns */}
-          <div className="flex flex-wrap gap-[80px]">
+          <div className="flex flex-wrap gap-10 lg:gap-[80px]">
 
             {/* Company */}
             <div className="flex flex-col gap-6 w-[100px]">
@@ -189,7 +190,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-[#032445]">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-[64px] py-6 flex flex-wrap items-center justify-between gap-4">
+        <div className="max-w-[1440px] mx-auto px-4 lg:px-[64px] py-5 flex flex-wrap items-center justify-between gap-4">
           <span className="text-[#667c99] text-[12px] leading-[18px]">
             © 2026 Luxsora. All rights reserved.
           </span>
@@ -200,6 +201,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <FooterBottomPad />
     </footer>
   );
 }

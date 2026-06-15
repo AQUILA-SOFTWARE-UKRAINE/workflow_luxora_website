@@ -50,10 +50,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className={`${inter.variable} ${plusJakartaSans.variable}`}>
-      <body className="font-sans bg-white">
+      <body className="font-sans bg-white overflow-x-hidden">
         <Nav />
-        {children}
-        <Footer />
+        <div>
+          {children}
+          <Footer />
+        </div>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

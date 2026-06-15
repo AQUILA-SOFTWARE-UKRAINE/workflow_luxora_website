@@ -31,16 +31,16 @@ export default async function ContactPage({
       </div>
 
       {/* Form section */}
-      <section className="py-10 px-6 pb-20">
+    <section className="pt-6 pb-20 px-4 md:pt-[40px] md:pb-[80px] md:px-6">
         {/* Heading */}
-        <div className="flex flex-col items-center gap-2 text-center mb-10">
-          <p className="text-[#0666c6] text-[14px] font-[510] uppercase tracking-[-0.28px]">
+        <div className="flex flex-col items-center gap-2 text-center mb-8 md:mb-10">
+          <p className="text-[#0666c6] text-[12px] md:text-[14px] font-[510] uppercase leading-[18px]">
             Book a Cleaning
           </p>
-          <h1 className="text-[40px] font-bold text-[#032445] leading-[1.2]">
+          <h1 className="text-[32px] md:text-[40px] font-bold text-[#032445] leading-[1.1]">
             Get a Free Estimate
           </h1>
-          <p className="text-[#596067] text-[16px]">
+          <p className="text-[#596067] text-[14px] md:text-[16px] leading-[21px]">
             Fill in your details — we call you within 10 minutes
           </p>
         </div>
