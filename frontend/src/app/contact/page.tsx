@@ -18,7 +18,7 @@ export default async function ContactPage({
   return (
     <>
       {/* Back link */}
-      <div className="px-4 pt-4 md:px-6 md:pt-6">
+      <div className="px-4 pt-4 md:px-16 md:pt-6">
         <Link
           href="/"
           className="inline-flex items-center gap-1.5 text-[14px] font-[510] text-[#032445] hover:text-[#0666c6] transition-colors duration-150"

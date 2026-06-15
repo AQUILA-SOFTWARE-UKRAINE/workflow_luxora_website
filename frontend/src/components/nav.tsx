@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 const LINKS = [
@@ -18,6 +18,8 @@ const LINKS = [
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -31,6 +33,18 @@ export default function Nav() {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
+
+  // Close desktop menu on outside click
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [menuOpen]);
 
   return (
     <>
@@ -76,16 +90,55 @@ export default function Nav() {
           </div>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-8 shrink-0">
-            {LINKS.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="text-[16px] font-[590] leading-6 text-[#032445] hover:text-[#0666c6] transition-colors duration-150 whitespace-nowrap"
+          <nav className="hidden lg:flex items-center gap-6 shrink-0">
+
+            {/* Menu dropdown */}
+            <div className="relative" ref={menuRef}>
+              <button
+                onClick={() => setMenuOpen((v) => !v)}
+                aria-expanded={menuOpen}
+                aria-haspopup="true"
+                className={`flex items-center gap-2 h-10 px-4 rounded-[10px] border transition-colors duration-150 ${
+                  menuOpen
+                    ? "bg-[#ebf5ff] border-[#0666c6] text-[#0666c6]"
+                    : "bg-white border-[#e2eaf0] text-[#032445] hover:bg-[#ebf5ff] hover:border-[#0666c6] hover:text-[#0666c6]"
+                }`}
               >
-                {l.label}
-              </a>
-            ))}
+                <svg width="18" height="13" viewBox="0 0 18 13" fill="none">
+                  <path d="M1 1h16M1 6.5h10M1 12h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                </svg>
+                <span className="text-[15px] font-[590] leading-none">Menu</span>
+                <svg
+                  width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}
+                  className={`transition-transform duration-200 ${menuOpen ? "rotate-180" : ""}`}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+
+              {/* Dropdown panel */}
+              <div
+                className={`absolute top-[calc(100%+8px)] left-0 z-50 w-[230px] bg-white rounded-[16px] border border-[#e2eaf0] shadow-[0_8px_40px_rgba(3,36,69,0.12)] py-2 transition-all duration-200 origin-top ${
+                  menuOpen
+                    ? "opacity-100 scale-100 pointer-events-auto"
+                    : "opacity-0 scale-95 pointer-events-none"
+                }`}
+              >
+                {LINKS.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="group flex items-center gap-3 px-5 py-[11px] text-[15px] font-[510] text-[#032445] hover:bg-[#ebf5ff] hover:text-[#0666c6] transition-colors duration-150"
+                  >
+                    <span className="size-[6px] rounded-full bg-[#0666c6] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+                    {l.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Us */}
             <a
               href="/contact"
               className="flex items-center gap-2 text-[16px] font-[590] leading-6 text-[#0666c6] hover:text-[#0666c6]/80 transition-colors duration-150 whitespace-nowrap"
