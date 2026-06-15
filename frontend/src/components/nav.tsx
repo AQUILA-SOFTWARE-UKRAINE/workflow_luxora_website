@@ -126,20 +126,30 @@ export default function Nav() {
           onClick={() => setOpen(false)}
           aria-hidden="true"
         />
-
-        {/* Side panel */}
-        {/* Side panel */}
         {/* Side panel */}
         <div
           className={`fixed top-0 right-0 bottom-0 z-50 w-[329px] bg-[#DBEAFF] overflow-hidden transition-transform duration-300 ease-in-out ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          {/* Decorative circles */}
-          <div className="absolute w-[88px] h-[88px] rounded-full bg-[#C2DDFD]" style={{ left: "285px", top: "164px" }} />
-          <div className="absolute w-[94px] h-[94px] rounded-full bg-[#C2DDFD]" style={{ left: "-70px", top: "496px" }} />
-          <div className="absolute w-[130px] h-[130px] rounded-full bg-[#C2DDFD]" style={{ left: "281px", top: "590px" }} />
-          <div className="absolute w-[66px] h-[66px] rounded-full bg-[#C2DDFD]" style={{ left: "125px", top: "575px" }} />
+          {/* Floating bubbles */}
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            {[
+              { size: 88,  left: 86,  duration: 12, delay: -2,  wobble: 3   },
+              { size: 94,  left: -22, duration: 15, delay: -7,  wobble: 2.5 },
+              { size: 130, left: 84,  duration: 10, delay: -4,  wobble: 4   },
+              { size: 66,  left: 38,  duration: 13, delay: -9,  wobble: 3.2 },
+              { size: 50,  left: 18,  duration: 11, delay: -5,  wobble: 3.8 },
+              { size: 40,  left: 60,  duration: 14, delay: -11, wobble: 2.8 },
+            ].map((b, i) => (
+              <div key={i} className="bubble-container" style={{ left: `${b.left}%`, animation: `floatUp ${b.duration}s linear ${b.delay}s infinite` }}>
+                <div
+                  className="bubble"
+                  style={{ width: b.size, height: b.size, animation: `wobble ${b.wobble}s ease-in-out infinite alternate` }}
+                />
+              </div>
+            ))}
+          </div>
 
           {/* Panel content */}
           <div className="relative z-10 flex flex-col h-full p-6 gap-16">
@@ -187,13 +197,12 @@ export default function Nav() {
       </div>
 
      {/* Fixed bottom CTA bar — mobile only, hidden on /contact */}
-     {/* Fixed bottom CTA bar — mobile only, hidden on /contact */}
 {pathname !== "/contact" && (
   <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#fafcff] border-t border-[#DFE0E2] px-4 pt-4 pb-5">
     <div className="flex items-center gap-2">
       <Link
         href="/contact"
-        onClick={() => setOpen(false)} // Додали закриття бічного меню тут
+        onClick={() => setOpen(false)}
         className="flex-1 h-12 bg-[#0666c6] rounded-xl flex items-center justify-center text-[#EAEBEC] text-sm font-[510] leading-[21px] active:opacity-90 transition-opacity"
       >
         Book a cleaning
