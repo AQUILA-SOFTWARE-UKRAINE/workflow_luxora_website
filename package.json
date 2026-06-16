@@ -1,0 +1,20 @@
+{
+  "name": "workflow_luxora_website",
+  "version": "1.0.0",
+  "description": "Маркетинговий сайт для залучення клієнтів (lead-gen) для сервісу хімчистки Luxora. **Не магазин** — жодних платежів, кошика чи акаунтів. Єдина конверсія — заповнена форма, яка надходить менеджеру у Telegram.",
+  "homepage": "https://github.com/AQUILA-SOFTWARE-UKRAINE/workflow_luxora_website#readme",
+  "bugs": {
+    "url": "https://github.com/AQUILA-SOFTWARE-UKRAINE/workflow_luxora_website/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AQUILA-SOFTWARE-UKRAINE/workflow_luxora_website.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
