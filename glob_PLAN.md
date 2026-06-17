@@ -42,49 +42,53 @@ Under the real (lead-gen) scope, the picture simplifies dramatically.
 
 ### Drop
 - **Payment gateway** — no on-site commerce. Confirmed out.
-- **Kafka / any broker** — a single low-volume event ("new lead → notify manager") does not justify a distributed log. A durable DB row + direct notification + retry is simpler and more reliable here.
+- **Kafka / any broker** — a single low-volume event ("new lead → notify manager") does not justify a distributed log. A durable DB row + Database Webhook + retry is simpler and more reliable here.
 - **Redis** — no cart, no sessions, nothing worth caching. Anti-spam tooling covers rate-limiting better than a hand-rolled Redis limiter.
-- **Kubernetes** — far too heavy. Use Docker Compose on one small VPS, or a static host + a small managed backend.
+- **Kubernetes** — far too heavy. The bot is the only custom-deployed service.
 - **Web admin panel** — the Telegram bot is the manager's admin interface for the MVP.
+- **Go backend / custom intake server** — replaced by Supabase Edge Functions; no server infrastructure to provision or operate for the intake path.
+- **Cloudflare R2** — replaced by Supabase Storage (private bucket, S3-compatible, co-located with the database).
 
 ### Changes role
-- **PostgreSQL — keep, for durability not transactions.** It's the source of truth for leads, guaranteeing no request is lost if Telegram is unavailable, and it provides status tracking and history. (SQLite is acceptable at very low volume for an MVP; Postgres is the safer default.)
-- **Go backend — keep as a thin intake service.** Validate the form, handle the photo, persist the lead, hand it to the bot. *Honest trade-off:* at this scale a single Python service (FastAPI + aiogram) could do the whole job in one language and one deployment. Keep Go if the team prefers it or wants the separation — it's a preference here, not a requirement.
-- **aiogram bot — now the centre of the system.** It's the manager's workspace: receive the lead (photo + details), step it through statuses, and surface the phone number to call.
+- **PostgreSQL → Supabase Managed PostgreSQL.** Same durability guarantee (source of truth for leads), now fully managed. No provisioning, no backups to configure manually, row-level security enforced at the DB layer.
+- **Intake logic → Supabase Edge Functions (Deno/TypeScript).** Validate form input, verify Turnstile token, strip EXIF, upload photo to Supabase Storage, write the lead record. Runs at the edge close to the user; no custom server to maintain.
+- **Lead notification → Supabase Database Webhook.** Fires on INSERT to the leads table and POSTs to the bot webhook endpoint — decouples storage from delivery without a message broker.
+- **aiogram bot — still the centre of the manager's workflow.** Receives the Database Webhook POST (new lead: photo + details + status buttons), handles callback queries from the manager, and writes status updates back via the Supabase client or a status-update Edge Function.
 
 ### Keep
 - **Frontend with SSG/SSR.** Lean toward **static generation** (Next.js/Nuxt SSG) since content is mostly static. **Astro** is a strong, lighter alternative for a content site with one interactive island (the form). Image optimization stays in.
 
 ### Newly important
-- **Anti-spam (first-class):** Cloudflare Turnstile (free) + honeypot field + server-side rate limiting + strict validation. Without this the manager's Telegram fills with junk.
-- **No lost leads:** persist to DB first, then notify Telegram, then retry on failure. DB is truth; Telegram is a channel.
-- **PII / data protection:** consent checkbox, privacy policy, TLS everywhere, photo hygiene (type/size limits, re-encode, strip EXIF), and a data-retention policy.
+- **Anti-spam (first-class):** Cloudflare Turnstile (free) + honeypot field + rate limiting inside the Edge Function + strict validation. Without this the manager's Telegram fills with junk.
+- **No lost leads:** Edge Function writes to Supabase PostgreSQL first; Database Webhook triggers Telegram delivery after. DB is truth; Telegram is a channel. Edge Functions have built-in retry.
+- **PII / data protection:** consent checkbox, privacy policy, TLS everywhere (Supabase enforces TLS), photo hygiene (type/size limits, re-encode, strip EXIF before Storage upload), data-retention policy via Supabase Storage lifecycle rules.
+- **Supabase Row-Level Security (RLS):** enable RLS on the leads table from day one; only the service-role key (used by Edge Functions and the bot) can write or read leads.
 
 ### Recommended stack (summary)
 
 | Layer | Recommendation |
 |-------|----------------|
 | Frontend | Next.js / Nuxt (SSG/ISR) or Astro — SEO, image optimization, design tokens |
-| Backend | Go thin intake service (or single Python FastAPI+aiogram service) |
-| Datastore | PostgreSQL (SQLite acceptable for MVP) |
-| Bot | Python + aiogram — manager workspace |
-| Media | Cloudflare R2 (S3-compatible, private bucket); photo bytes forwarded to Telegram in parallel |
-| Anti-spam | Cloudflare Turnstile + honeypot + rate limiting |
-| Packaging | Docker + Docker Compose (no Kubernetes) |
-| Hosting | Static host (Vercel/Netlify/Cloudflare Pages) + small VPS / Fly.io / Railway |
-| Observability | Structured logs, error tracking (Sentry), uptime monitor |
+| Backend | Supabase Edge Functions (Deno/TypeScript) — form intake, validation, photo handling, status updates |
+| Datastore | Supabase Managed PostgreSQL — leads table, status tracking, RLS enforced |
+| Bot | Python + aiogram — manager workspace; triggered via Supabase Database Webhook |
+| Media | Supabase Storage (private bucket, S3-compatible); EXIF stripped before upload |
+| Anti-spam | Cloudflare Turnstile + honeypot + rate limiting inside Edge Function |
+| Packaging | Docker only for the aiogram bot service; everything else is managed/serverless |
+| Hosting | Static host (Vercel/Netlify/Cloudflare Pages) + Supabase project + bot on Fly.io / Railway |
+| Observability | Supabase dashboard logs + Sentry for Edge Functions and bot, uptime monitor |
 
 ---
 
 ## 4. Architecture
 
-A deliberately small system. The backend owns the database and is the single source of truth; the bot is the manager's interface to Telegram.
+A deliberately small system. Supabase is the managed backend layer — no custom server infrastructure for the intake path. Edge Functions handle form ingestion; Database Webhooks decouple storage from delivery.
 
 Flow:
 1. The customer loads the **static frontend** and submits the **request form** (with a photo), gated by Turnstile.
-2. The form posts to the **Go backend**, which validates input, checks the anti-spam token, and (after re-encoding and stripping EXIF) stores the photo to **Cloudflare R2** (private bucket) while writing the lead to **PostgreSQL** as the durable record.
-3. The backend hands the lead to the **bot service**, which delivers it to the manager's **Telegram** chat — photo, details, and status buttons.
-4. The manager works the lead in Telegram; button taps flow back through the backend to update status in PostgreSQL. The manager contacts the customer by phone.
+2. The form posts to a **Supabase Edge Function**, which validates input, verifies the Turnstile token, strips EXIF from the photo, uploads it to **Supabase Storage** (private bucket), and writes the lead to **Supabase PostgreSQL** as the durable record.
+3. A **Supabase Database Webhook** fires on the new leads row and POSTs to the **aiogram bot** webhook endpoint, which delivers it to the manager's **Telegram** chat — photo, details, and status buttons.
+4. The manager works the lead in Telegram; button taps flow back to the bot, which calls a status-update **Edge Function** (or the Supabase client directly) to update the record in PostgreSQL. The manager contacts the customer by phone.
 
 ```mermaid
 flowchart TD
@@ -92,16 +96,19 @@ flowchart TD
     Telegram["Telegram (manager)"]
     FE["Frontend SSG (pages + request form)"]
     Bot["Bot service (aiogram, manager workspace)"]
-    API["Backend API — Go (form intake)"]
-    PG["PostgreSQL (leads + status)"]
-    OBJ["Cloudflare R2 (uploaded photos)"]
+    EF["Supabase Edge Functions (intake + status update)"]
+    PG["Supabase PostgreSQL (leads + status)"]
+    ST["Supabase Storage (photos, private)"]
+    WH["Supabase Database Webhook (new lead trigger)"]
 
     Browser --> FE
-    FE -- "submit (Turnstile-gated)" --> API
-    API --> PG
-    API --> OBJ
-    API <-- "new lead / status" --> Bot
+    FE -- "submit (Turnstile-gated)" --> EF
+    EF --> PG
+    EF --> ST
+    PG -- "INSERT trigger" --> WH
+    WH -- "POST lead payload" --> Bot
     Bot <--> Telegram
+    Bot -- "status update" --> EF
 ```
 
 ### Lead lifecycle
@@ -112,19 +119,19 @@ flowchart TD
 ## 5. Work plan (phases)
 
 **Phase 0 — Foundations**
-Repo and branching, Docker Compose dev environment, hosting decision, frontend scaffold with design tokens from Figma, Go backend skeleton (config/logging/health), bot skeleton, PostgreSQL schema for leads. *Exit:* full stack runs locally and deploys to staging.
+Repo and branching; create Supabase project (Managed PostgreSQL, Storage bucket with private ACL, RLS enabled); leads table schema and migration; Edge Function scaffold (hello-world health check deployed); Database Webhook configured to POST to bot webhook URL; bot skeleton deployed on Fly.io / Railway; frontend scaffold with design tokens from Figma. *Exit:* full stack wired end-to-end locally and on staging — a dummy form POST reaches the Edge Function, writes a row, fires the Webhook, and the bot echoes it in Telegram.
 
 **Phase 1 — Marketing site**
 Build the static pages (home, services + minimum price ranges, how-it-works, about, contact), SSG with SEO metadata and link previews, responsive/optimized imagery, and i18n if required (e.g. UA/RU). *Exit:* the public site is complete and indexable.
 
 **Phase 2 — Request form & intake**
-Form UI (name, phone, city + address, service type, photo, optional description) with mobile-first UX and client + server validation; anti-spam (Turnstile + honeypot + rate limit); backend intake endpoint; photo handling (type/size limits, re-encode, strip EXIF); persist lead to PostgreSQL. *Exit:* a submission is validated, stored, and durable.
+Form UI (name, phone, city + address, service type, photo, optional description) with mobile-first UX and client-side validation; Supabase Edge Function for server-side validation, Turnstile verification, honeypot check, rate limiting, EXIF stripping, photo upload to Supabase Storage, and lead INSERT to PostgreSQL. *Exit:* a submission is validated, stored durably in Supabase, and the photo is in the private Storage bucket.
 
 **Phase 3 — Telegram workflow**
-Bot delivers new leads to the manager chat (photo + details + status buttons); implement the lead lifecycle and manager actions; ensure reliability (persist-then-notify, retry on failure, no lost leads); show the phone number for easy contact. *Exit:* every submitted lead reliably reaches the manager and is trackable.
+Database Webhook delivers new leads to the bot; bot posts photo + details + status buttons to the manager's Telegram chat; implement the lead lifecycle (status callbacks → Edge Function → DB update); ensure reliability (INSERT before Webhook fires, built-in Edge Function retry); surface phone number for easy contact. *Exit:* every submitted lead reliably reaches the manager and is trackable through to completion.
 
 **Phase 4 — Hardening & launch**
-Privacy policy + consent flow, TLS, secrets management, backups + restore drill, error tracking and uptime monitoring, performance/SEO pass, and a deliberate spam/abuse test. *Exit:* production-ready and launched.
+Privacy policy + consent flow; TLS end-to-end (Supabase enforces it, bot host TLS); secrets management (Supabase Vault / environment variables, no keys in repo); Supabase PITR backup verification; Sentry integration for Edge Functions and bot; performance/SEO pass; Storage lifecycle rule for photo retention; deliberate spam/abuse test. *Exit:* production-ready and launched.
 
 **Phase 5 — Post-launch (optional)**
 A lightweight read-only web dashboard for lead history/search, basic analytics, a small CMS to edit services and price ranges without redeploying, and additional languages.
@@ -132,10 +139,10 @@ A lightweight read-only web dashboard for lead history/search, basic analytics, 
 ---
 
 ## 6. Open decisions to confirm
-1. Backend: thin Go intake service vs a single Python (FastAPI + aiogram) service.
-2. Datastore: PostgreSQL vs SQLite for MVP (depends on expected volume).
-3. Hosting: static host + small managed backend vs single VPS with Docker Compose.
-4. Photos: stored in **Cloudflare R2** (private bucket) and forwarded to Telegram in parallel — confirmed. Remaining sub-decision: retention period (set via an R2 lifecycle rule).
-5. Telegram target: a shared manager group vs a single manager; assignment workflow.
-6. Languages required (UA / RU / EN) — affects content and routing.
-7. Exact screen inventory and which pages exist in the Figma file.
+1. Bot hosting: Fly.io vs Railway vs small VPS — the only custom-deployed service; choose based on team familiarity and cost.
+2. Photo retention period — set as a Supabase Storage lifecycle rule (e.g., delete originals after 90 days once the lead is closed).
+3. Telegram target: a shared manager group vs a single manager; assignment workflow if multiple managers.
+4. Languages required (UA / RU / EN) — affects content, routing, and i18n library choice.
+5. Exact screen inventory and which pages exist in the Figma file.
+
+> **Resolved:** backend language (Edge Functions / Deno), datastore (Supabase PostgreSQL), media storage (Supabase Storage), lead notification mechanism (Database Webhook), hosting topology (static host + Supabase + bot platform).

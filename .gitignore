@@ -1,0 +1,25 @@
+# Environment
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# Supabase CLI
+supabase/.branches/
+supabase/.temp/
+
+# macOS
+.DS_Store
