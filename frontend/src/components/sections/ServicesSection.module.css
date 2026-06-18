@@ -1,0 +1,137 @@
+.section {
+  background: white;
+  padding-top: 40px;
+  padding-bottom: 0;
+  padding-inline: 16px;
+}
+@media (min-width: 744px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    padding-inline: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-inline: 64px;
+  }
+}
+
+.inner {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-inline: 41px;
+}
+@media (min-width: 744px) {
+  .header {
+    padding-inline: 0;
+    margin-bottom: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .header { margin-bottom: 48px; }
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+@media (min-width: 1280px) {
+  .heading { font-size: 2.5rem; }
+}
+
+.accent { color: #0666c6; display: block; }
+.navy   { color: #032445; display: block; }
+
+.subtext {
+  font-size: 16px;
+  color: #4b6070;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+/* ── Grid: 1-col → 1-col tablet S → 2-col tablet L → 3-col desktop ── */
+.gridRow1 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 1024px) {
+  .gridRow1 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1280px) {
+  .gridRow1 { grid-template-columns: repeat(3, 1fr); }
+}
+
+.gridRow2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 24px;
+}
+@media (min-width: 1024px) {
+  .gridRow2 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1280px) {
+  /* On desktop, row2 has 2 cards centered under a 3-col row */
+  .gridRow2 {
+    max-width: calc(66.667% + 12px);
+    margin-inline: auto;
+  }
+}
+
+.footer {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footnoteText {
+  font-size: 13px;
+  color: #4b6070;
+  text-align: center;
+}
+@media (min-width: 744px) {
+  .footnoteText { font-size: 14px; }
+}
+
+.footnoteAccent {
+  color: #f26c68;
+}
+
+.cta {
+  display: none;
+}
+@media (min-width: 744px) {
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #0666c6;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    height: 48px;
+    padding-inline: 28px 24px;
+    border-radius: 12px;
+    transition: background-color 150ms;
+    text-decoration: none;
+  }
+}
+@media (min-width: 1280px) {
+  .cta { height: 53px; }
+}
+.cta:hover  { background: #064a8d; }
+.cta:active { background: #043565; }

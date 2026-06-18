@@ -1,0 +1,378 @@
+/* ── Sticky header bar ── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #fafcff;
+  transition: box-shadow 200ms;
+}
+.headerScrolled { box-shadow: 0 1px 4px rgba(3, 36, 69, 0.08); }
+
+.inner {
+  width: 100%;
+  padding-inline: 16px;
+  padding-block: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 744px) {
+  .inner { padding-inline: 40px; padding-block: 16px; }
+}
+@media (min-width: 1280px) {
+  .inner { padding-inline: 64px; padding-block: 24px; }
+}
+
+/* ── Logo ── */
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logoIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #0666c6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.logoText { display: flex; flex-direction: column; line-height: 1; }
+
+.logoName {
+  font-family: var(--font-plus-jakarta-sans);
+  font-weight: 800;
+  color: #032445;
+  font-size: 20px;
+  letter-spacing: -0.2px;
+}
+
+.logoSub {
+  font-family: var(--font-plus-jakarta-sans);
+  font-weight: 600;
+  color: #032445;
+  font-size: 12px;
+  letter-spacing: -0.12px;
+}
+
+/* ── Location badge — desktop only ── */
+.locationBadge {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .locationBadge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #032445;
+    font-size: 16px;
+    line-height: 1.5;
+    flex-shrink: 0;
+  }
+}
+
+.locationIcon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* ── Language selector ── */
+.languageDesktop {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .languageDesktop {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-inline: 8px;
+    padding-block: 2px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+}
+
+.languageText { color: #032445; font-size: 16px; line-height: 1.5; }
+
+/* ── Desktop nav — visible from 744px ── */
+.desktopNav {
+  display: none;
+}
+@media (min-width: 744px) {
+  .desktopNav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-shrink: 0;
+  }
+}
+
+.menuBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding-inline: 16px;
+  border-radius: 10px;
+  border: 1px solid #e2eaf0;
+  background: white;
+  color: #032445;
+  font-size: 15px;
+  font-weight: 590;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 150ms, border-color 150ms, color 150ms;
+}
+.menuBtn:hover, .menuBtnOpen {
+  background: #ebf5ff;
+  border-color: #0666c6;
+  color: #0666c6;
+}
+
+.menuChevron {
+  transition: transform 200ms;
+}
+.menuChevronOpen { transform: rotate(180deg); }
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 50;
+  width: 230px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e2eaf0;
+  box-shadow: 0 8px 40px rgba(3, 36, 69, 0.12);
+  padding-block: 8px;
+  transition: opacity 200ms, transform 200ms;
+  transform-origin: top;
+}
+.dropdownVisible {
+  opacity: 1;
+  transform: scaleY(1);
+  pointer-events: auto;
+}
+.dropdownHidden {
+  opacity: 0;
+  transform: scaleY(0.95);
+  pointer-events: none;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-inline: 20px;
+  padding-block: 11px;
+  font-size: 15px;
+  font-weight: 510;
+  color: #032445;
+  text-decoration: none;
+  transition: background-color 150ms, color 150ms;
+}
+.dropdownItem:hover {
+  background: #ebf5ff;
+  color: #0666c6;
+}
+
+.dropdownDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0666c6;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 150ms;
+}
+.dropdownItem:hover .dropdownDot { opacity: 1; }
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 590;
+  line-height: 1.5;
+  color: #0666c6;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 150ms;
+}
+.contactLink:hover { color: rgba(6, 102, 198, 0.8); }
+
+/* ── Mobile controls — hidden >= 744px ── */
+.mobileControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+@media (min-width: 744px) {
+  .mobileControls { display: none; }
+}
+
+.hamburgerBtn {
+  padding: 10px;
+  border-radius: 12px;
+  outline: 1px solid #DFE0E2;
+  color: #032445;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ── Mobile drawer ── */
+.drawerWrapper {
+  display: block;
+}
+@media (min-width: 744px) {
+  .drawerWrapper { display: none; }
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  transition: opacity 300ms;
+}
+.backdropVisible   { opacity: 1; pointer-events: auto; }
+.backdropHidden    { opacity: 0; pointer-events: none; }
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  width: 329px;
+  background: #dbeaff;
+  overflow: hidden;
+  transition: transform 300ms ease-in-out;
+}
+.drawerOpen   { transform: translateX(0); }
+.drawerClosed { transform: translateX(100%); }
+
+.drawerBubbles {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.drawerContent {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 24px;
+  gap: 64px;
+}
+
+.drawerTopBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawerLocation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #032445;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.closeBtn {
+  color: #032445;
+  background: transparent;
+  cursor: pointer;
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.drawerNavLink {
+  font-size: 16px;
+  font-weight: 590;
+  line-height: 1.5;
+  color: #032445;
+  text-decoration: none;
+  transition: color 150ms;
+}
+.drawerNavLink:hover { color: #0666c6; }
+
+.drawerContactLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 590;
+  line-height: 1.5;
+  color: #0666c6;
+  text-decoration: none;
+}
+
+/* ── Fixed bottom CTA — mobile only ── */
+.bottomCtaBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #fafcff;
+  border-top: 1px solid #DFE0E2;
+  padding-inline: 16px;
+  padding-top: 16px;
+  padding-bottom: 20px;
+}
+@media (min-width: 744px) {
+  .bottomCtaBar { display: none; }
+}
+
+.bottomCtaInner { display: flex; align-items: center; gap: 8px; }
+
+.bottomCtaBtn {
+  flex: 1;
+  height: 48px;
+  background: #0666c6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eaebec;
+  font-size: 14px;
+  font-weight: 510;
+  line-height: 21px;
+  text-decoration: none;
+  transition: opacity 150ms;
+}
+.bottomCtaBtn:active { opacity: 0.9; }
+
+.bottomCallBtn {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: #fafcff;
+  border-radius: 12px;
+  outline: 2px solid #0666c6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 150ms;
+}
+.bottomCallBtn:active { background: #ebf5ff; }
