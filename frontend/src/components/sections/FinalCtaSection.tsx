@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { REWARD_BUBBLES } from "@/data/home";
+import styles from "./FinalCtaSection.module.css";
 
 const FEATURE_BADGES = [
   {
@@ -34,15 +35,12 @@ const FEATURE_BADGES = [
 
 export default function FinalCtaSection() {
   return (
-    <section className="bg-[#dbeaff] pt-10 pb-16 md:pt-[80px] md:pb-[140px] px-4 md:px-[48px] relative overflow-hidden">
+    <section className={styles.section}>
+      <div className={styles.circle1} />
+      <div className={styles.circle2} />
+      <div className={styles.circle3} />
 
-      {/* Decorative background circles */}
-      <div className="absolute rounded-full bg-[#c2ddfd] pointer-events-none z-0" style={{ width: 130, height: 130, left: 86, top: -65 }} />
-      <div className="absolute rounded-full bg-[#c2ddfd] pointer-events-none z-0" style={{ width: 195, height: 195, left: -71, top: 398 }} />
-      <div className="absolute rounded-full bg-[#c2ddfd] pointer-events-none z-0" style={{ width: 352, height: 352, left: 1264, top: -164 }} />
-
-      {/* Floating bubbles (CSS in globals.css) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[1]">
+      <div className={styles.bubblesLayer}>
         {REWARD_BUBBLES.map((b, i) => (
           <div
             key={i}
@@ -57,26 +55,19 @@ export default function FinalCtaSection() {
         ))}
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 w-full max-w-[900px] mx-auto px-6 md:px-[40px] flex flex-col items-center gap-[40px]">
-        <div className="w-full flex flex-col items-start gap-6">
-          <div className="w-full flex flex-col items-center gap-4">
-            <p className="text-[#0666c6] text-[16px] font-normal leading-6 text-center">Just One Step Away</p>
-            <h2 className="text-[32px] leading-[1.15] md:text-[56px] md:leading-[61.6px] font-bold text-center">
-              <span className="text-[#032445]">Your First Cleaning<br />Is </span>
-              <span className="text-[#0666c6]">20% Off </span>
-            </h2>
-            <p className="text-[#596067] text-[16px] font-normal leading-6 text-center max-w-[478px]">
-              First booking with us? New clients get 20% off. Leave a request and we&apos;ll reach out to discuss the details
-            </p>
-          </div>
-
-          <div className="w-full pt-[29px] flex flex-wrap justify-center gap-2 md:gap-3">
+      <div className={styles.content}>
+        <div className={styles.textBlock}>
+          <p className={styles.eyebrow}>Just One Step Away</p>
+          <h2 className={styles.heading}>
+            <span className={styles.navy}>Your First Cleaning<br />Is </span>
+            <span className={styles.accent}>20% Off </span>
+          </h2>
+          <p className={styles.subtext}>
+            First booking with us? New clients get 20% off. Leave a request and we&apos;ll reach out to discuss the details
+          </p>
+          <div className={styles.badges}>
             {FEATURE_BADGES.map((b) => (
-              <span
-                key={b.label}
-                className="flex items-center gap-2 text-[#0666c6] text-[14px] font-normal leading-[21px] px-[18px] py-2 rounded-full outline outline-1 outline-[#0666c6]"
-              >
+              <span key={b.label} className={styles.badge}>
                 {b.svg}
                 {b.label}
               </span>
@@ -84,11 +75,8 @@ export default function FinalCtaSection() {
           </div>
         </div>
 
-        <div className="w-full pt-[29px] flex flex-col gap-3 md:flex-row md:flex-wrap md:justify-center md:gap-4">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center bg-[#0666c6] text-[#eaebec] font-[510] text-[16px] md:text-[18px] h-12 md:h-[53px] px-6 md:px-[40px] rounded-[12px] hover:bg-[#064a8d] active:bg-[#043565] transition-colors duration-150"
-          >
+        <div className={styles.actions}>
+          <Link href="/contact" className={styles.cta}>
             Claim Your 20% Discount
           </Link>
         </div>
