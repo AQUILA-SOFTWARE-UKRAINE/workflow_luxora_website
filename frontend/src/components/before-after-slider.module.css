@@ -12,6 +12,9 @@
   cursor: col-resize;
   user-select: none;
 }
+@media (min-width: 744px) {
+  .interactive { height: 328px; }
+}
 
 .image {
   object-fit: cover;

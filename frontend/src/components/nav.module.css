@@ -62,11 +62,11 @@
   letter-spacing: -0.12px;
 }
 
-/* ── Location badge — desktop only ── */
+/* ── Location badge — tablet S+ (744px) ── */
 .locationBadge {
   display: none;
 }
-@media (min-width: 1024px) {
+@media (min-width: 744px) {
   .locationBadge {
     display: flex;
     align-items: center;
@@ -86,35 +86,149 @@
   overflow: hidden;
 }
 
-/* ── Language selector ── */
+/* ── Language picker — tablet S+ (744px) ── */
 .languageDesktop {
   display: none;
+  position: relative;
 }
-@media (min-width: 1024px) {
+@media (min-width: 744px) {
   .languageDesktop {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding-inline: 8px;
-    padding-block: 2px;
-    border-radius: 8px;
     flex-shrink: 0;
   }
 }
 
 .languageText { color: #032445; font-size: 16px; line-height: 1.5; }
 
-/* ── Desktop nav — visible from 744px ── */
+.langBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 150ms, border-color 150ms;
+}
+.langBtn:hover, .langBtnOpen {
+  background: #ebf5ff;
+  border-color: rgba(6, 102, 198, 0.3);
+}
+
+.mobileLangBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px 2px;
+}
+
+.langChevron { transition: transform 200ms; color: #596067; }
+.langChevronOpen { transform: rotate(180deg); }
+
+.flagEmoji  { font-size: 20px; line-height: 1; display: inline-block; }
+.flagEmojiSm { font-size: 16px; line-height: 1; display: inline-block; }
+
+.flagCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  border: 1px solid #DFE0E2;
+  background-color: lightgray;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.langDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 60;
+  min-width: 148px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2eaf0;
+  box-shadow: 0 8px 32px rgba(3, 36, 69, 0.12);
+  padding-block: 6px;
+  transition: opacity 200ms, transform 200ms;
+  transform-origin: top right;
+}
+.langDropdownVisible {
+  opacity: 1;
+  transform: scaleY(1);
+  pointer-events: auto;
+}
+.langDropdownHidden {
+  opacity: 0;
+  transform: scaleY(0.9);
+  pointer-events: none;
+}
+
+.langOption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 510;
+  color: #032445;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 150ms, color 150ms;
+}
+.langOption:hover { background: #ebf5ff; color: #0666c6; }
+.langOptionActive { color: #0666c6; font-weight: 590; }
+.langOptionActive:hover { background: #dbeaff; }
+
+/* ── Desktop nav — visible from 1280px ── */
 .desktopNav {
   display: none;
 }
-@media (min-width: 744px) {
+@media (min-width: 1280px) {
   .desktopNav {
     display: flex;
     align-items: center;
     gap: 24px;
     flex-shrink: 0;
   }
+}
+
+/* ── Tablet L contact link — visible 1024px–1279px ── */
+.tabletContactLink {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .tabletContactLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 590;
+    line-height: 1.5;
+    color: #0666c6;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 150ms;
+    flex-shrink: 0;
+  }
+}
+@media (min-width: 1280px) {
+  .tabletContactLink { display: none; }
 }
 
 .menuBtn {
@@ -211,15 +325,28 @@
 }
 .contactLink:hover { color: rgba(6, 102, 198, 0.8); }
 
-/* ── Mobile controls — hidden >= 744px ── */
+/* ── Right-side group: hamburger [+ mobile flag] — hidden >= 1280px ── */
 .mobileControls {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-@media (min-width: 744px) {
+@media (min-width: 1280px) {
   .mobileControls { display: none; }
 }
+
+/* Flag + "DE" inside mobileControls: only visible on mobile (< 744px) */
+.mobileFlag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+@media (min-width: 744px) {
+  .mobileFlag { display: none; }
+}
+
+.mobileFlagText { color: #032445; font-size: 14px; line-height: 1; }
 
 .hamburgerBtn {
   padding: 10px;
@@ -230,11 +357,11 @@
   cursor: pointer;
 }
 
-/* ── Mobile drawer ── */
+/* ── Mobile/Tablet drawer — hidden >= 1280px ── */
 .drawerWrapper {
   display: block;
 }
-@media (min-width: 744px) {
+@media (min-width: 1280px) {
   .drawerWrapper { display: none; }
 }
 

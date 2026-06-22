@@ -4,33 +4,28 @@
 
 /* ── Mobile tree: shown < 744px ── */
 .mobile {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 @media (min-width: 744px) {
-  .mobile { display: none; }
+  .mobile {
+    display: none;
+  }
+}
+
+.mobileTextBlock {
+  padding: 24px 16px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .mobileImage {
   position: relative;
-  height: 260px;
+  height: 380px; /* Increased to match Figma proportions */
   width: 100%;
   overflow: hidden;
-}
-
-.mobileContent {
-  padding-inline: 16px;
-  padding-top: 24px;
-  padding-bottom: 0;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.mobileTextBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
 }
 
 .location {
@@ -49,7 +44,9 @@
   color: #032445;
 }
 
-.mobileH1Accent { color: #0666c6; }
+.mobileH1Accent {
+  color: #0666c6;
+}
 
 .mobilePara {
   font-size: 16px;
@@ -58,9 +55,13 @@
 }
 
 .mobileBullets {
+  position: absolute;
+  top: 24px;
+  left: 16px;
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .mobileBullet {
@@ -79,20 +80,42 @@
   flex-shrink: 0;
 }
 
-/* ── Desktop tree: hidden < 744px ── */
+/* ── Desktop & Tablet tree: hidden < 744px ── */
 .desktop {
   display: none;
 }
+
+/* Tablet S (744px) - Базові стилі для цього дерева */
 @media (min-width: 744px) {
   .desktop {
     display: flex;
     position: relative;
     width: 100%;
-    min-height: 500px;
-    height: 90vh;
-    max-height: 730px;
+    height: 449px; /* Фіксована висота для Tablet S */
+    min-height: 449px;
+    max-height: 449px;
     overflow: hidden;
     justify-content: center;
+  }
+}
+
+/* Desktop (1280px) - Перевизначення висоти для ПК */
+@media (min-width: 1280px) {
+  .desktop {
+    height: 90vh;
+    min-height: 500px;
+    max-height: 730px;
+  }
+}
+
+/* Hero bg image */
+.desktopImg {
+  object-fit: cover;
+  object-position: 75% 20%; /* Фокус на прибиральнику для Tablet S */
+}
+@media (min-width: 1280px) {
+  .desktopImg {
+    object-position: 85% 80%; /* Фокус для Desktop */
   }
 }
 
@@ -101,7 +124,7 @@
   inset: 0;
   pointer-events: none;
   width: 100%;
-  background: linear-gradient(to right, #fafcff, rgba(250, 252, 255, 0.1), transparent);
+  background: linear-gradient(to right, rgba(250, 252, 255, 0.7) 0%, rgba(250, 252, 255, 0.15) 45%, transparent 65%);
 }
 
 .desktopInner {
@@ -110,22 +133,29 @@
   max-width: 1440px;
   margin-inline: auto;
   width: 100%;
-  padding-inline: 40px;
-  padding-block: 60px;
+  padding-inline: 24px; /* Зменшені відступи для Tablet S */
+  padding-block: 32px;
 }
 @media (min-width: 1280px) {
   .desktopInner {
     padding-left: 80px;
     padding-right: 64px;
-    padding-block: 80px;
+    padding-block: 80px; /* Повертаємо десктопні відступи */
   }
 }
 
 .desktopContentBlock {
-  max-width: 586px;
+  width: 100%;
+  max-width: 440px; /* Стиснений блок, щоб текст не налізав на фото на Tablet S */
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
+}
+@media (min-width: 1280px) {
+  .desktopContentBlock {
+    max-width: 586px;
+    gap: 40px;
+  }
 }
 
 .desktopTextBlock {
@@ -138,13 +168,17 @@
   font-weight: 700;
   line-height: 1.1;
   color: #032445;
-  font-size: 2.5rem;
+  font-size: 2rem; /* Акуратний розмір для Tablet S */
 }
 @media (min-width: 1280px) {
-  .desktopH1 { font-size: 56px; }
+  .desktopH1 { 
+    font-size: 56px; 
+  }
 }
 
-.desktopH1Accent { color: #0666c6; }
+.desktopH1Accent { 
+  color: #0666c6; 
+}
 
 .desktopPara {
   font-size: 16px;
@@ -153,24 +187,51 @@
   max-width: 477px;
 }
 
+/* Відстань між блоком булітів та кнопкою */
 .desktopActionsBlock {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px; /* 16px як у Фігмі для планшета */
+}
+@media (min-width: 1280px) {
+  .desktopActionsBlock {
+    gap: 24px; /* Повертаємо 24px для десктопу */
+  }
 }
 
+/* Контейнер булітів */
 .desktopBullets {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Дозволяємо перенесення на новий рядок */
   gap: 12px 24px;
 }
 
+/* Самі буліти */
 .desktopBullet {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 16px;
+  font-size: 14px; /* Менший шрифт булітів для планшета */
   color: #032445;
+  white-space: nowrap;
+}
+
+/* Робимо перший буліт на всю ширину на планшеті */
+@media (min-width: 744px) {
+  .desktopBullet:first-child {
+    flex-basis: 100%;
+  }
+}
+
+/* Скидаємо flex-basis для десктопу та збільшуємо шрифт */
+@media (min-width: 1280px) {
+  .desktopBullet {
+    font-size: 16px;
+    white-space: normal;
+  }
+  .desktopBullet:first-child {
+    flex-basis: auto; 
+  }
 }
 
 .desktopBulletIcon {
@@ -199,3 +260,49 @@
 }
 .cta:hover  { background: #064a8d; }
 .cta:active { background: #043565; }
+
+/* ── Tablet L / iPad Pro (1024px - 1280px) ── */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .desktop {
+    height: 449px;
+    min-height: 449px;
+    max-height: 449px;
+  }
+  
+  .desktopInner {
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-block: 40px; 
+  }
+  
+  .desktopImg {
+    object-position: 85% 40%; /* Трохи опускаємо фокус, щоб людина була в кадрі як у фігмі */
+  }
+  
+  .desktopContentBlock {
+    max-width: 520px;
+    gap: 24px;
+  }
+  
+  .desktopH1 {
+    font-size: 42px; /* Зменшуємо з 56px, щоб текст гарно вліз у висоту 449px */
+  }
+  
+  .desktopActionsBlock {
+    gap: 16px;
+  }
+  
+  .desktopBullets {
+    gap: 12px 20px;
+    flex-wrap: nowrap; /* Примусово ставимо всі буліти в один рядок */
+  }
+  
+  .desktopBullet {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  .desktopBullet:first-child {
+    flex-basis: auto; /* Відміняємо flex-basis: 100%, який йшов від Tablet S */
+  }
+}

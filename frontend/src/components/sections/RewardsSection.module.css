@@ -164,9 +164,7 @@
   align-items: center;
   gap: 12px;
   min-height: 255px;
-}
-@media (min-width: 744px) {
-  .discountCardFeatured { width: 316px; flex-shrink: 0; }
+  flex: 1; /* Дозволяє картці тягнутися рівномірно з іншими */
 }
 
 .discountCard {
@@ -180,7 +178,7 @@
   align-items: center;
   gap: 12px;
   min-height: 255px;
-  flex: 1;
+  flex: 1; /* Усі три картки мають flex: 1 і є рівними */
 }
 
 .discountCardBody {
@@ -195,6 +193,12 @@
   font-weight: 700;
   text-align: center;
   color: #032445;
+  line-height: 30px;
+}
+@media (min-width: 744px) {
+  .discountTitle {
+    min-height: 60px; /* Вирівнює описи під заголовками */
+  }
 }
 
 .discountTitleLight {
@@ -232,63 +236,63 @@
   text-align: center;
 }
 
-/* ── Referral rows ── */
+/* ── Referral Cards ── */
 .referralGroup {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
+@media (min-width: 744px) {
+  .referralGroup {
+    flex-direction: row; /* Ставимо картки поруч на планшетах і ПК */
+    align-items: stretch; /* Робимо їх однакової висоти */
+  }
+}
 
 .referralRow {
   background: white;
   border-radius: 20px;
-  padding: 24px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 16px;
-}
-@media (min-width: 744px) {
-  .referralRow {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    gap: 24px;
-  }
+  flex: 1;
 }
 
 .referralBadge {
   composes: badge;
   align-self: flex-start;
-  flex-shrink: 0;
-}
-@media (min-width: 744px) {
-  .referralBadge { align-self: auto; }
+  margin-bottom: 8px;
 }
 
 .referralBody {
-  flex: 1;
-  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
+  flex-grow: 1; /* Відштовхує кнопку в самий низ */
+  width: 100%;
 }
 
 .referralTitle {
-  font-size: 18px;
-  font-weight: 590;
-  line-height: 1.5;
-}
-@media (min-width: 744px) {
-  .referralTitle { font-size: 20px; }
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.referralTitleAccent { color: #0666c6; }
-.referralTitleNavy   { color: #032445; }
+.referralTitleAccent { 
+  color: #0666c6; 
+  display: block; 
+}
+.referralTitleNavy { 
+  color: #032445; 
+  display: block; 
+}
 
 .referralDesc {
   font-size: 14px;
   color: #596067;
-  line-height: 21px;
+  line-height: 1.5;
   max-width: 580px;
 }
 
@@ -301,17 +305,10 @@
   background: white;
   color: #0666c6;
   font-size: 14px;
-  font-weight: 510;
-  line-height: 21px;
-  white-space: nowrap;
+  font-weight: 590;
   cursor: pointer;
   transition: background-color 150ms, border-color 150ms, color 150ms;
-}
-@media (min-width: 744px) {
-  .referralBtn {
-    width: auto;
-    flex-shrink: 0;
-  }
+  margin-top: 8px;
 }
 .referralBtn:hover  { background: #ebf5ff; border-color: #0759aa; color: #0759aa; }
 .referralBtn:active { background: #dbeaff; border-color: #064a8d; color: #064a8d; }

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import styles from "./nav.module.css";
@@ -15,14 +14,27 @@ const LINKS = [
   { href: "/#faq", label: "FAQ" },
 ];
 
+const LANGUAGES = [
+  { code: "de" as const, label: "German",  flag: "🇩🇪", flagImg: "/images/flag-de.png" },
+  { code: "en" as const, label: "English", flag: "🇬🇧", flagImg: "/images/flag-en.svg" },
+  { code: "ru" as const, label: "Russian", flag: "🇷🇺", flagImg: "/images/flag-ru.svg" },
+];
+type LangCode = "de" | "en" | "ru";
+
 const PHONE_ICON_PATH = "M4.91612 0.33309C5.07336 0.456583 5.24996 0.622727 5.45313 0.823403C5.88842 1.25181 6.39341 1.9382 6.82673 2.59713C7.26492 3.26344 7.67094 3.96488 7.89852 4.45309C8.02751 4.73049 8.14407 4.98249 8.22579 5.2028C8.30878 5.42653 8.37775 5.67263 8.3782 5.94118C8.37913 6.50333 8.07401 6.93719 7.7801 7.33736C7.69566 7.45232 7.62392 7.54652 7.56209 7.62772C7.4288 7.80273 7.34143 7.91747 7.27148 8.05016C7.20325 8.17959 7.18334 8.27304 7.21563 8.42348C7.2622 8.64041 7.46465 9.11525 7.85777 9.73643C8.23795 10.3372 8.75848 11.0148 9.38042 11.6347C10.0022 12.2546 10.669 12.7614 11.2578 13.1281C11.8645 13.506 12.3317 13.7 12.5549 13.7476C12.7102 13.7807 12.8072 13.76 12.9369 13.6924C13.0737 13.6212 13.1954 13.5283 13.3847 13.3838C13.459 13.327 13.5439 13.2623 13.6441 13.1877L13.6519 13.182C14.0534 12.8837 14.4995 12.5522 15.065 12.5528C15.3444 12.5531 15.5952 12.632 15.816 12.7221C16.0269 12.8082 16.2693 12.9303 16.5351 13.0642L16.5574 13.0754C17.0234 13.3104 17.7162 13.7085 18.3869 14.1424C19.0458 14.5687 19.741 15.0662 20.1739 15.5024C20.3751 15.7057 20.5423 15.8829 20.6661 16.0401C20.7859 16.1922 20.9175 16.3891 20.973 16.6339C21.0354 16.9097 20.9788 17.1391 20.9207 17.2982C20.8945 17.37 20.8637 17.4388 20.8415 17.4881C20.838 17.4958 20.8347 17.5033 20.8314 17.5106C20.8108 17.5563 20.7928 17.5962 20.7737 17.6418L20.7732 17.6429L20.7728 17.644C20.5769 18.1086 20.3385 18.5542 20.0608 18.975L20.06 18.9763L20.0592 18.9776C19.5166 19.7928 19.0061 20.3254 18.2126 20.695C17.8003 20.887 17.2111 21.081 16.2956 20.9668C15.4149 20.857 14.2692 20.4671 12.7055 19.5914C10.2033 18.188 8.46667 16.9779 6.22697 14.7445C3.99384 12.5176 2.8962 11.0642 1.35859 8.27085C-0.189357 5.45878 -0.18714 3.72466 0.254916 2.78004C0.626077 1.98691 1.16404 1.47881 1.97652 0.939015L1.97812 0.937952L1.97973 0.936897C2.40104 0.660088 2.84682 0.422444 3.31148 0.226941L3.31301 0.226297L3.31454 0.225659C3.36053 0.206551 3.40075 0.188521 3.44673 0.167906C3.45394 0.164674 3.4613 0.161378 3.46884 0.158004C3.51825 0.135892 3.58716 0.105151 3.65885 0.0791072C3.81777 0.0213811 4.04675 -0.0350065 4.32202 0.0270621C4.56676 0.0822472 4.76365 0.213338 4.91612 0.33309ZM3.89179 1.61014C3.51264 1.76977 3.14886 1.96369 2.80498 2.18948C2.11861 2.64568 1.82437 2.96524 1.61351 3.41582C1.47338 3.71527 1.21403 4.89771 2.67265 7.54751C4.1416 10.2161 5.15334 11.5555 7.28614 13.6823C9.41226 15.8025 11.0332 16.9336 13.4385 18.2826C14.9105 19.107 15.8648 19.4015 16.4812 19.4784C17.0627 19.5509 17.3677 19.4338 17.5792 19.3353C18.0333 19.1237 18.3543 18.8315 18.8098 18.1475C19.0361 17.8043 19.2305 17.4409 19.3903 17.0621C19.4118 17.0105 19.433 16.9629 19.4509 16.9231C19.3809 16.8401 19.2738 16.7253 19.109 16.5588C18.7974 16.245 18.2192 15.8204 17.5721 15.4018C16.9368 14.9908 16.291 14.6211 15.8823 14.4149C15.5872 14.2663 15.3983 14.1718 15.2491 14.1109C15.104 14.0516 15.0618 14.0528 15.0634 14.0528C15.077 14.0528 15.0306 14.0263 14.5388 14.3917C14.4886 14.429 14.4343 14.4707 14.3768 14.5147C14.1577 14.6827 13.8923 14.8861 13.6294 15.023C13.2366 15.2275 12.7856 15.3305 12.242 15.2146C11.7663 15.1131 11.1246 14.8123 10.4648 14.4013C9.78696 13.9791 9.02949 13.4029 8.32145 12.6971C7.61354 11.9914 7.02454 11.2248 6.59027 10.5386C6.16893 9.8728 5.85201 9.21796 5.74904 8.73832C5.63181 8.19219 5.73869 7.74119 5.94456 7.35066C6.07723 7.099 6.27555 6.83898 6.43877 6.62497C6.48679 6.562 6.53178 6.50302 6.57116 6.44941C6.88645 6.02011 6.87905 5.95168 6.87824 5.94422C6.87822 5.94397 6.87824 5.94434 6.87824 5.94422C6.87822 5.92977 6.87484 5.87384 6.81943 5.72448C6.76277 5.57173 6.67456 5.37841 6.53875 5.08637C6.35329 4.68861 5.98975 4.05436 5.57345 3.42131C5.15232 2.78093 4.71796 2.20436 4.40057 1.8921L4.3995 1.89104C4.23202 1.72561 4.11684 1.6184 4.03368 1.54861C3.99327 1.56667 3.94458 1.58818 3.89179 1.61014Z";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lang, setLang] = useState<LangCode>("de");
+  const [langOpen, setLangOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const langDesktopRef = useRef<HTMLDivElement>(null);
+  const langMobileRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  const currentLang = LANGUAGES.find((l) => l.code === lang)!;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -46,6 +58,18 @@ export default function Nav() {
     return () => document.removeEventListener("mousedown", handler);
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!langOpen) return;
+    const handler = (e: MouseEvent) => {
+      const t = e.target as Node;
+      if (!langDesktopRef.current?.contains(t) && !langMobileRef.current?.contains(t)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [langOpen]);
+
   return (
     <>
       <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ""}`}>
@@ -64,7 +88,7 @@ export default function Nav() {
             </div>
           </Link>
 
-          {/* Location — desktop (1024px+) only */}
+          {/* Location — tablet S+ (744px+) */}
           <div className={styles.locationBadge}>
             <div className={styles.locationIcon}>
               <svg className="absolute" style={{ top: "1.25px", left: "3.75px", width: "12.5px", height: "17.5px" }} viewBox="0 0 12.5 17.4992" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,10 +99,41 @@ export default function Nav() {
             Berlin &amp; Surrounding Areas
           </div>
 
-          {/* Language — desktop (1024px+) only */}
-          <div className={styles.languageDesktop}>
-            <Image src="/images/flag-de.png" alt="German flag" width={32} height={32} className="rounded-full border border-[#DFE0E2]" />
-            <span className={styles.languageText}>DE</span>
+          {/* Language picker — tablet S+ (744px+) */}
+          <div className={styles.languageDesktop} ref={langDesktopRef}>
+            <button
+              onClick={() => setLangOpen((v) => !v)}
+              className={`${styles.langBtn} ${langOpen ? styles.langBtnOpen : ""}`}
+              aria-haspopup="listbox"
+              aria-expanded={langOpen}
+            >
+              <span
+                className={styles.flagCircle}
+                style={currentLang.flagImg ? { backgroundImage: `url(${currentLang.flagImg})` } : undefined}
+              >
+                {!currentLang.flagImg && currentLang.flag}
+              </span>
+              <span className={styles.languageText}>{lang.toUpperCase()}</span>
+              <svg
+                width="12" height="12" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth={2.5}
+                className={`${styles.langChevron} ${langOpen ? styles.langChevronOpen : ""}`}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div className={`${styles.langDropdown} ${langOpen ? styles.langDropdownVisible : styles.langDropdownHidden}`}>
+              {LANGUAGES.map((l) => (
+                <button
+                  key={l.code}
+                  onClick={() => { setLang(l.code); setLangOpen(false); }}
+                  className={`${styles.langOption} ${lang === l.code ? styles.langOptionActive : ""}`}
+                >
+                  <span className={styles.flagEmoji}>{l.flag}</span>
+                  {l.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Desktop nav — visible from 744px */}
@@ -125,10 +180,45 @@ export default function Nav() {
             </a>
           </nav>
 
-          {/* Mobile controls — hamburger + flag (< 744px) */}
+          {/* Contact Us — tablet L only (1024px–1279px) */}
+          <a href="/contact" className={styles.tabletContactLink}>
+            Contact Us
+            <svg className="size-[18px]" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" clipRule="evenodd" d={PHONE_ICON_PATH} fill="#0666C6" />
+            </svg>
+          </a>
+
+          {/* Right-side group: mobile flag (< 744px) + hamburger (< 1280px) */}
           <div className={styles.mobileControls}>
-            <Image src="/images/flag-de.png" alt="German flag" width={24} height={24} className="rounded-full border border-[#DFE0E2]" />
-            <span style={{ color: "#032445", fontSize: 14 }}>DE</span>
+            {/* Language picker: mobile only (< 744px) */}
+            <div className={styles.mobileFlag} ref={langMobileRef}>
+              <button
+                onClick={() => setLangOpen((v) => !v)}
+                className={styles.mobileLangBtn}
+                aria-haspopup="listbox"
+                aria-expanded={langOpen}
+              >
+                <span
+                  className={styles.flagCircle}
+                  style={currentLang.flagImg ? { backgroundImage: `url(${currentLang.flagImg})` } : undefined}
+                >
+                  {!currentLang.flagImg && currentLang.flag}
+                </span>
+                <span className={styles.mobileFlagText}>{lang.toUpperCase()}</span>
+              </button>
+              <div className={`${styles.langDropdown} ${langOpen ? styles.langDropdownVisible : styles.langDropdownHidden}`}>
+                {LANGUAGES.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => { setLang(l.code); setLangOpen(false); }}
+                    className={`${styles.langOption} ${lang === l.code ? styles.langOptionActive : ""}`}
+                  >
+                    <span className={styles.flagEmoji}>{l.flag}</span>
+                    {l.label}
+                  </button>
+                ))}
+              </div>
+            </div>
             <button
               className={styles.hamburgerBtn}
               onClick={() => setOpen(true)}

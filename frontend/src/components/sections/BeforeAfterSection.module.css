@@ -7,7 +7,7 @@
 @media (min-width: 744px) {
   .section {
     padding-top: 64px;
-    padding-bottom: 64px;
+    padding-bottom: 0;
     padding-inline: 40px;
   }
 }
@@ -67,7 +67,7 @@
 .accent { color: #0666c6; }
 .navy   { color: #032445; }
 
-/* ── Grid: 1-col mobile → 1-col tablet S → 2-col tablet L → 3-col desktop ── */
+/* ── Grid: 1-col mobile → centered 580px tablet S → 2+1 tablet L → 3-col desktop ── */
 .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -75,20 +75,26 @@
 }
 @media (min-width: 744px) {
   .grid {
-    /* Still single column on tablet S, but centered card at ~580px */
-    max-width: 612px;
+    max-width: 580px;
     margin-inline: auto;
   }
 }
 @media (min-width: 1024px) {
+  /* 2+1 layout: 2 cards on top row, 1 card centered below */
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     max-width: none;
     margin-inline: 0;
   }
+  .grid > :nth-child(1) { grid-column: 1 / 3; }
+  .grid > :nth-child(2) { grid-column: 3 / 5; }
+  .grid > :nth-child(3) { grid-column: 2 / 4; }
 }
 @media (min-width: 1280px) {
   .grid { grid-template-columns: repeat(3, 1fr); }
+  .grid > :nth-child(1),
+  .grid > :nth-child(2),
+  .grid > :nth-child(3) { grid-column: auto; }
 }
 
 .cta {
@@ -164,4 +170,39 @@
 }
 @media (min-width: 744px) {
   .socialIcon { width: 20px; height: 20px; }
+}
+/* ── Tablet L / iPad Pro (1024px - 1280px включно) ── 
+   Спеціальні налаштування для екрану 1280px як у Фігмі
+*/
+/* ── Tablet L / iPad Pro (1024px - 1280px включно) ── 
+   Спеціальні налаштування для екрану 1280px як у Фігмі
+*/
+@media (min-width: 1024px) and (max-width: 1280px) {
+  /* 1. Примусово повертаємо сітку 2+1 (перекриваємо десктопні 3 колонки) */
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .grid > :nth-child(1) { grid-column: 1 / 3; }
+  .grid > :nth-child(2) { grid-column: 3 / 5; }
+  .grid > :nth-child(3) { grid-column: 2 / 4; }
+
+  /* 2. Робимо кнопки контурними та задаємо потрібну ширину */
+  .socialBtn {
+    background: white;
+    color: #0666c6;
+    border: 2px solid #0666c6;
+    width: 320px; /* <--- Додали фіксовану ширину */
+  }
+   .section {
+    padding-bottom: 0;
+  }
+  .socialBtn:hover { 
+    background: #ebf5ff; 
+    color: #0666c6;
+  }
+  
+  .socialBtn:active { 
+    background: #dbeaff; 
+    color: #0666c6;
+  }
 }

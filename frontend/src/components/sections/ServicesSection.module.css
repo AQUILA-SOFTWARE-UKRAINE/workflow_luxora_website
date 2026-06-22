@@ -7,7 +7,7 @@
 @media (min-width: 744px) {
   .section {
     padding-top: 64px;
-    padding-bottom: 64px;
+    padding-bottom: 0;
     padding-inline: 40px;
   }
 }
@@ -27,11 +27,10 @@
 .header {
   text-align: center;
   margin-bottom: 32px;
-  padding-inline: 41px;
+  padding-inline: 0; /* Прибрано 41px, який стискав текст на мобільному */
 }
 @media (min-width: 744px) {
   .header {
-    padding-inline: 0;
     margin-bottom: 40px;
   }
 }
@@ -55,37 +54,53 @@
 .subtext {
   font-size: 16px;
   color: #4b6070;
-  max-width: 500px;
+  max-width: 358px; /* Ідеальна ширина для правильного переносу на мобільних */
   margin-inline: auto;
 }
-
-/* ── Grid: 1-col → 1-col tablet S → 2-col tablet L → 3-col desktop ── */
-.gridRow1 {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-@media (min-width: 1024px) {
-  .gridRow1 { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1280px) {
-  .gridRow1 { grid-template-columns: repeat(3, 1fr); }
+@media (min-width: 744px) {
+  .subtext { max-width: 500px; }
 }
 
-.gridRow2 {
-  display: grid;
-  grid-template-columns: 1fr;
+/* ── Універсальна Flex-сітка для карток ── */
+.cardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Це магічно центрує всі неповні рядки */
   gap: 24px;
-  margin-top: 24px;
 }
-@media (min-width: 1024px) {
-  .gridRow2 { grid-template-columns: repeat(2, 1fr); }
+
+.cardWrapper {
+  display: flex; /* Щоб ServiceCard розтягувалась на всю висоту */
+  width: 100%; /* Мобілка: 1 колонка */
 }
-@media (min-width: 1280px) {
-  /* On desktop, row2 has 2 cards centered under a 3-col row */
-  .gridRow2 {
-    max-width: calc(66.667% + 12px);
+
+/* Примусово змушуємо саму картку займати весь доступний простір обгортки */
+.cardWrapper > * {
+  width: 100%;
+}
+
+/* Tablet S (744px) - залишається 1 колонка, але по центру */
+@media (min-width: 744px) {
+  .cardGrid {
+    max-width: 494px;
     margin-inline: auto;
+  }
+}
+
+/* Tablet L (1024px) - 2 колонки */
+@media (min-width: 1024px) {
+  .cardGrid {
+    max-width: none;
+  }
+  .cardWrapper {
+    width: calc(50% - 12px); /* 50% ширини мінус половина gap */
+  }
+}
+
+/* Desktop (> 1280px) - 3 колонки (верхні 3 стануть в ряд, нижні 2 відцентруються) */
+@media (min-width: 1281px) {
+  .cardWrapper {
+    width: calc(33.333% - 16px); /* 33.3% мінус частина gap */
   }
 }
 
@@ -135,3 +150,22 @@
 }
 .cta:hover  { background: #064a8d; }
 .cta:active { background: #043565; }
+
+/* ── Tablet L / iPad Pro (1024px - 1280px включно) ── */
+@media (min-width: 1024px) and (max-width: 1280px) {
+   .section {
+    padding-bottom: 0;
+  }
+  .cta {
+    width: calc(50% - 12px); 
+    height: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .cardWrapper {
+    width: calc(50% - 12px); 
+  }
+}

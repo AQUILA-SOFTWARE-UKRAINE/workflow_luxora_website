@@ -33,7 +33,7 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
   const [selected, setSelected] = useState<Set<string>>(
     preselect ? new Set([preselect]) : new Set(),
   );
-  const [photos, setPhotos]     = useState<File[]>([]);
+  const [photos, setPhotos]     = useState<{ file: File; url: string }[]>([]);
   const [dragging, setDragging] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone]         = useState(false);
@@ -50,11 +50,18 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
     (files: FileList | File[]) => {
       const arr = Array.from(files)
         .filter((f) => f.type.startsWith("image/"))
-        .slice(0, 5 - photos.length);
+        .slice(0, 5 - photos.length)
+        .map((file) => ({ file, url: URL.createObjectURL(file) }));
       setPhotos((prev) => [...prev, ...arr].slice(0, 5));
     },
     [photos.length],
   );
+
+  const removePhoto = (i: number) =>
+    setPhotos((prev) => {
+      URL.revokeObjectURL(prev[i].url);
+      return prev.filter((_, j) => j !== i);
+    });
 
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
@@ -247,9 +254,30 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
               </svg>
             </div>
             <div className={styles.dropZoneText}>
-              <p className={styles.dropZoneTitle}>Upload a photo</p>
+              <p className={styles.dropZoneTitle}>
+                {photos.length > 0 ? `Uploaded ${photos.length} photo` : "Upload a photo"}
+              </p>
               <p className={styles.dropZoneHint}>Drag &amp; drop · JPG/PNG up to 10 MB</p>
             </div>
+
+            {photos.length > 0 && (
+              <div className={styles.previewGrid}>
+                {photos.map((p, i) => (
+                  <div key={i} className={styles.previewItem}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={p.url} alt={p.file.name} className={styles.previewImg} />
+                    <button
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); removePhoto(i); }}
+                      className={styles.previewRemove}
+                      aria-label="Remove photo"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <input
@@ -260,24 +288,6 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
             className="hidden"
             onChange={(e) => e.target.files && addFiles(e.target.files)}
           />
-
-          {photos.length > 0 && (
-            <ul className={styles.fileList}>
-              {photos.map((f, i) => (
-                <li key={i} className={styles.fileItem}>
-                  <span className={styles.fileName}>{f.name}</span>
-                  <button
-                    type="button"
-                    onClick={() => setPhotos((prev) => prev.filter((_, j) => j !== i))}
-                    className={styles.fileRemove}
-                    aria-label="Remove"
-                  >
-                    ×
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
 
         {/* Honeypot */}

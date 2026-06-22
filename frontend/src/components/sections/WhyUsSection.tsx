@@ -84,6 +84,8 @@ export default function WhyUsSection() {
           {/* Right: text content */}
           <div className={styles.textColumn}>
             <div className={styles.textContent}>
+              
+              {/* Цей блок тепер гарантовано піде НАГОРУ і буде по центру завдяки CSS */}
               <div className={styles.textHeader}>
                 <div>
                   <p className={styles.kicker}>WHY CLIENTS TRUST US</p>
@@ -95,7 +97,7 @@ export default function WhyUsSection() {
                 </div>
                 <p className={styles.description}>
                   Trusted professionals, consistent quality, and attention to every
-                  detail — creating a home that feels fresh, comfortable, and cared for
+                  detail — creating a home that feels fresh, comfortable, and cared for.
                 </p>
               </div>
 
@@ -124,6 +126,7 @@ export default function WhyUsSection() {
               </svg>
             </Link>
           </div>
+
         </div>
       </div>
     </section>

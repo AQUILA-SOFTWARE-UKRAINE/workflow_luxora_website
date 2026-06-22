@@ -7,14 +7,14 @@
 @media (min-width: 744px) {
   .section {
     padding-top: 64px;
-    padding-bottom: 64px;
+    padding-bottom: 0;
     padding-inline: 40px;
   }
 }
 @media (min-width: 1280px) {
   .section {
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 80px; 
     padding-inline: 64px;
   }
 }
@@ -24,20 +24,81 @@
   margin-inline: auto;
 }
 
-/* ── Main layout:
-   mobile/tablet-s: single column stack (photos above, text below)
-   tablet-l+: two columns side-by-side
-── */
+/* ── Main layout ── */
 .layout {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 32px;
 }
 @media (min-width: 1024px) {
+  .layout { gap: 40px; }
+}
+
+/* ── Секрет ідеального порядку для Мобілок і Планшетів (< 1280px) ── */
+@media (max-width: 1279px) {
+  /* Знімаємо візуальну оболонку з блоків-контейнерів */
+  .textColumn, .textContent {
+    display: contents; 
+  }
+  
+  /* 1. Заголовок ставимо найпершим і жорстко центруємо */
+  .textHeader {
+    order: 1;
+    align-items: center; 
+    text-align: center;  
+  }
+  
+  /* 2. Фото ставимо після заголовку */
+  .photoWrap { order: 2; }
+  
+  /* 3. Буліти йдуть третіми */
+  .features { order: 3; }
+  
+  /* 4. Кнопка в самому кінці */
+  .cta { order: 4; }
+}
+
+/* ── Десктоп (>= 1280px) ── */
+@media (min-width: 1280px) {
   .layout {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
     align-items: stretch;
+  }
+  .textColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .textHeader {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.textHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Обгортка щоб заголовок і кікер завжди стояли ідеально */
+.titleWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+@media (max-width: 1279px) {
+  .titleWrap {
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -45,11 +106,12 @@
 .photoWrap {
   position: relative;
   height: 445px;
+  width: 100%;
 }
 @media (min-width: 744px) {
-  .photoWrap { height: 560px; }
+  .photoWrap { height: 805px; }
 }
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .photoWrap { height: 100%; }
 }
 
@@ -59,7 +121,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 0;
+  gap: 0; 
   border-radius: 20px;
   overflow: hidden;
 }
@@ -75,12 +137,14 @@
   object-position: center 15%;
 }
 
+/* ── Photo Caption ── */
 .photoCaption {
   position: absolute;
   bottom: 8px;
-  left: 8px;
-  width: calc(100% - 16px);
-  height: 54px;
+  left: 8px; 
+  width: fit-content; 
+  max-width: calc(100% - 16px);
+  height: 52px; /* ФІКСОВАНА ВІДСТАНЬ ЩОБ БУЛА ОДНАКОВА ДЛЯ ВСІХ */
   background: rgba(12, 13, 13, 0.7);
   border-radius: 8px;
   padding: 6px 12px;
@@ -88,30 +152,42 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 }
 @media (min-width: 1280px) {
   .photoCaption {
     bottom: 12px;
-    left: auto;
-    right: 12px;
-    width: 210px;
-    height: auto;
+    left: 12px;
   }
+}
+
+/* Забороняємо перенесення тексту, щоб висота не ламалась */
+.photoCaptionName, .photoCaptionService {
+  margin: 0; /* Видаляємо дефолтні браузерні відступи */
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .photoCaptionName {
   color: white;
   font-size: 12px;
   font-weight: 590;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .photoCaptionService {
   color: rgba(255, 255, 255, 0.7);
-  font-size: 12px;
-  line-height: 1.2;
+  font-size: 11px;
+  line-height: 1.4;
 }
 
+@media (min-width: 744px) {
+  .photoCaptionService { font-size: 12px; }
+}
+
+/* ── Badge ── */
 .badge {
   position: absolute;
   top: -8px;
@@ -126,7 +202,7 @@
   align-items: center;
   gap: 2px;
 }
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .badge {
     top: -16px;
     left: -16px;
@@ -141,13 +217,10 @@
   font-size: 14px;
   font-weight: 510;
   line-height: 21px;
+  margin: 0;
 }
-@media (min-width: 1280px) {
-  .badgeCount {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: normal;
-  }
+@media (min-width: 1024px) {
+  .badgeCount { font-size: 24px; font-weight: 700; line-height: normal; }
 }
 
 .badgeLabel {
@@ -155,56 +228,31 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
+  margin: 0;
 }
-@media (min-width: 1280px) {
-  .badgeLabel {
-    font-size: 14px;
-    font-weight: 510;
-    line-height: 1.5;
-  }
+@media (min-width: 1024px) {
+  .badgeLabel { font-size: 14px; font-weight: 510; line-height: 1.5; }
 }
 
-/* ── Text content (right column) ── */
-.textColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-@media (min-width: 1280px) {
-  .textColumn { gap: 64px; }
-}
-
-.textContent {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-@media (min-width: 1280px) {
-  .textContent { gap: 48px; }
-}
-
-.textHeader {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
+/* ── Text Elements ── */
 .kicker {
   color: #0666c6;
   font-size: 12px;
   font-weight: 510;
   text-transform: uppercase;
   line-height: 18px;
+  margin: 0;
 }
 @media (min-width: 744px) {
   .kicker { font-size: 14px; line-height: 21px; }
 }
 
 .heading {
-  font-size: 2rem;
+  font-size: 28px;
   font-weight: 700;
   line-height: 1.1;
   color: #032445;
+  margin: 0;
 }
 @media (min-width: 1280px) {
   .heading { font-size: 2.5rem; line-height: 48px; }
@@ -216,12 +264,13 @@
   font-size: 14px;
   line-height: 21px;
   color: #596067;
+  margin: 0;
 }
 @media (min-width: 744px) {
   .description { font-size: 16px; line-height: 1.5; }
 }
 
-/* Features list */
+/* ── Features list ── */
 .features {
   display: flex;
   flex-direction: column;
@@ -263,22 +312,24 @@
   font-weight: 590;
   color: #032445;
   line-height: 30px;
+  margin: 0;
 }
 
 .featureDesc {
   font-size: 14px;
   line-height: 21px;
   color: #596067;
+  margin: 0;
 }
 @media (min-width: 744px) {
   .featureDesc { font-size: 16px; line-height: 1.5; }
 }
 
-/* CTA button */
+/* ── CTA button ── */
 .cta {
-  display: none;
+  display: none; 
 }
-@media (min-width: 744px) {
+@media (min-width: 1024px) {
   .cta {
     display: inline-flex;
     align-items: center;
@@ -288,12 +339,22 @@
     color: white;
     font-weight: 500;
     font-size: 16px;
-    width: fit-content;
     padding-inline: 32px 28px;
     height: 53px;
     border-radius: 12px;
     transition: background-color 150ms;
     text-decoration: none;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .cta {
+    width: 100%;
+    margin-top: 8px;
+  }
+}
+@media (min-width: 1280px) {
+  .cta {
+    width: fit-content;
   }
 }
 .cta:hover  { background: #064a8d; }

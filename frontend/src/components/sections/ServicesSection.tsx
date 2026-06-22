@@ -5,8 +5,6 @@ import { SERVICE_CARDS } from "@/data/home";
 import styles from "./ServicesSection.module.css";
 
 export default function ServicesSection() {
-  const [row1, row2] = [SERVICE_CARDS.slice(0, 3), SERVICE_CARDS.slice(3)];
-
   return (
     <section id="services" className={styles.section}>
       <div className={styles.inner}>
@@ -21,11 +19,13 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className={styles.gridRow1}>
-          {row1.map((c) => <ServiceCard key={c.name} {...c} />)}
-        </div>
-        <div className={styles.gridRow2}>
-          {row2.map((c) => <ServiceCard key={c.name} {...c} />)}
+        {/* Універсальний flex-контейнер для всіх карток */}
+        <div className={styles.cardGrid}>
+          {SERVICE_CARDS.map((c) => (
+            <div key={c.name} className={styles.cardWrapper}>
+              <ServiceCard {...c} />
+            </div>
+          ))}
         </div>
 
         <div className={styles.footer}>

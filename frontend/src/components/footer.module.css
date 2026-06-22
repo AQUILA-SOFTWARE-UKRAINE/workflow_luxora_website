@@ -11,7 +11,7 @@
 @media (min-width: 744px) {
   .inner { padding-inline: 40px; padding-top: 64px; }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .inner { padding-inline: 64px; }
 }
 
@@ -24,7 +24,8 @@
   gap: 48px;
   padding-bottom: 56px;
 }
-@media (min-width: 1024px) {
+/* Вмикаємо горизонтальний макет лише на десктопі, щоб на планшеті блоки йшли один під одним */
+@media (min-width: 1280px) {
   .mainRow { flex-direction: row; }
 }
 
@@ -35,8 +36,29 @@
   flex-direction: column;
   gap: 24px;
 }
-@media (min-width: 1024px) {
-  .brand { width: 273px; flex-shrink: 0; }
+/* На планшеті: Лого зліва, Соцмережі справа, Опис знизу */
+@media (min-width: 744px) {
+  .brand {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    align-items: center;
+    gap: 24px 0;
+  }
+  .logoLink { grid-column: 1; grid-row: 1; }
+  .socials { grid-column: 3; grid-row: 1; padding-top: 0; }
+  .brandDesc { grid-column: 1 / -1; grid-row: 2; max-width: 380px; }
+}
+/* На десктопі: знову все в одну колонку зліва і притиснуто до лівого краю */
+@media (min-width: 1280px) {
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 273px;
+    flex-shrink: 0;
+  }
+  .socials { padding-top: 9px; }
+  .brandDesc { max-width: none; }
 }
 
 .logoLink {
@@ -111,9 +133,21 @@
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
+  width: 100%;
 }
-@media (min-width: 1024px) {
-  .navColumns { gap: 80px; }
+/* На планшеті розносимо колонки по всій ширині */
+@media (min-width: 744px) {
+  .navColumns {
+    justify-content: space-between;
+  }
+}
+/* На десктопі збираємо їх справа */
+@media (min-width: 1280px) {
+  .navColumns {
+    width: auto;
+    gap: 80px;
+    justify-content: flex-start;
+  }
 }
 
 .navCol {
@@ -192,16 +226,23 @@
   padding-inline: 16px;
   padding-block: 20px;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column; /* Змушуємо їх ставати в стовпчик на мобілці і планшеті */
+  align-items: flex-start;
   gap: 16px;
 }
 @media (min-width: 744px) {
   .bottomInner { padding-inline: 40px; }
 }
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .bottomInner { padding-inline: 64px; }
+}
+/* Ставимо в один рядок тільки на десктопі */
+@media (min-width: 1280px) {
+  .bottomInner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .copyright {
