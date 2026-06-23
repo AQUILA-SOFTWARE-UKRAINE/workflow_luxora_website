@@ -7,15 +7,18 @@
 @media (min-width: 744px) {
   .section {
     padding-top: 64px;
-    padding-bottom: 0;
     padding-inline: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .section {
+    padding-inline: 64px; /* Бокові відступи 64px за макетом Tablet L */
   }
 }
 @media (min-width: 1280px) {
   .section {
     padding-top: 80px;
-    padding-bottom: 80px; 
-    padding-inline: 64px;
+    padding-bottom: 80px;
   }
 }
 
@@ -31,34 +34,8 @@
   gap: 32px;
 }
 @media (min-width: 1024px) {
-  .layout { gap: 40px; }
+  .layout { gap: 40px; } /* Flexbox магія: автоматичні відступи 40px між блоками на Tablet L */
 }
-
-/* ── Секрет ідеального порядку для Мобілок і Планшетів (< 1280px) ── */
-@media (max-width: 1279px) {
-  /* Знімаємо візуальну оболонку з блоків-контейнерів */
-  .textColumn, .textContent {
-    display: contents; 
-  }
-  
-  /* 1. Заголовок ставимо найпершим і жорстко центруємо */
-  .textHeader {
-    order: 1;
-    align-items: center; 
-    text-align: center;  
-  }
-  
-  /* 2. Фото ставимо після заголовку */
-  .photoWrap { order: 2; }
-  
-  /* 3. Буліти йдуть третіми */
-  .features { order: 3; }
-  
-  /* 4. Кнопка в самому кінці */
-  .cta { order: 4; }
-}
-
-/* ── Десктоп (>= 1280px) ── */
 @media (min-width: 1280px) {
   .layout {
     display: grid;
@@ -66,6 +43,27 @@
     gap: 64px;
     align-items: stretch;
   }
+}
+
+/* ── Секрет ідеального порядку для Мобілок і Планшетів (< 1280px) ── */
+@media (max-width: 1279px) {
+  /* Знімаємо візуальну оболонку з блоків-контейнерів правої колонки */
+  .textColumn, .textContent {
+    display: contents; 
+  }
+  
+  .textHeader {
+    order: 1; /* 1-й поверх: Заголовок */
+    align-items: center; 
+    text-align: center;  
+  }
+  .photoWrap { order: 2; } /* 2-й поверх: Фото */
+  .features { order: 3; }  /* 3-й поверх: Буліти */
+  .cta { order: 4; }       /* 4-й поверх: Кнопка */
+}
+
+/* ── Десктоп (>= 1280px) ── */
+@media (min-width: 1280px) {
   .textColumn {
     display: flex;
     flex-direction: column;
@@ -88,6 +86,14 @@
   gap: 16px;
 }
 
+/* Обмежуємо ширину тексту на Tablet L замість хардкоду margin-ів */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .textHeader {
+    max-width: 668px; 
+    margin-inline: auto;
+  }
+}
+
 /* Обгортка щоб заголовок і кікер завжди стояли ідеально */
 .titleWrap {
   display: flex;
@@ -95,14 +101,13 @@
   gap: 12px;
   width: 100%;
 }
-@media (max-width: 1279px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .titleWrap {
-    align-items: center;
-    text-align: center;
+    gap: 8px; /* Відступ за макетом на Tablet L */
   }
 }
 
-/* ── Photo grid (left column) ── */
+/* ── Photo grid ── */
 .photoWrap {
   position: relative;
   height: 445px;
@@ -110,6 +115,9 @@
 }
 @media (min-width: 744px) {
   .photoWrap { height: 805px; }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .photoWrap { height: 965px; } /* Висота двох фото за макетом: 482.5 * 2 */
 }
 @media (min-width: 1280px) {
   .photoWrap { height: 100%; }
@@ -144,7 +152,7 @@
   left: 8px; 
   width: fit-content; 
   max-width: calc(100% - 16px);
-  height: 52px; /* ФІКСОВАНА ВІДСТАНЬ ЩОБ БУЛА ОДНАКОВА ДЛЯ ВСІХ */
+  height: 52px;
   background: rgba(12, 13, 13, 0.7);
   border-radius: 8px;
   padding: 6px 12px;
@@ -161,9 +169,8 @@
   }
 }
 
-/* Забороняємо перенесення тексту, щоб висота не ламалась */
 .photoCaptionName, .photoCaptionService {
-  margin: 0; /* Видаляємо дефолтні браузерні відступи */
+  margin: 0;
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;
@@ -182,7 +189,6 @@
   font-size: 11px;
   line-height: 1.4;
 }
-
 @media (min-width: 744px) {
   .photoCaptionService { font-size: 12px; }
 }
@@ -346,23 +352,9 @@
     text-decoration: none;
   }
 }
-@media (min-width: 1024px) and (max-width: 1280px) {
-  .section {
-    padding-bottom: 0;
-  }
-  /* Move features above the photo grid (override order:3 set by max-width:1279px) */
-  .features {
-    order: 1;
-  }
-  .photoWrap {
-    order: 2;
-    height: 805px;
-    width: 100%;
-  }
+@media (min-width: 1024px) and (max-width: 1279px) {
   .cta {
-    order: 3;
     width: 100%;
-    justify-content: center;
   }
 }
 @media (min-width: 1280px) {
@@ -370,5 +362,6 @@
     width: fit-content;
   }
 }
+
 .cta:hover  { background: #064a8d; }
 .cta:active { background: #043565; }

@@ -251,12 +251,13 @@
   font-size: 18px;
   padding-top: 16px;
   padding-bottom: 16px;
-  padding-left: 40px;
-  padding-right: 36px;
+  padding-left: 16px;
+  padding-right: 16px;
   border-radius: 12px;
   align-self: flex-start;
   text-decoration: none;
   transition: background-color 150ms;
+  margin-top: 32px;
 }
 .cta:hover  { background: #064a8d; }
 .cta:active { background: #043565; }
@@ -265,7 +266,7 @@
 @media (min-width: 1024px) and (max-width: 1280px) {
   .desktop {
     height: 449px;
-    min-height: 449px;
+    min-height: 520px;
     max-height: 449px;
   }
   

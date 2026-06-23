@@ -1,7 +1,7 @@
 .section {
   background: #dbeaff;
   padding-top: 64px;
-  padding-bottom: 64px;
+  padding-bottom: 64px; /* Цей падінг ідеально забезпечує нижній відступ у 64px з макета */
   padding-inline: 16px;
   position: relative;
   overflow: hidden;
@@ -164,7 +164,7 @@
   align-items: center;
   gap: 12px;
   min-height: 255px;
-  flex: 1; /* Дозволяє картці тягнутися рівномірно з іншими */
+  flex: 1; 
 }
 
 .discountCard {
@@ -178,7 +178,7 @@
   align-items: center;
   gap: 12px;
   min-height: 255px;
-  flex: 1; /* Усі три картки мають flex: 1 і є рівними */
+  flex: 1; 
 }
 
 .discountCardBody {
@@ -197,7 +197,7 @@
 }
 @media (min-width: 744px) {
   .discountTitle {
-    min-height: 60px; /* Вирівнює описи під заголовками */
+    min-height: 60px; 
   }
 }
 
@@ -241,11 +241,12 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  width: 100%;
 }
 @media (min-width: 744px) {
   .referralGroup {
-    flex-direction: row; /* Ставимо картки поруч на планшетах і ПК */
-    align-items: stretch; /* Робимо їх однакової висоти */
+    flex-direction: row; 
+    align-items: stretch; 
   }
 }
 
@@ -270,7 +271,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  flex-grow: 1; /* Відштовхує кнопку в самий низ */
+  flex-grow: 1; 
   width: 100%;
 }
 
@@ -280,14 +281,8 @@
   line-height: 1.2;
 }
 
-.referralTitleAccent { 
-  color: #0666c6; 
-  display: block; 
-}
-.referralTitleNavy { 
-  color: #032445; 
-  display: block; 
-}
+.referralTitleAccent { color: #0666c6; display: block; }
+.referralTitleNavy { color: #032445; display: block; }
 
 .referralDesc {
   font-size: 14px;
@@ -312,6 +307,51 @@
 }
 .referralBtn:hover  { background: #ebf5ff; border-color: #0759aa; color: #0759aa; }
 .referralBtn:active { background: #dbeaff; border-color: #064a8d; color: #064a8d; }
+
+/* ── Bottom Section (Referrals + CTA) ── */
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px; /* Ідеальний відступ 32px між картками та кнопкою за макетом */
+  width: 100%;
+}
+
+/* ── Call To Action ── */
+.ctaContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px; /* Відступ 16px між кнопкою та підтекстом за макетом */
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #0666c6;
+  color: white;
+  font-weight: 510;
+  font-size: 16px;
+  padding-inline: 32px;
+  height: 53px;
+  border-radius: 12px;
+  transition: background-color 150ms;
+  text-decoration: none;
+}
+.ctaButton:hover  { background: #064a8d; }
+.ctaButton:active { background: #043565; }
+
+.ctaSubtext {
+  font-size: 12px;
+  color: #596067;
+  margin: 0;
+  text-align: center;
+}
+@media (min-width: 744px) {
+  .ctaSubtext { font-size: 14px; }
+}
 
 /* ── Tablet L / iPad Pro (1024px - 1280px) ── */
 @media (min-width: 1024px) and (max-width: 1280px) {

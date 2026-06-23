@@ -85,9 +85,9 @@ export default function WhyUsSection() {
           <div className={styles.textColumn}>
             <div className={styles.textContent}>
               
-              {/* Цей блок тепер гарантовано піде НАГОРУ і буде по центру завдяки CSS */}
               <div className={styles.textHeader}>
-                <div>
+                {/* Обгортка titleWrap для ідеальних відступів між кікером і заголовком */}
+                <div className={styles.titleWrap}>
                   <p className={styles.kicker}>WHY CLIENTS TRUST US</p>
                   <h2 className={styles.heading}>
                     We Don&apos;t Just Clean.

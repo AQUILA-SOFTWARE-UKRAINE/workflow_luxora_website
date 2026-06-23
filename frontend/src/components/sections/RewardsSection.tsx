@@ -1,3 +1,4 @@
+import Link from "next/link"; // ДОДАНО ІМПОРТ
 import { REWARD_BUBBLES } from "@/data/home";
 import styles from "./RewardsSection.module.css";
 
@@ -69,33 +70,46 @@ export default function RewardsSection() {
             <p className={styles.discountFootnote}>Save more when booking multiple services in one visit</p>
           </div>
 
-          {/* Referral rows */}
-          <div className={styles.referralGroup}>
-            <div className={styles.referralRow}>
-              <span className={styles.referralBadge}>−20%</span>
-              <div className={styles.referralBody}>
-                <p className={styles.referralTitle}>
-                  <span className={styles.referralTitleAccent}>Invite Friends </span>
-                  <span className={styles.referralTitleNavy}>&amp; Earn Rewards</span>
-                </p>
-                <p className={styles.referralDesc}>
-                  Know someone whose home could use a good clean? Send them our way. You get 15% off your next booking. They get 20% off their first.
-                </p>
+          {/* НОВИЙ БЛОК: Referral rows + CTA Button */}
+          <div className={styles.bottomSection}>
+            <div className={styles.referralGroup}>
+              <div className={styles.referralRow}>
+                <span className={styles.referralBadge}>−20%</span>
+                <div className={styles.referralBody}>
+                  <p className={styles.referralTitle}>
+                    <span className={styles.referralTitleAccent}>Invite Friends </span>
+                    <span className={styles.referralTitleNavy}>&amp; Earn Rewards</span>
+                  </p>
+                  <p className={styles.referralDesc}>
+                    Know someone whose home could use a good clean? Send them our way. You get 15% off your next booking. They get 20% off their first.
+                  </p>
+                </div>
+                <button className={styles.referralBtn}>Share With a Friend</button>
               </div>
-              <button className={styles.referralBtn}>Share With a Friend</button>
+              <div className={styles.referralRow}>
+                <span className={styles.referralBadge}>−10%</span>
+                <div className={styles.referralBody}>
+                  <p className={styles.referralTitle}>
+                    <span className={styles.referralTitleAccent}>Leave a Review </span>
+                    <span className={styles.referralTitleNavy}>&amp; Get Discount</span>
+                  </p>
+                  <p className={styles.referralDesc}>
+                    Loved your cleaning? Leave a quick review on Google or Instagram and receive 10% off your next service.
+                  </p>
+                </div>
+                <button className={styles.referralBtn}>Leave a Review</button>
+              </div>
             </div>
-            <div className={styles.referralRow}>
-              <span className={styles.referralBadge}>−10%</span>
-              <div className={styles.referralBody}>
-                <p className={styles.referralTitle}>
-                  <span className={styles.referralTitleAccent}>Leave a Review </span>
-                  <span className={styles.referralTitleNavy}>&amp; Get Discount</span>
-                </p>
-                <p className={styles.referralDesc}>
-                  Loved your cleaning? Leave a quick review on Google or Instagram and receive 10% off your next service.
-                </p>
-              </div>
-              <button className={styles.referralBtn}>Leave a Review</button>
+
+            {/* Call To Action Block */}
+            <div className={styles.ctaContainer}>
+              <Link href="/contact" className={styles.ctaButton}>
+                Request a Free Estimate
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+              <p className={styles.ctaSubtext}>Takes 1 minute. No commitment</p>
             </div>
           </div>
 

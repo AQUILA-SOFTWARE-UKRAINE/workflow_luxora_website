@@ -6,7 +6,7 @@
 }
 @media (min-width: 744px) {
   .section {
-    padding-top: 64px;
+    padding-top: 64px; /* Забезпечує відступ 64px зверху за макетом */
     padding-bottom: 80px;
     padding-inline: 40px;
   }
@@ -26,6 +26,11 @@
   flex-direction: column;
   gap: 40px;
 }
+@media (min-width: 1024px) {
+  .inner { 
+    gap: 42px; /* Ідеальний відступ 42px між блоком тексту та списком FAQ за макетом */
+  }
+}
 @media (min-width: 1280px) {
   .inner { gap: 56px; }
 }
@@ -34,7 +39,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 8px; /* Забезпечує відступ 8px між усіма текстовими елементами (заголовок/опис) */
+}
+@media (min-width: 1024px) {
+  .header {
+    max-width: 519px; /* Обмежує ширину: 1280px - (380.5 * 2) = 519px */
+    margin-inline: auto; /* Центрує блок, створюючи рівні бокові відступи */
+  }
 }
 
 .kicker {
@@ -43,6 +54,7 @@
   font-weight: 510;
   text-transform: uppercase;
   line-height: 21px;
+  margin: 0;
 }
 
 .heading {
@@ -50,6 +62,7 @@
   font-weight: 700;
   line-height: 1.15;
   text-align: center;
+  margin: 0;
 }
 @media (min-width: 744px) {
   .heading { font-size: 2rem; }
@@ -66,6 +79,7 @@
   line-height: 1.5;
   color: #596067;
   text-align: center;
+  margin: 0;
 }
 
 .list {
