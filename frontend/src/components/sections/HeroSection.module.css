@@ -191,7 +191,7 @@
 .desktopActionsBlock {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* 16px як у Фігмі для планшета */
+  gap: 24px; /* 16px як у Фігмі для планшета */
 }
 @media (min-width: 1280px) {
   .desktopActionsBlock {
@@ -289,7 +289,7 @@
   }
   
   .desktopActionsBlock {
-    gap: 16px;
+    gap: 2px;
   }
   
   .desktopBullets {

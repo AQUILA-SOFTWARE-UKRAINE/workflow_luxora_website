@@ -312,3 +312,17 @@
 }
 .referralBtn:hover  { background: #ebf5ff; border-color: #0759aa; color: #0759aa; }
 .referralBtn:active { background: #dbeaff; border-color: #064a8d; color: #064a8d; }
+
+/* ── Tablet L / iPad Pro (1024px - 1280px) ── */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .inner {
+    max-width: 100%;
+  }
+  .discountCardFeatured,
+  .discountCard {
+    flex: 1;
+  }
+  .referralRow {
+    flex: 1;
+  }
+}

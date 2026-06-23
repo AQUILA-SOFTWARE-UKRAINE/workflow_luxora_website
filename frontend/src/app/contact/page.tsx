@@ -18,12 +18,16 @@ export default async function ContactPage({
   return (
     <>
       {/* Back link */}
-      <div className="px-4 pt-4 md:px-16 md:pt-6">
+      <div className="px-4 pt-4 min-[744px]:pl-10 min-[744px]:pt-6 min-[1280px]:pl-16">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-[14px] font-[510] text-[#032445] hover:text-[#0666c6] transition-colors duration-150"
+          className="inline-flex items-center gap-1.5 text-[14px] font-[510] text-[#032445] hover:text-[#0666c6] transition-colors duration-150 min-[744px]:gap-3 min-[744px]:text-[16px]"
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="16" height="16"
+            className="min-[744px]:w-5 min-[744px]:h-5"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"
+          >
             <path d="M19 12H5M5 12l7 7M5 12l7-7" />
           </svg>
           Back

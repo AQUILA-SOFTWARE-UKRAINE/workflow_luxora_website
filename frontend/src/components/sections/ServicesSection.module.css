@@ -153,8 +153,8 @@
 
 /* ── Tablet L / iPad Pro (1024px - 1280px включно) ── */
 @media (min-width: 1024px) and (max-width: 1280px) {
-   .section {
-    padding-bottom: 0;
+  .section {
+    padding-bottom: 64px;
   }
   .cta {
     width: calc(50% - 12px); 

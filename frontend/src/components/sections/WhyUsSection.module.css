@@ -346,10 +346,23 @@
     text-decoration: none;
   }
 }
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .cta {
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .section {
+    padding-bottom: 0;
+  }
+  /* Move features above the photo grid (override order:3 set by max-width:1279px) */
+  .features {
+    order: 1;
+  }
+  .photoWrap {
+    order: 2;
+    height: 805px;
     width: 100%;
-    margin-top: 8px;
+  }
+  .cta {
+    order: 3;
+    width: 100%;
+    justify-content: center;
   }
 }
 @media (min-width: 1280px) {

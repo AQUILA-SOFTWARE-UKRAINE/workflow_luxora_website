@@ -37,7 +37,7 @@ export default function HeroSection() {
             alt="Professional cleaning service"
             fill
             priority
-            quality={90}
+            quality={100}
             className="object-cover object-[85%_80%]"
             sizes="100vw"
           />
