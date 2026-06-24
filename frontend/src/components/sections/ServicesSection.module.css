@@ -125,6 +125,8 @@
   color: #f26c68;
 }
 
+.ctaArrow { width: 20px; height: 20px; flex-shrink: 0; }
+
 .cta {
   display: none;
 }
@@ -152,7 +154,7 @@
 .cta:active { background: #043565; }
 
 /* ── Tablet L / iPad Pro (1024px - 1279px) ── */
-@media (min-width: 1024px) and (max-width: 1279px) {
+@media (1024px <= width < 1280px) {
   .section {
     padding-bottom: 0;
   }

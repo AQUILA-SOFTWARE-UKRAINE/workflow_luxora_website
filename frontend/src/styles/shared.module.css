@@ -74,7 +74,7 @@
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.15;
-  color: #032445;
+  color: var(--color-navy);
   margin-bottom: 12px;
 }
 @media (min-width: 1280px) {
@@ -85,7 +85,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1.15;
-  color: #032445;
+  color: var(--color-navy);
   margin-bottom: 12px;
 }
 @media (min-width: 1280px) {
@@ -93,19 +93,19 @@
 }
 
 .accent {
-  color: #0666c6;
+  color: var(--color-blue);
 }
 
 .bodyText {
   font-size: 16px;
   line-height: 1.5;
-  color: #4b6070;
+  color: var(--color-body);
 }
 
 .smallText {
   font-size: 14px;
   line-height: 21px;
-  color: #596067;
+  color: var(--color-body2);
 }
 
 /* ── Buttons ── */
@@ -114,7 +114,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: #0666c6;
+  background: var(--color-blue);
   color: #eaebec;
   font-weight: 510;
   font-size: 14px;
@@ -139,8 +139,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 2px solid #0666c6;
-  color: #0666c6;
+  border: 2px solid var(--color-blue);
+  color: var(--color-blue);
   font-weight: 510;
   font-size: 14px;
   height: 48px;
@@ -157,12 +157,12 @@
     padding-inline: 40px;
   }
 }
-.btnOutline:hover  { background: #ebf5ff; border-color: #0759aa; color: #0759aa; }
-.btnOutline:active { background: #dbeaff; border-color: #064a8d; color: #064a8d; }
+.btnOutline:hover  { background: var(--color-sky); border-color: #0759aa; color: #0759aa; }
+.btnOutline:active { background: var(--color-block); border-color: #064a8d; color: #064a8d; }
 
 /* ── Card base ── */
 .card {
   border-radius: 20px;
-  border: 1px solid #e2eaf0;
+  border: 1px solid var(--color-border);
   overflow: hidden;
 }

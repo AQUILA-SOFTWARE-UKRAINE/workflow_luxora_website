@@ -128,6 +128,8 @@
 }
 .socialIcon:hover { color: white; }
 
+.socialSvg { width: 17px; height: 17px; }
+
 /* ── Nav columns (right) ── */
 .navColumns {
   display: flex;

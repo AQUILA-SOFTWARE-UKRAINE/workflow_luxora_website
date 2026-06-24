@@ -127,7 +127,7 @@
   padding: 4px 2px;
 }
 
-.langChevron { transition: transform 200ms; color: #596067; }
+.langChevron { width: 12px; height: 12px; transition: transform 200ms; color: #596067; }
 .langChevronOpen { transform: rotate(180deg); }
 
 .flagEmoji  { font-size: 20px; line-height: 1; display: inline-block; }
@@ -253,10 +253,25 @@
   color: #0666c6;
 }
 
-.menuChevron {
-  transition: transform 200ms;
-}
+.menuChevron { width: 14px; height: 14px; transition: transform 200ms; }
 .menuChevronOpen { transform: rotate(180deg); }
+
+.menuWrapper { position: relative; }
+
+/* Icon sizing — CSS Module equivalents of Tailwind size-* classes */
+.phoneIcon    { width: 18px; height: 18px; flex-shrink: 0; }
+.phoneIconLg  { width: 20px; height: 20px; flex-shrink: 0; }
+.callBtnIcon  { width: 24px; height: 24px; }
+
+.locationPinSvg {
+  position: absolute;
+  top: 1.25px;
+  left: 3.75px;
+  width: 12.5px;
+  height: 17.5px;
+}
+
+.drawerPinSvg { width: 16px; height: 16px; }
 
 .dropdown {
   position: absolute;

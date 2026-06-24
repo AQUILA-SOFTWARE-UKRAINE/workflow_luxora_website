@@ -241,6 +241,11 @@
   flex-shrink: 0;
 }
 
+/* CSS Module equivalents of Tailwind utility classes */
+.mobileImg    { object-fit: cover; object-position: 85% 80%; }
+.locationPin  { width: 13px; height: 18px; flex-shrink: 0; }
+.ctaArrow     { width: 20px; height: 20px; flex-shrink: 0; }
+
 .cta {
   display: inline-flex;
   align-items: center;

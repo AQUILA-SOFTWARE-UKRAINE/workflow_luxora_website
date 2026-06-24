@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { REWARD_BUBBLES } from "@/data/home";
+import BubblesLayer from "@/components/BubblesLayer";
 import styles from "./FinalCtaSection.module.css";
 
 const FEATURE_BADGES = [
@@ -41,18 +42,7 @@ export default function FinalCtaSection() {
       <div className={styles.circle3} />
 
       <div className={styles.bubblesLayer}>
-        {REWARD_BUBBLES.map((b, i) => (
-          <div
-            key={i}
-            className="bubble-container"
-            style={{ left: `${b.left}%`, animation: `floatUp ${b.duration}s linear ${b.delay}s infinite` }}
-          >
-            <div
-              className="bubble"
-              style={{ width: `${b.size}px`, height: `${b.size}px`, animation: `wobble ${b.wobble}s ease-in-out infinite alternate` }}
-            />
-          </div>
-        ))}
+        <BubblesLayer bubbles={REWARD_BUBBLES} />
       </div>
 
       <div className={styles.content}>

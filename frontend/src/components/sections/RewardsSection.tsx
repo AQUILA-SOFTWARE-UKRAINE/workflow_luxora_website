@@ -1,5 +1,7 @@
-import Link from "next/link"; // ДОДАНО ІМПОРТ
+import Link from "next/link";
 import { REWARD_BUBBLES } from "@/data/home";
+import BubblesLayer from "@/components/BubblesLayer";
+import { ArrowRightIcon } from "@/components/ui/icons";
 import styles from "./RewardsSection.module.css";
 
 export default function RewardsSection() {
@@ -10,18 +12,7 @@ export default function RewardsSection() {
       <div className={styles.circle3} />
 
       <div className={styles.bubblesLayer}>
-        {REWARD_BUBBLES.map((b, i) => (
-          <div
-            key={i}
-            className="bubble-container"
-            style={{ left: `${b.left}%`, animation: `floatUp ${b.duration}s linear ${b.delay}s infinite` }}
-          >
-            <div
-              className="bubble"
-              style={{ width: `${b.size}px`, height: `${b.size}px`, animation: `wobble ${b.wobble}s ease-in-out infinite alternate` }}
-            />
-          </div>
-        ))}
+        <BubblesLayer bubbles={REWARD_BUBBLES} />
       </div>
 
       <div className={styles.content}>
@@ -105,9 +96,7 @@ export default function RewardsSection() {
             <div className={styles.ctaContainer}>
               <Link href="/contact" className={styles.ctaButton}>
                 Request a Free Estimate
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
+                <ArrowRightIcon className={styles.ctaArrow} />
               </Link>
               <p className={styles.ctaSubtext}>Takes 1 minute. No commitment</p>
             </div>
