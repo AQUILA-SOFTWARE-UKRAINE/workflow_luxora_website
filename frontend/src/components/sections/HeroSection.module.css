@@ -1,0 +1,302 @@
+.section {
+  width: 100%;
+}
+
+.mobile {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 744px) {
+  .mobile {
+    display: none;
+  }
+}
+
+.mobileTextBlock {
+  padding: 24px 16px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobileImage {
+  position: relative;
+  height: 380px; 
+  width: 100%;
+  overflow: hidden;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #032445;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.mobileH1 {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: #032445;
+}
+
+.mobileH1Accent {
+  color: #0666c6;
+}
+
+.mobilePara {
+  font-size: 16px;
+  color: #032445;
+  line-height: 1.5;
+}
+
+.mobileBullets {
+  position: absolute;
+  top: 24px;
+  left: 16px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobileBullet {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #032445;
+  line-height: 21px;
+}
+
+.bulletIcon {
+  width: 16px;
+  height: 16px;
+  color: #0666c6;
+  flex-shrink: 0;
+}
+
+.desktop {
+  display: none;
+}
+
+@media (min-width: 744px) {
+  .desktop {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 449px; 
+    min-height: 449px;
+    max-height: 449px;
+    overflow: hidden;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .desktop {
+    height: 90vh;
+    min-height: 500px;
+    max-height: 730px;
+  }
+}
+
+.desktopImg {
+  object-fit: cover;
+  object-position: 75% 20%; 
+}
+@media (min-width: 1280px) {
+  .desktopImg {
+    object-position: 85% 80%; 
+  }
+}
+
+.desktopOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  width: 100%;
+  background: linear-gradient(to right, rgba(250, 252, 255, 0.7) 0%, rgba(250, 252, 255, 0.15) 45%, transparent 65%);
+}
+
+.desktopInner {
+  position: relative;
+  z-index: 10;
+  max-width: 1440px;
+  margin-inline: auto;
+  width: 100%;
+  padding-inline: 24px; 
+  padding-block: 32px;
+}
+@media (min-width: 1280px) {
+  .desktopInner {
+    padding-left: 80px;
+    padding-right: 64px;
+    padding-block: 80px; 
+  }
+}
+
+.desktopContentBlock {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media (min-width: 1280px) {
+  .desktopContentBlock {
+    max-width: 586px;
+    gap: 40px;
+  }
+}
+
+.desktopTextBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.desktopH1 {
+  font-weight: 700;
+  line-height: 1.1;
+  color: #032445;
+  font-size: 2rem; 
+}
+@media (min-width: 1280px) {
+  .desktopH1 { 
+    font-size: 56px; 
+  }
+}
+
+.desktopH1Accent { 
+  color: #0666c6; 
+}
+
+.desktopPara {
+  font-size: 16px;
+  color: #032445;
+  line-height: 1.5;
+  max-width: 477px;
+}
+
+.desktopActionsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; 
+}
+@media (min-width: 1280px) {
+  .desktopActionsBlock {
+    gap: 24px; 
+  }
+}
+
+.desktopBullets {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 12px 24px;
+}
+
+.desktopBullet {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px; 
+  color: #032445;
+  white-space: nowrap;
+}
+
+@media (min-width: 744px) {
+  .desktopBullet:first-child {
+    flex-basis: 100%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .desktopBullet {
+    font-size: 16px;
+    white-space: normal;
+  }
+  .desktopBullet:first-child {
+    flex-basis: auto; 
+  }
+}
+
+.desktopBulletIcon {
+  width: 20px;
+  height: 20px;
+  color: #0666c6;
+  flex-shrink: 0;
+}
+
+.mobileImg    { object-fit: cover; object-position: 85% 80%; }
+.locationPin  { width: 13px; height: 18px; flex-shrink: 0; }
+.ctaArrow     { width: 20px; height: 20px; flex-shrink: 0; }
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0666c6;
+  color: white;
+  font-weight: 510;
+  font-size: 18px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 12px;
+  align-self: flex-start;
+  text-decoration: none;
+  transition: background-color 150ms;
+  margin-top: 32px;
+}
+.cta:hover  { background: #064a8d; }
+.cta:active { background: #043565; }
+
+@media (1024px <= width < 1280px) {
+  .desktop {
+    height: 580px;
+    min-height: 580px;
+    max-height: 580px;
+  }
+
+  .desktopInner {
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-block: 40px;
+  }
+
+  .desktopImg {
+    object-position: 85% 85%;
+  }
+
+  .desktopContentBlock {
+    max-width: 520px;
+    gap: 24px;
+  }
+
+  .desktopH1 {
+    font-size: 42px;
+  }
+
+  .desktopActionsBlock {
+    gap: 2px;
+  }
+
+  .desktopBullets {
+    gap: 12px 20px;
+    flex-wrap: nowrap;
+  }
+
+  .desktopBullet {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .desktopBullet:first-child {
+    flex-basis: auto;
+  }
+}

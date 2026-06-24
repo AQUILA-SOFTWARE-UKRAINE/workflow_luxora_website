@@ -1,0 +1,108 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  border: 1px solid #e2eaf0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 200ms, box-shadow 200ms;
+  text-decoration: none;
+}
+.card:hover {
+  border-color: rgba(6, 102, 198, 0.5);
+  box-shadow: 0 4px 20px rgba(6, 102, 198, 0.1);
+}
+
+.imageWrap {
+  position: relative;
+  height: 189px;
+  flex-shrink: 0;
+}
+@media (min-width: 744px) {
+  .imageWrap { height: 300px; }
+}
+
+.body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.name {
+  font-weight: 600;
+  color: #032445;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.priceLabel {
+  font-size: 13px;
+  color: #4b6070;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0666c6;
+  line-height: 1;
+}
+
+.divider {
+  border-top: 1px solid #e2eaf0;
+  margin-bottom: 16px;
+}
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  color: #4b6070;
+}
+
+.bulletIcon {
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.footnote {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2px;
+  align-self: stretch;
+  margin-top: 12px;
+}
+
+.footnoteAsterisk {
+  width: 6px;
+  align-self: stretch;
+  color: #f26c68;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.footnoteText {
+  flex: 1;
+  color: #596067;
+  font-size: 12px;
+  line-height: 1.5;
+}

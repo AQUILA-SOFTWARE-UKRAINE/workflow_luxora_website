@@ -1,0 +1,167 @@
+.section {
+  background: white;
+  padding-top: 40px;
+  padding-bottom: 0;
+  padding-inline: 16px;
+}
+@media (min-width: 744px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 0;
+    padding-inline: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-inline: 64px;
+  }
+}
+
+.inner {
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding-inline: 0; 
+}
+@media (min-width: 744px) {
+  .header {
+    margin-bottom: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .header { margin-bottom: 48px; }
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+@media (min-width: 1280px) {
+  .heading { font-size: 2.5rem; }
+}
+
+.accent { color: #0666c6; display: block; }
+.navy   { color: #032445; display: block; }
+
+.subtext {
+  font-size: 16px;
+  color: #4b6070;
+  max-width: 358px; 
+  margin-inline: auto;
+}
+@media (min-width: 744px) {
+  .subtext { max-width: 500px; }
+}
+
+.cardGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 24px;
+}
+
+.cardWrapper {
+  display: flex; 
+  width: 100%; 
+}
+
+.cardWrapper > * {
+  width: 100%;
+}
+
+@media (min-width: 744px) {
+  .cardGrid {
+    max-width: 494px;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardGrid {
+    max-width: none;
+  }
+  .cardWrapper {
+    width: calc(50% - 12px); 
+  }
+}
+
+@media (min-width: 1280px) {
+  .cardWrapper {
+    width: calc(33.333% - 16px); 
+  }
+}
+
+.footer {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footnoteText {
+  font-size: 13px;
+  color: #4b6070;
+  text-align: center;
+}
+@media (min-width: 744px) {
+  .footnoteText { font-size: 14px; }
+}
+
+.footnoteAccent {
+  color: #f26c68;
+}
+
+.ctaArrow { width: 20px; height: 20px; flex-shrink: 0; }
+
+.cta {
+  display: none;
+}
+@media (min-width: 744px) {
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #0666c6;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    height: 48px;
+    padding-inline: 28px 24px;
+    border-radius: 12px;
+    transition: background-color 150ms;
+    text-decoration: none;
+  }
+}
+@media (min-width: 1280px) {
+  .cta { height: 53px; }
+}
+.cta:hover  { background: #064a8d; }
+.cta:active { background: #043565; }
+
+@media (1024px <= width < 1280px) {
+  .section {
+    padding-bottom: 0;
+  }
+  .cta {
+    width: calc(50% - 12px); 
+    height: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .cardWrapper {
+    width: calc(50% - 12px); 
+  }
+}

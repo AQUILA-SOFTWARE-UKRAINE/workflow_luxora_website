@@ -1,0 +1,89 @@
+.section {
+  background: white;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-inline: 16px;
+}
+@media (min-width: 744px) {
+  .section {
+    padding-top: 64px; 
+    padding-bottom: 80px;
+    padding-inline: 40px;
+  }
+}
+@media (min-width: 1280px) {
+  .section {
+    padding-top: 80px;
+    padding-bottom: 160px;
+    padding-inline: 64px;
+  }
+}
+
+.inner {
+  max-width: 980px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+@media (min-width: 1024px) {
+  .inner { 
+    gap: 42px; 
+  }
+}
+@media (min-width: 1280px) {
+  .inner { gap: 56px; }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; 
+}
+@media (min-width: 1024px) {
+  .header {
+    max-width: 519px; 
+    margin-inline: auto; 
+  }
+}
+
+.kicker {
+  color: #0666c6;
+  font-size: 14px;
+  font-weight: 510;
+  text-transform: uppercase;
+  line-height: 21px;
+  margin: 0;
+}
+
+.heading {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+  margin: 0;
+}
+@media (min-width: 744px) {
+  .heading { font-size: 2rem; }
+}
+@media (min-width: 1280px) {
+  .heading { font-size: 2.5rem; line-height: 48px; }
+}
+
+.navy   { color: #032445; }
+.accent { color: #0666c6; }
+
+.subtext {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #596067;
+  text-align: center;
+  margin: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
