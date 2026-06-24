@@ -177,7 +177,7 @@
 /* ── Tablet L / iPad Pro (1024px - 1280px включно) ── 
    Спеціальні налаштування для екрану 1280px як у Фігмі
 */
-@media (min-width: 1024px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
   /* 1. Примусово повертаємо сітку 2+1 (перекриваємо десктопні 3 колонки) */
   .grid {
     grid-template-columns: repeat(4, 1fr);

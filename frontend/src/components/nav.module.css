@@ -395,6 +395,13 @@
   overflow: hidden;
 }
 
+.drawerCircle {
+  position: absolute;
+  border-radius: 50%;
+  background: #c2ddfd;
+  pointer-events: none;
+}
+
 .drawerContent {
   position: relative;
   z-index: 10;
@@ -503,3 +510,66 @@
   transition: background-color 150ms;
 }
 .bottomCallBtn:active { background: #ebf5ff; }
+
+/* ── Fixed bottom CTA — Tablet S only (744px–1023px) ── */
+.tabletCtaBar {
+  display: none;
+}
+@media (min-width: 744px) {
+  .tabletCtaBar {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: #fafcff;
+    border-top: 1px solid #DFE0E2;
+    padding-inline: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .tabletCtaBar { display: none; }
+}
+
+.tabletCtaInner { display: flex; align-items: center; gap: 8px; }
+
+.tabletCtaBtn {
+  flex: 1;
+  height: 56px;
+  background: #0666c6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 510;
+  text-decoration: none;
+  transition: background-color 150ms;
+}
+.tabletCtaBtn:hover  { background: #064a8d; }
+.tabletCtaBtn:active { background: #043565; }
+
+.tabletCallBtn {
+  flex-shrink: 0;
+  height: 56px;
+  padding-inline: 20px;
+  background: #fafcff;
+  border-radius: 12px;
+  border: 2px solid #0666c6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #0666c6;
+  font-size: 18px;
+  font-weight: 510;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 150ms;
+}
+.tabletCallBtn:hover  { background: #ebf5ff; }
+.tabletCallBtn:active { background: #dbeaff; }

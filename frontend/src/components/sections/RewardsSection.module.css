@@ -353,8 +353,8 @@
   .ctaSubtext { font-size: 14px; }
 }
 
-/* ── Tablet L / iPad Pro (1024px - 1280px) ── */
-@media (min-width: 1024px) and (max-width: 1280px) {
+/* ── Tablet L / iPad Pro (1024px - 1279px) ── */
+@media (min-width: 1024px) and (max-width: 1279px) {
   .inner {
     max-width: 100%;
   }

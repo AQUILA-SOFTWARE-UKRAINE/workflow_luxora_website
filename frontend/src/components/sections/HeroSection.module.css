@@ -263,47 +263,47 @@
 .cta:active { background: #043565; }
 
 /* ── Tablet L / iPad Pro (1024px - 1280px) ── */
-@media (min-width: 1024px) and (max-width: 1280px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .desktop {
-    height: 449px;
+    height: 520px;
     min-height: 520px;
-    max-height: 449px;
+    max-height: 520px;
   }
-  
+
   .desktopInner {
     padding-left: 48px;
     padding-right: 48px;
-    padding-block: 40px; 
+    padding-block: 40px;
   }
-  
+
   .desktopImg {
-    object-position: 85% 40%; /* Трохи опускаємо фокус, щоб людина була в кадрі як у фігмі */
+    object-position: 80% 70%;
   }
-  
+
   .desktopContentBlock {
     max-width: 520px;
     gap: 24px;
   }
-  
+
   .desktopH1 {
-    font-size: 42px; /* Зменшуємо з 56px, щоб текст гарно вліз у висоту 449px */
+    font-size: 42px;
   }
-  
+
   .desktopActionsBlock {
     gap: 2px;
   }
-  
+
   .desktopBullets {
     gap: 12px 20px;
-    flex-wrap: nowrap; /* Примусово ставимо всі буліти в один рядок */
+    flex-wrap: nowrap;
   }
-  
+
   .desktopBullet {
     font-size: 14px;
     white-space: nowrap;
   }
-  
+
   .desktopBullet:first-child {
-    flex-basis: auto; /* Відміняємо flex-basis: 100%, який йшов від Tablet S */
+    flex-basis: auto;
   }
 }
