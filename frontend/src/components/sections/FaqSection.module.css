@@ -6,7 +6,7 @@
 }
 @media (min-width: 744px) {
   .section {
-    padding-top: 64px; /* Забезпечує відступ 64px зверху за макетом */
+    padding-top: 64px; 
     padding-bottom: 80px;
     padding-inline: 40px;
   }
@@ -28,7 +28,7 @@
 }
 @media (min-width: 1024px) {
   .inner { 
-    gap: 42px; /* Ідеальний відступ 42px між блоком тексту та списком FAQ за макетом */
+    gap: 42px; 
   }
 }
 @media (min-width: 1280px) {
@@ -39,12 +39,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px; /* Забезпечує відступ 8px між усіма текстовими елементами (заголовок/опис) */
+  gap: 8px; 
 }
 @media (min-width: 1024px) {
   .header {
-    max-width: 519px; /* Обмежує ширину: 1280px - (380.5 * 2) = 519px */
-    margin-inline: auto; /* Центрує блок, створюючи рівні бокові відступи */
+    max-width: 519px; 
+    margin-inline: auto; 
   }
 }
 

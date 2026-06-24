@@ -15,7 +15,6 @@
   .inner { padding-inline: 64px; }
 }
 
-/* ── Main content row ── */
 .mainRow {
   display: flex;
   flex-direction: column;
@@ -24,19 +23,16 @@
   gap: 48px;
   padding-bottom: 56px;
 }
-/* Вмикаємо горизонтальний макет лише на десктопі, щоб на планшеті блоки йшли один під одним */
 @media (min-width: 1280px) {
   .mainRow { flex-direction: row; }
 }
 
-/* ── Brand block (left) ── */
 .brand {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-/* На планшеті: Лого зліва, Соцмережі справа, Опис знизу */
 @media (min-width: 744px) {
   .brand {
     display: grid;
@@ -48,7 +44,6 @@
   .socials { grid-column: 3; grid-row: 1; padding-top: 0; }
   .brandDesc { grid-column: 1 / -1; grid-row: 2; max-width: 380px; }
 }
-/* На десктопі: знову все в одну колонку зліва і притиснуто до лівого краю */
 @media (min-width: 1280px) {
   .brand {
     display: flex;
@@ -130,20 +125,17 @@
 
 .socialSvg { width: 17px; height: 17px; }
 
-/* ── Nav columns (right) ── */
 .navColumns {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
   width: 100%;
 }
-/* На планшеті розносимо колонки по всій ширині */
 @media (min-width: 744px) {
   .navColumns {
     justify-content: space-between;
   }
 }
-/* На десктопі збираємо їх справа */
 @media (min-width: 1280px) {
   .navColumns {
     width: auto;
@@ -186,7 +178,6 @@
 }
 .navLink:hover { color: white; }
 
-/* Contact items */
 .contactItem {
   display: flex;
   align-items: center;
@@ -217,7 +208,6 @@
 }
 .contactTextLink:hover { color: white; }
 
-/* ── Bottom bar ── */
 .bottomBar {
   border-top: 1px solid #032445;
 }
@@ -228,7 +218,7 @@
   padding-inline: 16px;
   padding-block: 20px;
   display: flex;
-  flex-direction: column; /* Змушуємо їх ставати в стовпчик на мобілці і планшеті */
+  flex-direction: column; 
   align-items: flex-start;
   gap: 16px;
 }
@@ -238,7 +228,6 @@
 @media (min-width: 1024px) {
   .bottomInner { padding-inline: 64px; }
 }
-/* Ставимо в один рядок тільки на десктопі */
 @media (min-width: 1280px) {
   .bottomInner {
     flex-direction: row;

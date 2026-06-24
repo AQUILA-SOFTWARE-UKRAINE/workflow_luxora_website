@@ -1,4 +1,3 @@
-/* ── Sticky header bar ── */
 .header {
   position: sticky;
   top: 0;
@@ -23,7 +22,6 @@
   .inner { padding-inline: 64px; padding-block: 24px; }
 }
 
-/* ── Logo ── */
 .logoLink {
   display: flex;
   align-items: center;
@@ -62,7 +60,6 @@
   letter-spacing: -0.12px;
 }
 
-/* ── Location badge — tablet S+ (744px) ── */
 .locationBadge {
   display: none;
 }
@@ -86,7 +83,6 @@
   overflow: hidden;
 }
 
-/* ── Language picker — tablet S+ (744px) ── */
 .languageDesktop {
   display: none;
   position: relative;
@@ -195,7 +191,6 @@
 .langOptionActive { color: #0666c6; font-weight: 590; }
 .langOptionActive:hover { background: #dbeaff; }
 
-/* ── Desktop nav — visible from 1280px ── */
 .desktopNav {
   display: none;
 }
@@ -208,7 +203,6 @@
   }
 }
 
-/* ── Tablet L contact link — visible 1024px–1279px ── */
 .tabletContactLink {
   display: none;
 }
@@ -258,7 +252,6 @@
 
 .menuWrapper { position: relative; }
 
-/* Icon sizing — CSS Module equivalents of Tailwind size-* classes */
 .phoneIcon    { width: 18px; height: 18px; flex-shrink: 0; }
 .phoneIconLg  { width: 20px; height: 20px; flex-shrink: 0; }
 .callBtnIcon  { width: 24px; height: 24px; }
@@ -340,7 +333,6 @@
 }
 .contactLink:hover { color: rgba(6, 102, 198, 0.8); }
 
-/* ── Right-side group: hamburger [+ mobile flag] — hidden >= 1280px ── */
 .mobileControls {
   display: flex;
   align-items: center;
@@ -350,7 +342,6 @@
   .mobileControls { display: none; }
 }
 
-/* Flag + "DE" inside mobileControls: only visible on mobile (< 744px) */
 .mobileFlag {
   display: flex;
   align-items: center;
@@ -372,7 +363,6 @@
   cursor: pointer;
 }
 
-/* ── Mobile/Tablet drawer — hidden >= 1280px ── */
 .drawerWrapper {
   display: block;
 }
@@ -475,7 +465,6 @@
   text-decoration: none;
 }
 
-/* ── Fixed bottom CTA — mobile only ── */
 .bottomCtaBar {
   position: fixed;
   bottom: 0;
@@ -526,7 +515,6 @@
 }
 .bottomCallBtn:active { background: #ebf5ff; }
 
-/* ── Fixed bottom CTA — Tablet S only (744px–1023px) ── */
 .tabletCtaBar {
   display: none;
 }

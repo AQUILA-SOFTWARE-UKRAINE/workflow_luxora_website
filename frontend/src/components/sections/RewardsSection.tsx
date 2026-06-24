@@ -61,7 +61,7 @@ export default function RewardsSection() {
             <p className={styles.discountFootnote}>Save more when booking multiple services in one visit</p>
           </div>
 
-          {/* НОВИЙ БЛОК: Referral rows + CTA Button */}
+          {/* Referral rows + CTA Button */}
           <div className={styles.bottomSection}>
             <div className={styles.referralGroup}>
               <div className={styles.referralRow}>

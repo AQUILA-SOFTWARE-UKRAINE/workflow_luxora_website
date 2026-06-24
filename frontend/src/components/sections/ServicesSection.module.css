@@ -27,7 +27,7 @@
 .header {
   text-align: center;
   margin-bottom: 32px;
-  padding-inline: 0; /* Прибрано 41px, який стискав текст на мобільному */
+  padding-inline: 0; 
 }
 @media (min-width: 744px) {
   .header {
@@ -54,32 +54,29 @@
 .subtext {
   font-size: 16px;
   color: #4b6070;
-  max-width: 358px; /* Ідеальна ширина для правильного переносу на мобільних */
+  max-width: 358px; 
   margin-inline: auto;
 }
 @media (min-width: 744px) {
   .subtext { max-width: 500px; }
 }
 
-/* ── Універсальна Flex-сітка для карток ── */
 .cardGrid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Це магічно центрує всі неповні рядки */
+  justify-content: center; 
   gap: 24px;
 }
 
 .cardWrapper {
-  display: flex; /* Щоб ServiceCard розтягувалась на всю висоту */
-  width: 100%; /* Мобілка: 1 колонка */
+  display: flex; 
+  width: 100%; 
 }
 
-/* Примусово змушуємо саму картку займати весь доступний простір обгортки */
 .cardWrapper > * {
   width: 100%;
 }
 
-/* Tablet S (744px) - залишається 1 колонка, але по центру */
 @media (min-width: 744px) {
   .cardGrid {
     max-width: 494px;
@@ -87,20 +84,18 @@
   }
 }
 
-/* Tablet L (1024px) - 2 колонки */
 @media (min-width: 1024px) {
   .cardGrid {
     max-width: none;
   }
   .cardWrapper {
-    width: calc(50% - 12px); /* 50% ширини мінус половина gap */
+    width: calc(50% - 12px); 
   }
 }
 
-/* Desktop (>= 1280px) - 3 колонки (верхні 3 стануть в ряд, нижні 2 відцентруються) */
 @media (min-width: 1280px) {
   .cardWrapper {
-    width: calc(33.333% - 16px); /* 33.3% мінус частина gap */
+    width: calc(33.333% - 16px); 
   }
 }
 
@@ -153,7 +148,6 @@
 .cta:hover  { background: #064a8d; }
 .cta:active { background: #043565; }
 
-/* ── Tablet L / iPad Pro (1024px - 1279px) ── */
 @media (1024px <= width < 1280px) {
   .section {
     padding-bottom: 0;

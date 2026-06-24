@@ -200,15 +200,12 @@ export default function Nav() {
             </Link>
           </nav>
 
-          {/* Contact Us — tablet L only (1024px–1279px) */}
           <Link href="/contact" className={styles.tabletContactLink}>
             Contact Us
             <PhoneIcon className={styles.phoneIcon} />
           </Link>
 
-          {/* Right-side group: mobile flag (< 744px) + hamburger (< 1280px) */}
           <div className={styles.mobileControls}>
-            {/* Language picker: mobile only (< 744px) */}
             <div className={styles.mobileFlag} ref={langMobileRef}>
               <button
                 onClick={() => setLangOpen((v) => !v)}
@@ -294,7 +291,6 @@ export default function Nav() {
         </div>
       </div>
 
-      {/* Fixed bottom CTA — mobile only (< 744px), hidden on /contact */}
       {pathname !== "/contact" && (
         <div className={styles.bottomCtaBar}>
           <div className={styles.bottomCtaInner}>
@@ -308,7 +304,6 @@ export default function Nav() {
         </div>
       )}
 
-      {/* Fixed bottom CTA — Tablet S only (744px–1023px), appears after hero is scrolled past */}
       {pathname !== "/contact" && heroPassed && (
         <div className={styles.tabletCtaBar}>
           <div className={styles.tabletCtaInner}>

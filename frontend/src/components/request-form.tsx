@@ -75,7 +75,6 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    // TODO Phase 2: POST to Supabase Edge Function /functions/v1/intake-lead
     await new Promise((r) => setTimeout(r, 800));
     setDone(true);
   };
@@ -264,7 +263,6 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
               <div className={styles.previewGrid}>
                 {photos.map((p, i) => (
                   <div key={i} className={styles.previewItem}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={p.url} alt={p.file.name} className={styles.previewImg} />
                     <button
                       type="button"

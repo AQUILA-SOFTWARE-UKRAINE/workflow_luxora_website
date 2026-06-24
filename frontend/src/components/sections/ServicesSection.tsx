@@ -20,7 +20,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* Універсальний flex-контейнер для всіх карток */}
+        {/* Card Grid */}
         <div className={styles.cardGrid}>
           {SERVICE_CARDS.map((c) => (
             <div key={c.name} className={styles.cardWrapper}>

@@ -86,7 +86,6 @@ export default function WhyUsSection() {
             <div className={styles.textContent}>
               
               <div className={styles.textHeader}>
-                {/* Обгортка titleWrap для ідеальних відступів між кікером і заголовком */}
                 <div className={styles.titleWrap}>
                   <p className={styles.kicker}>WHY CLIENTS TRUST US</p>
                   <h2 className={styles.heading}>
