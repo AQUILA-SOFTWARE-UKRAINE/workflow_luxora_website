@@ -263,7 +263,7 @@
 .cta:active { background: #043565; }
 
 /* ── Tablet L / iPad Pro (1024px - 1280px) ── */
-@media (min-width: 1024px) and (max-width: 1279px) {
+@media (1024px <= width < 1280px) {
   .desktop {
     height: 580px;
     min-height: 580px;
