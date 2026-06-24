@@ -265,9 +265,9 @@
 /* ── Tablet L / iPad Pro (1024px - 1280px) ── */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .desktop {
-    height: 520px;
-    min-height: 520px;
-    max-height: 520px;
+    height: 580px;
+    min-height: 580px;
+    max-height: 580px;
   }
 
   .desktopInner {
@@ -277,7 +277,7 @@
   }
 
   .desktopImg {
-    object-position: 80% 70%;
+    object-position: 85% 85%;
   }
 
   .desktopContentBlock {
