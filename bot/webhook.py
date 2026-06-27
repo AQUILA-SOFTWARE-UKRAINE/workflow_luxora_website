@@ -19,16 +19,27 @@ def _verify_secret(request: web.Request, secret: str) -> bool:
     return hmac.compare_digest(token.encode(), secret.encode())
 
 
+SERVICE_LABELS: dict[str, str] = {
+    "upholstery": "Upholstery & Carpet Cleaning",
+    "apartment":  "Apartment & House Cleaning",
+    "windows":    "Window Cleaning",
+    "driveway":   "Driveway & Patio Washing",
+    "car":        "Car Interior Detailing",
+    "other":      "Other",
+}
+
+
 def _format_lead(lead: dict[str, Any]) -> str:
     short_id = str(lead.get("id", ""))[:8]
-    service = (lead.get("service") or "—").replace("_", " ").title()
+    raw_services: list[str] = lead.get("services") or []
+    services_str = ", ".join(SERVICE_LABELS.get(s, s) for s in raw_services) or "—"
     return (
         f"<b>New lead</b> #{short_id}\n\n"
         f"<b>Name:</b> {lead.get('name', '—')}\n"
         f"<b>Phone:</b> {lead.get('phone', '—')}\n"
-        f"<b>Location:</b> {lead.get('city', '—')}, {lead.get('address', '—')}\n"
-        f"<b>Service:</b> {service}\n"
-        f"<b>Notes:</b> {lead.get('description') or '—'}"
+        f"<b>Location:</b> {lead.get('city', '—')}, {lead.get('address') or '—'}\n"
+        f"<b>Services:</b> {services_str}\n"
+        f"<b>Notes:</b> {lead.get('message') or '—'}"
     )
 
 
@@ -48,7 +59,7 @@ async def handle_supabase_webhook(
         return web.Response(status=200)
 
     lead: dict[str, Any] = body.get("record", {})
-    logger.info("New lead: id=%s service=%s", lead.get("id"), lead.get("service"))
+    logger.info("New lead: id=%s services=%s", lead.get("id"), lead.get("services"))
 
     text = _format_lead(lead)
 

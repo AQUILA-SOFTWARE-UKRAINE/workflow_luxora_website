@@ -1,7 +1,13 @@
 "use client";
 
-import { REVIEWS } from "@/data/home";
 import styles from "./reviews-carousel.module.css";
+
+type ReviewItem = {
+  name: string;
+  location: string;
+  photo: string;
+  text: string;
+};
 
 function Star() {
   return (
@@ -23,7 +29,7 @@ function GoogleG() {
   );
 }
 
-function ReviewCard({ r }: { r: typeof REVIEWS[number] }) {
+function ReviewCard({ r }: { r: ReviewItem }) {
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
@@ -47,17 +53,17 @@ function ReviewCard({ r }: { r: typeof REVIEWS[number] }) {
   );
 }
 
-export default function ReviewsCarousel() {
+export default function ReviewsCarousel({ reviews }: { reviews: ReviewItem[] }) {
   return (
     <div className={styles.viewport}>
       <div className={styles.fadeLeft} />
       <div className={styles.fadeRight} />
       <div className={styles.track}>
         <div className={styles.row}>
-          {REVIEWS.map((r, i) => <ReviewCard key={`first-${i}`} r={r} />)}
+          {reviews.map((r, i) => <ReviewCard key={`first-${i}`} r={r} />)}
         </div>
         <div className={styles.row}>
-          {REVIEWS.map((r, i) => <ReviewCard key={`second-${i}`} r={r} />)}
+          {reviews.map((r, i) => <ReviewCard key={`second-${i}`} r={r} />)}
         </div>
       </div>
     </div>

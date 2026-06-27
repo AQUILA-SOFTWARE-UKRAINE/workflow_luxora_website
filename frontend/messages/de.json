@@ -1,0 +1,336 @@
+{
+  "meta": {
+    "siteTitle": "Luxora Reinigungsservice — Professionelle Hausreinigung Berlin",
+    "siteDesc": "Professionelle Reinigungsdienstleistungen in Berlin und Umgebung. Sofas, Fenster, Wohnungen, Einfahrten, Fahrzeuginnenräume. Kostenloses Angebot. Antwort in 10 Minuten.",
+    "homeTitle": "Luxora — Professionelle Hausreinigung Berlin",
+    "homeDesc": "Von Sofas und Fenstern bis hin zu ganzen Wohnungen, Einfahrten und Fahrzeuginnenräumen. Professionelle Reinigung direkt bei Ihnen in Berlin. Neukunden erhalten 20% Rabatt.",
+    "contactTitle": "Reinigung buchen — Luxora",
+    "contactDesc": "Kostenloses Angebot anfordern. Füllen Sie Ihre Daten aus und ein Mitarbeiter ruft Sie innerhalb von 10 Minuten zurück."
+  },
+  "nav": {
+    "location": "Berlin & Umgebung",
+    "menu": "Menü",
+    "contact": "Kontakt",
+    "bookCleaning": "Reinigung buchen",
+    "requestEstimate": "Kostenloses Angebot",
+    "orderCall": "Rückruf anfordern",
+    "links": {
+      "whyUs": "Warum wir?",
+      "services": "Unsere Leistungen",
+      "results": "Ergebnisse",
+      "reviews": "Kundenbewertungen",
+      "discounts": "Rabatte",
+      "faq": "FAQ"
+    }
+  },
+  "footer": {
+    "brandDesc": "Professionelle Reinigungsdienstleistungen in Berlin und Umgebung. Vertrauenswürdig, zertifiziert und immer pünktlich.",
+    "company": "Unternehmen",
+    "services": "Leistungen",
+    "contact": "Kontakt",
+    "links": {
+      "aboutUs": "Über uns",
+      "pricing": "Preise",
+      "reviews": "Bewertungen",
+      "contactUs": "Kontakt",
+      "upholstery": "Polster- & Teppichreinigung",
+      "windows": "Fensterreinigung",
+      "apartment": "Wohnungs- & Hausreinigung",
+      "driveway": "Einfahrt- & Terrassenreinigung",
+      "car": "Fahrzeuginnenreinigung"
+    },
+    "address": "Adresse",
+    "hours": "Mo–Sa: 8:00 – 20:00",
+    "coverage": "Berlin & 100 km Umkreis",
+    "copyright": "© 2026 Luxsora. Alle Rechte vorbehalten.",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutzerklärung",
+    "agb": "AGB"
+  },
+  "hero": {
+    "location": "Berlin & Umgebung",
+    "h1Line1": "Professionelle",
+    "h1Line2": "Hausreinigung",
+    "h1Line3": "der Sie vertrauen können",
+    "para": "Von Sofas und Fenstern bis hin zu ganzen Wohnungen, Einfahrten und Fahrzeuginnenräumen. Professionelle Reinigung direkt bei Ihnen in Berlin",
+    "cta": "Kostenloses Angebot anfordern",
+    "bullets": [
+      "Rabatt für Neukunden",
+      "Antwort in 10 Min.",
+      "500+ Kunden"
+    ]
+  },
+  "whyUs": {
+    "kicker": "WARUM KUNDEN UNS VERTRAUEN",
+    "heading1": "Wir reinigen nicht nur.",
+    "heading2": "Wir",
+    "headingAccent": "kümmern uns um Ihr Zuhause",
+    "desc": "Vertrauenswürdige Profis, gleichbleibende Qualität und Aufmerksamkeit für jedes Detail — damit sich Ihr Zuhause frisch, gemütlich und gepflegt anfühlt.",
+    "cta": "Reinigung buchen",
+    "badge": "zufriedene Kunden",
+    "features": {
+      "schedule": {
+        "title": "Reinigung nach Ihrem Zeitplan",
+        "desc": "Ob Sie zu Hause sind oder nicht — unser Team reinigt Ihr Zuhause sicher, zuverlässig und professionell."
+      },
+      "punctual": {
+        "title": "Pünktlich & zuverlässig",
+        "desc": "Ihre Zeit ist kostbar. Wir kommen wie vereinbart und erledigen jeden Auftrag effizient und sorgfältig."
+      },
+      "certified": {
+        "title": "Zertifiziertes & versichertes Team",
+        "desc": "Unsere Reinigungsprofis sind sorgfältig geprüft, vollständig versichert und für hervorragende Ergebnisse ausgebildet."
+      },
+      "safe": {
+        "title": "Sicher für Familie & Haustiere",
+        "desc": "Wir verwenden umweltfreundliche Produkte, die für Ihr Zuhause sowie für Kinder und Haustiere unbedenklich sind."
+      }
+    },
+    "photoServices": [
+      "Sofareinigung, Berlin",
+      "Wohnungsreinigung, Mitte",
+      "Wohnungsreinigung, Berlin",
+      "Fensterreinigung, Kreuzberg"
+    ]
+  },
+  "services": {
+    "kicker": "UNSERE LEISTUNGEN",
+    "heading1": "Einfach buchen.",
+    "heading2": "Makellose Ergebnisse",
+    "subtext": "Formular ausfüllen → Wir rufen in 10 Min. an → Sie erhalten einen Festpreis",
+    "cta": "Kostenloses Angebot anfordern",
+    "priceLabel": "Ab (inkl. MwSt.)",
+    "footnoteText": "Endpreis abhängig von Größe und Zustand. Inkl. MwSt.: Anfahrt, Reinigungsmittel, alle Geräte",
+    "cards": {
+      "windows": {
+        "name": "Fensterreinigung",
+        "bullets": [
+          "Innen- und Außenreinigung aller Scheiben, einschließlich schwer zugänglicher Bereiche",
+          "Streifenfreies Ergebnis mit professionellem Abzieher und Reinigungslösung",
+          "Rahmen, Fensterbänke und Schienen nach jeder Scheibe sorgfältig von Hand gereinigt"
+        ]
+      },
+      "upholstery": {
+        "name": "Polster- & Teppichreinigung",
+        "bullets": [
+          "Tiefenreinigung für Sofas, Matratzen, Teppiche, Läufer und Polstermöbel",
+          "Entfernt hartnäckige Flecken, Gerüche, Tierhaare und Allergene tief im Gewebe",
+          "Geeignet für alle Gewebearten einschließlich empfindlicher und gemischter Polster"
+        ]
+      },
+      "apartment": {
+        "name": "Wohnungs- & Hausreinigung",
+        "bullets": [
+          "Gründliche Reinigung jedes Raumes einschließlich Flure, Abstellräume und Balkone",
+          "Küchen, Bäder, Böden und alle Flächen sorgfältig mit Profi-Produkten gereinigt",
+          "Als einmalige Grundreinigung oder als regelmäßiger Service verfügbar"
+        ]
+      },
+      "driveway": {
+        "name": "Einfahrt- & Terrassenreinigung",
+        "bullets": [
+          "Hochdruckreinigung für Pflastereinfahrten, Terrassen und Hofflächen",
+          "Entfernt Moos, Schmutz, Ölflecken und Witterungsschäden von Pflastersteinen",
+          "Inklusive Bordsteine, Wegränder und schwer zugängliche Ecken"
+        ]
+      },
+      "car": {
+        "name": "Fahrzeuginnenreinigung",
+        "bullets": [
+          "Vollständige Innenreinigung: Sitze, Dachhimmel, Türverkleidungen und Kofferraum",
+          "Extraktor-Tiefenreinigung entfernt Schmutz und Gerüche tief aus dem Gewebe",
+          "Leder- und Kunststoffpflege: geschützt und aufgefrischt"
+        ],
+        "footnote": "Zugang zu einer Standard-220V-Steckdose erforderlich"
+      }
+    }
+  },
+  "beforeAfter": {
+    "kicker": "Vorher & Nachher",
+    "heading1": "Die Ergebnisse sprechen",
+    "heading2": "für sich",
+    "ctaText": "Möchten Sie unsere Arbeit im Detail sehen?\nFolgen Sie uns für Vorher-Nachher-Reinigungsergebnisse",
+    "facebook": "Unser Facebook",
+    "instagram": "Unser Instagram",
+    "slides": {
+      "sofa": {
+        "title": "Sofa-Tiefenreinigung",
+        "location": "Gereinigtes Stoffsofa · Charlottenburg"
+      },
+      "kitchen": {
+        "title": "Küchen-Tiefenreinigung",
+        "location": "Wohnküchen-Reinigung · Mitte"
+      },
+      "windows": {
+        "title": "Professionelle Fensterreinigung",
+        "location": "Innen- & Außenreinigung komplett · Kreuzberg"
+      }
+    },
+    "before": "Vorher",
+    "after": "Nachher"
+  },
+  "rewards": {
+    "kicker": "Treueprogramm",
+    "heading1": "Mehr sparen",
+    "heading2": "bei jeder Reinigung",
+    "newClient": {
+      "title": "Neukunde",
+      "desc": "Zum ersten Mal bei uns? Ihre erste Buchung ist 20% günstiger. Gilt für alle Leistungen, wird vor der Zahlung abgezogen"
+    },
+    "twoServices": {
+      "title": "2 Leistungen auf einmal",
+      "desc": "Buchen Sie 2 Leistungen beim selben Besuch und erhalten Sie 30% Rabatt auf Ihre dritte Leistung"
+    },
+    "threeServices": {
+      "title": "3 Leistungen auf einmal",
+      "desc": "Buchen Sie 3 Leistungen beim selben Besuch und erhalten Sie 50% Rabatt auf Ihre vierte Leistung"
+    },
+    "discountFootnote": "Mehr sparen, wenn Sie mehrere Leistungen in einem Besuch buchen",
+    "referral": {
+      "title1": "Freunde einladen",
+      "title2": "& Prämien erhalten",
+      "desc": "Kennen Sie jemanden, dessen Zuhause eine gründliche Reinigung braucht? Empfehlen Sie uns. Sie erhalten 15% Rabatt. Ihr Freund bekommt 20% auf seine erste Buchung.",
+      "btn": "Mit einem Freund teilen"
+    },
+    "review": {
+      "title1": "Bewertung hinterlassen",
+      "title2": "& Rabatt erhalten",
+      "desc": "Hat Ihnen die Reinigung gefallen? Hinterlassen Sie eine Bewertung auf Google oder Instagram und erhalten Sie 10% Rabatt auf Ihre nächste Leistung.",
+      "btn": "Bewertung schreiben"
+    },
+    "cta": "Kostenloses Angebot anfordern",
+    "ctaSubtext": "Dauert 1 Minute. Keine Verpflichtung"
+  },
+  "reviews": {
+    "kicker": "KUNDENBEWERTUNGEN",
+    "heading1": "Was unsere",
+    "headingAccent": "Kunden",
+    "heading2": "sagen",
+    "subtext": "Echtes Feedback von echten Menschen aus Berlin und Umgebung",
+    "items": [
+      {
+        "text": "Habe mein Sofa nach zwei Jahren tiefenreinigen lassen. Der Unterschied ist unglaublich — keine Flecken oder Tierhaare mehr. In unter zwei Stunden fertig, kein Durcheinander. Jeden Cent wert!"
+      },
+      {
+        "text": "Habe sie für eine vollständige Wohnungsreinigung gebucht, bevor meine Eltern zu Besuch kamen. Küche, Bad, Böden — alles makellos. Sie haben sogar hinter den Möbeln geputzt. Meine Mutter war begeistert!"
+      },
+      {
+        "text": "Fensterreinigung für unsere raumhohen Fenster genutzt. Acht große Scheiben, innen und außen, null Streifen. Die Wohnung sieht völlig anders aus, wenn das Licht hereinströmt!"
+      },
+      {
+        "text": "Einfahrt und Terrasse nach Jahren mit Moos und Schmutz reinigen lassen. Völlig unwiedererkennbar — wie eine neue Oberfläche. Schnell, ordentlich und genau das, was wir brauchten."
+      },
+      {
+        "text": "Vollständige Wohnungsreinigung nach Renovierungsarbeiten gebucht. Überall Staub, Farbrückstände auf Böden — alles in einem Besuch erledigt. Würde ich absolut jedem empfehlen."
+      }
+    ]
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "heading1": "Haben Sie",
+    "headingAccent": "Fragen?",
+    "heading2": "Wir haben Antworten",
+    "subtext": "Ihre Antwort nicht gefunden? Schreiben Sie uns. Wir antworten innerhalb von 10 Minuten",
+    "items": [
+      {
+        "q": "Was sollte ich vor der Reinigung vorbereiten?",
+        "a": "Bitte stellen Sie sicher, dass Wasser und Strom zugänglich sind, und räumen Sie die zu reinigenden Bereiche von persönlichen Gegenständen frei. Das hilft uns, effizient zu arbeiten."
+      },
+      {
+        "q": "Wie bezahle ich?",
+        "a": "Wir akzeptieren Bargeld, Banküberweisung und PayPal. Die Zahlung erfolgt nach Abschluss der Leistung, wenn Sie mit dem Ergebnis zufrieden sind. Wir bestätigen die Zahlungsdetails beim Buchungsanruf."
+      },
+      {
+        "q": "Kann ich stornieren oder umbuchen?",
+        "a": "Ja, Sie können bis 24 Stunden vor dem Termin kostenlos stornieren oder umbuchen. Bei Stornierungen mit weniger als 24 Stunden Vorlauf kann eine kleine Anfahrtspauschale anfallen."
+      },
+      {
+        "q": "Was kostet eine Reinigung?",
+        "a": "Preise beginnen ab €60 für Fensterreinigung, €80 für Polster/Teppich, €120 für Wohnungen. Der Endpreis hängt von Größe und Zustand ab — wir geben Ihnen ein genaues Angebot vor Beginn."
+      },
+      {
+        "q": "Bringen Sie eigene Ausrüstung mit?",
+        "a": "Ja, selbstverständlich. Unser Team bringt alle professionellen Reinigungsgeräte und umweltfreundlichen Produkte mit. Sie müssen nur Zugang zu Wasser und einer Standard-Steckdose bereitstellen."
+      },
+      {
+        "q": "Welche Gebiete decken Sie ab?",
+        "a": "Wir decken Berlin und alle umliegenden Gebiete in einem Umkreis von 100 km ab. Wenn Sie unsicher sind, ob wir Ihr Gebiet bedienen, fragen Sie einfach — wir bestätigen es innerhalb von Minuten."
+      }
+    ]
+  },
+  "finalCta": {
+    "eyebrow": "Nur noch ein Schritt",
+    "heading1": "Ihre erste Reinigung",
+    "heading2": "ist",
+    "headingAccent": "20% günstiger",
+    "subtext": "Zum ersten Mal bei uns? Neukunden erhalten 20% Rabatt. Hinterlassen Sie eine Anfrage und wir melden uns für die Details.",
+    "cta": "Jetzt 20% Rabatt sichern",
+    "badges": {
+      "certified": "Zertifizierte Profis",
+      "reply": "Antwort in 10 Minuten",
+      "key": "Flexible Schlüsselübergabe"
+    }
+  },
+  "contact": {
+    "back": "Zurück",
+    "kicker": "Reinigung buchen",
+    "heading": "Kostenloses Angebot erhalten",
+    "subtext": "Füllen Sie Ihre Daten aus — wir rufen Sie innerhalb von 10 Minuten an"
+  },
+  "form": {
+    "selectServices": "Eine oder mehrere Leistungen auswählen",
+    "services": {
+      "upholstery": "Polster- & Teppichreinigung",
+      "apartment": "Wohnungs- & Hausreinigung",
+      "windows": "Fensterreinigung",
+      "driveway": "Einfahrt- & Terrassenreinigung",
+      "car": "Fahrzeuginnenreinigung",
+      "other": "Sonstiges"
+    },
+    "servicePrices": {
+      "upholstery": "Ab €80 inkl. MwSt.",
+      "apartment": "Ab €120 inkl. MwSt.",
+      "windows": "Ab €60 inkl. MwSt.",
+      "driveway": "Ab €90 inkl. MwSt.",
+      "car": "Ab €80 inkl. MwSt.",
+      "other": "Ab €60 inkl. MwSt."
+    },
+    "name": "Vollständiger Name",
+    "namePlaceholder": "z.B. Anna Müller",
+    "phone": "Telefonnummer",
+    "phonePlaceholder": "+49 ___ _______",
+    "city": "Stadt oder Gemeinde",
+    "cityPlaceholder": "Stadt auswählen",
+    "cities": [
+      "Berlin",
+      "Potsdam",
+      "Brandenburg an der Havel",
+      "Cottbus",
+      "Frankfurt (Oder)",
+      "Eberswalde",
+      "Oranienburg",
+      "Sonstiges"
+    ],
+    "address": "Straße und Hausnummer",
+    "addressOptional": "(optional)",
+    "addressPlaceholder": "z.B. Hauptstraße 12, Berlin",
+    "message": "Nachricht",
+    "messageOptional": "(optional)",
+    "messagePlaceholder": "Erzählen Sie uns von Ihrem Raum, den Zimmern oder allem, was wir wissen sollten",
+    "addPhoto": "Foto hinzufügen",
+    "photoOptional": "(optional)",
+    "photoCount": "{count}/5",
+    "photoHint": "Drag & Drop · JPG/PNG bis 10 MB",
+    "uploadedPhoto": "{count} Foto hochgeladen",
+    "uploadPhoto": "Foto hochladen",
+    "submit": "Kostenloses Angebot anfordern",
+    "submitting": "Wird gesendet…",
+    "whatsapp": "WhatsApp schreiben",
+    "call": "Anrufen: +49 163 432 5808",
+    "agreement": "Mit dem Absenden dieses Formulars stimmen Sie unseren AGB zu",
+    "successTitle": "Ihre Anfrage wurde gesendet",
+    "successDesc": "Wir rufen Sie innerhalb von 10 Minuten an, um die Details zu bestätigen und Ihre Buchung zu besprechen",
+    "successBack": "Zur Startseite",
+    "errorMsg": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an."
+  }
+}

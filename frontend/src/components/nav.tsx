@@ -1,25 +1,16 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
+import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { LogoMark, PhoneIcon, LocationPinIcon, ChevronDownIcon } from "@/components/ui/icons";
 import BubblesLayer from "@/components/BubblesLayer";
 import styles from "./nav.module.css";
 
-const LINKS = [
-  { href: "/#why-us", label: "Why Choose Us?" },
-  { href: "/#services", label: "Our Services" },
-  { href: "/#results", label: "See Results" },
-  { href: "/#reviews", label: "Client's Reviews" },
-  { href: "/#discounts", label: "Discounts" },
-  { href: "/#faq", label: "FAQ" },
-];
-
 const LANGUAGES = [
-  { code: "de" as const, label: "German",  flag: "🇩🇪", flagImg: "/images/flag-de.png" },
-  { code: "en" as const, label: "English", flag: "🇬🇧", flagImg: "/images/flag-en.svg" },
-  { code: "ru" as const, label: "Russian", flag: "🇷🇺", flagImg: "/images/flag-ru.svg" },
+  { code: "de" as const, label: "Deutsch",  flag: "🇩🇪", flagImg: "/images/flag-de.png" },
+  { code: "en" as const, label: "English",  flag: "🇬🇧", flagImg: "/images/flag-en.svg" },
+  { code: "ru" as const, label: "Русский",  flag: "🇷🇺", flagImg: "/images/flag-ru.svg" },
 ];
 type LangCode = "de" | "en" | "ru";
 
@@ -58,23 +49,35 @@ function LangDropdownList({
 }
 
 export default function Nav() {
+  const t = useTranslations("nav");
+  const locale = useLocale() as LangCode;
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [lang, setLang] = useState<LangCode>("de");
   const [langOpen, setLangOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const langDesktopRef = useRef<HTMLDivElement>(null);
   const langMobileRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
 
-  const currentLang = LANGUAGES.find((l) => l.code === lang)!;
+  const currentLang = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
 
   const handleLangSelect = (code: LangCode) => {
-    setLang(code);
+    router.replace(pathname, { locale: code });
     setLangOpen(false);
   };
+
+  const LINKS = [
+    { href: "/#why-us",    label: t("links.whyUs") },
+    { href: "/#services",  label: t("links.services") },
+    { href: "/#results",   label: t("links.results") },
+    { href: "/#reviews",   label: t("links.reviews") },
+    { href: "/#discounts", label: t("links.discounts") },
+    { href: "/#faq",       label: t("links.faq") },
+  ];
 
   useEffect(() => {
     const onScroll = () => {
@@ -104,8 +107,8 @@ export default function Nav() {
   useEffect(() => {
     if (!langOpen) return;
     const handler = (e: MouseEvent) => {
-      const t = e.target as Node;
-      if (!langDesktopRef.current?.contains(t) && !langMobileRef.current?.contains(t)) {
+      const tgt = e.target as Node;
+      if (!langDesktopRef.current?.contains(tgt) && !langMobileRef.current?.contains(tgt)) {
         setLangOpen(false);
       }
     };
@@ -129,15 +132,15 @@ export default function Nav() {
             </div>
           </Link>
 
-          {/* Location — tablet S+ (744px+) */}
+          {/* Location — tablet S+ */}
           <div className={styles.locationBadge}>
             <div className={styles.locationIcon}>
               <LocationPinIcon className={styles.locationPinSvg} />
             </div>
-            Berlin &amp; Surrounding Areas
+            {t("location")}
           </div>
 
-          {/* Language picker — tablet S+ (744px+) */}
+          {/* Language picker — tablet S+ */}
           <div className={styles.languageDesktop} ref={langDesktopRef}>
             <button
               onClick={() => setLangOpen((v) => !v)}
@@ -151,16 +154,16 @@ export default function Nav() {
               >
                 {!currentLang.flagImg && currentLang.flag}
               </span>
-              <span className={styles.languageText}>{lang.toUpperCase()}</span>
+              <span className={styles.languageText}>{locale.toUpperCase()}</span>
               <ChevronDownIcon
                 strokeWidth={2.5}
                 className={`${styles.langChevron} ${langOpen ? styles.langChevronOpen : ""}`}
               />
             </button>
-            <LangDropdownList lang={lang} langOpen={langOpen} onSelect={handleLangSelect} />
+            <LangDropdownList lang={locale} langOpen={langOpen} onSelect={handleLangSelect} />
           </div>
 
-          {/* Desktop nav — visible from 1280px */}
+          {/* Desktop nav */}
           <nav className={styles.desktopNav}>
             <div className={styles.menuWrapper} ref={menuRef}>
               <button
@@ -172,7 +175,7 @@ export default function Nav() {
                 <svg width="18" height="13" viewBox="0 0 18 13" fill="none">
                   <path d="M1 1h16M1 6.5h10M1 12h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
                 </svg>
-                <span>Menu</span>
+                <span>{t("menu")}</span>
                 <ChevronDownIcon
                   strokeWidth={2.2}
                   className={`${styles.menuChevron} ${menuOpen ? styles.menuChevronOpen : ""}`}
@@ -195,13 +198,13 @@ export default function Nav() {
             </div>
 
             <Link href="/contact" className={styles.contactLink}>
-              Contact Us
+              {t("contact")}
               <PhoneIcon className={styles.phoneIcon} />
             </Link>
           </nav>
 
           <Link href="/contact" className={styles.tabletContactLink}>
-            Contact Us
+            {t("contact")}
             <PhoneIcon className={styles.phoneIcon} />
           </Link>
 
@@ -219,9 +222,9 @@ export default function Nav() {
                 >
                   {!currentLang.flagImg && currentLang.flag}
                 </span>
-                <span className={styles.mobileFlagText}>{lang.toUpperCase()}</span>
+                <span className={styles.mobileFlagText}>{locale.toUpperCase()}</span>
               </button>
-              <LangDropdownList lang={lang} langOpen={langOpen} onSelect={handleLangSelect} />
+              <LangDropdownList lang={locale} langOpen={langOpen} onSelect={handleLangSelect} />
             </div>
             <button
               className={styles.hamburgerBtn}
@@ -237,7 +240,7 @@ export default function Nav() {
         </div>
       </header>
 
-      {/* Mobile / Tablet drawer — hidden >= 1280px */}
+      {/* Mobile / Tablet drawer */}
       <div className={styles.drawerWrapper}>
         <div
           className={`${styles.backdrop} ${open ? styles.backdropVisible : styles.backdropHidden}`}
@@ -258,7 +261,7 @@ export default function Nav() {
             <div className={styles.drawerTopBar}>
               <div className={styles.drawerLocation}>
                 <LocationPinIcon className={styles.drawerPinSvg} />
-                Berlin &amp; Surrounding Areas
+                {t("location")}
               </div>
               <button onClick={() => setOpen(false)} aria-label="Close menu" className={styles.closeBtn}>
                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -283,7 +286,7 @@ export default function Nav() {
                 className={styles.drawerContactLink}
                 onClick={() => setOpen(false)}
               >
-                Contact Us
+                {t("contact")}
                 <PhoneIcon className={styles.phoneIcon} />
               </Link>
             </nav>
@@ -295,7 +298,7 @@ export default function Nav() {
         <div className={styles.bottomCtaBar}>
           <div className={styles.bottomCtaInner}>
             <Link href="/contact" onClick={() => setOpen(false)} className={styles.bottomCtaBtn}>
-              Book a cleaning
+              {t("bookCleaning")}
             </Link>
             <a href="tel:+4916343250808" className={styles.bottomCallBtn} aria-label="Call us">
               <PhoneIcon className={styles.callBtnIcon} />
@@ -308,10 +311,10 @@ export default function Nav() {
         <div className={styles.tabletCtaBar}>
           <div className={styles.tabletCtaInner}>
             <Link href="/contact" className={styles.tabletCtaBtn}>
-              Request a Free Estimate
+              {t("requestEstimate")}
             </Link>
             <a href="tel:+4916343250808" className={styles.tabletCallBtn}>
-              Order a call
+              {t("orderCall")}
               <PhoneIcon className={styles.phoneIconLg} />
             </a>
           </div>

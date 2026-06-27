@@ -17,7 +17,7 @@ No test suite exists yet. Verify changes visually at 375px, 744px, 1024px, and 1
 
 Marketing / lead-gen site for a Berlin cleaning service. **Not a store** — the only conversion is a form submission that will eventually be wired to a Supabase Edge Function → PostgreSQL → Telegram bot pipeline. Phase 1 (static site) is complete. Phase 2 (form submission backend) has not started yet.
 
-The form (`src/components/request-form.tsx`) currently submits nowhere — the `onSubmit` handler is a placeholder until the Supabase Edge Function is built. When Phase 2 begins, add the Supabase hostname to `remotePatterns` in `next.config.ts`.
+The form (`src/components/request-form.tsx`) submits JSON to the `submit-lead` Supabase Edge Function at `wkvqirxbzryysbeczzmd.supabase.co` (already in `remotePatterns`). **Phase 2 gap:** the form UI collects up to 5 photos but they are not yet sent — the Edge Function accepts JSON only. Photo upload (multipart, EXIF strip, Supabase Storage) is Phase 2 work.
 
 ## Architecture
 

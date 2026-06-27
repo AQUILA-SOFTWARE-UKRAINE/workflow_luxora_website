@@ -9,9 +9,11 @@ interface Props {
   after: string;
   title: string;
   location: string;
+  beforeLabel: string;
+  afterLabel: string;
 }
 
-export default function BeforeAfterSlider({ before, after, title, location }: Props) {
+export default function BeforeAfterSlider({ before, after, title, location, beforeLabel, afterLabel }: Props) {
   const [position, setPosition] = useState(50);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -69,8 +71,8 @@ export default function BeforeAfterSlider({ before, after, title, location }: Pr
           <Image src={before} alt={`Before: ${title}`} fill className={styles.image} sizes="(max-width: 744px) 100vw, (max-width: 1280px) 50vw, 33vw" draggable={false} />
         </div>
 
-        <span className={`${styles.badge} ${styles.badgeBefore}`}>Before</span>
-        <span className={`${styles.badge} ${styles.badgeAfter}`}>After</span>
+        <span className={`${styles.badge} ${styles.badgeBefore}`}>{beforeLabel}</span>
+        <span className={`${styles.badge} ${styles.badgeAfter}`}>{afterLabel}</span>
 
         <div className={styles.divider} style={{ left: `${position}%` }} />
 

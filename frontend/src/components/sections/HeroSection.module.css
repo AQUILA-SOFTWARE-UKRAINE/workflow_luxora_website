@@ -287,8 +287,8 @@
   }
 
   .desktopBullets {
-    gap: 12px 20px;
-    flex-wrap: nowrap;
+    flex-wrap: wrap; 
+    max-width: 450px;
   }
 
   .desktopBullet {

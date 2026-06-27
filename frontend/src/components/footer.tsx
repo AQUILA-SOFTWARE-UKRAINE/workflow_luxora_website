@@ -1,24 +1,27 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import FooterBottomPad from "./FooterBottomPad";
 import { LogoMark, InstagramIcon, FacebookIcon } from "@/components/ui/icons";
 import styles from "./footer.module.css";
 
-const COMPANY_LINKS = [
-  { href: "/#why-us", label: "About Us" },
-  { href: "/#services", label: "Pricing" },
-  { href: "/#reviews", label: "Reviews" },
-  { href: "/contact", label: "Contact Us" },
-];
+export default async function Footer() {
+  const t = await getTranslations("footer");
 
-const SERVICE_LINKS = [
-  { href: "/contact?service=upholstery", label: "Upholstery & Carpet Cleaning" },
-  { href: "/contact?service=windows",    label: "Window Cleaning" },
-  { href: "/contact?service=apartment",  label: "Apartment & House Cleaning" },
-  { href: "/contact?service=driveway",   label: "Driveway & Patio Washing" },
-  { href: "/contact?service=car",        label: "Car Interior Detailing" },
-];
+  const COMPANY_LINKS = [
+    { href: "/#why-us",  label: t("links.aboutUs") },
+    { href: "/#services", label: t("links.pricing") },
+    { href: "/#reviews",  label: t("links.reviews") },
+    { href: "/contact",   label: t("links.contactUs") },
+  ];
 
-export default function Footer() {
+  const SERVICE_LINKS = [
+    { href: "/contact?service=upholstery", label: t("links.upholstery") },
+    { href: "/contact?service=windows",    label: t("links.windows") },
+    { href: "/contact?service=apartment",  label: t("links.apartment") },
+    { href: "/contact?service=driveway",   label: t("links.driveway") },
+    { href: "/contact?service=car",        label: t("links.car") },
+  ];
+
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
@@ -37,9 +40,7 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p className={styles.brandDesc}>
-              Professional cleaning services in Berlin and surrounding areas. Trusted, certified and always on time.
-            </p>
+            <p className={styles.brandDesc}>{t("brandDesc")}</p>
 
             <div className={styles.socials}>
               <a href="#" aria-label="Instagram" className={styles.socialIcon}>
@@ -60,10 +61,10 @@ export default function Footer() {
           <div className={styles.navColumns}>
 
             <div className={`${styles.navCol} ${styles.navColCompany}`}>
-              <p className={styles.navHeading}>Company</p>
+              <p className={styles.navHeading}>{t("company")}</p>
               <ul className={styles.navList}>
                 {COMPANY_LINKS.map((l) => (
-                  <li key={l.label}>
+                  <li key={l.href}>
                     <Link href={l.href} className={styles.navLink}>{l.label}</Link>
                   </li>
                 ))}
@@ -71,10 +72,10 @@ export default function Footer() {
             </div>
 
             <div className={styles.navCol}>
-              <p className={styles.navHeading}>Services</p>
+              <p className={styles.navHeading}>{t("services")}</p>
               <ul className={styles.navList}>
                 {SERVICE_LINKS.map((l) => (
-                  <li key={l.label}>
+                  <li key={l.href}>
                     <Link href={l.href} className={styles.navLink}>{l.label}</Link>
                   </li>
                 ))}
@@ -82,7 +83,7 @@ export default function Footer() {
             </div>
 
             <div className={styles.navCol}>
-              <p className={styles.navHeading}>Contact</p>
+              <p className={styles.navHeading}>{t("contact")}</p>
               <ul className={styles.navList}>
                 <li className={styles.contactItem}>
                   <div className={styles.contactIcon}>
@@ -119,7 +120,7 @@ export default function Footer() {
                       </defs>
                     </svg>
                   </div>
-                  <span className={styles.contactText}>Address</span>
+                  <span className={styles.contactText}>{t("address")}</span>
                 </li>
 
                 <li className={styles.contactItem}>
@@ -148,7 +149,7 @@ export default function Footer() {
                       <path fillRule="evenodd" clipRule="evenodd" d="M7.3125 2.25C7.62316 2.25 7.875 2.50184 7.875 2.8125V7.3125H10.6875C10.9982 7.3125 11.25 7.56434 11.25 7.875C11.25 8.18566 10.9982 8.4375 10.6875 8.4375H7.3125C7.00184 8.4375 6.75 8.18566 6.75 7.875V2.8125C6.75 2.50184 7.00184 2.25 7.3125 2.25Z" fill="#0666C6"/>
                     </svg>
                   </div>
-                  <span className={styles.contactText}>Mon–Sat: 8:00 – 20:00</span>
+                  <span className={styles.contactText}>{t("hours")}</span>
                 </li>
 
                 <li className={styles.contactItem}>
@@ -158,7 +159,7 @@ export default function Footer() {
                       <path fillRule="evenodd" clipRule="evenodd" d="M5.625 4.5C5.00368 4.5 4.5 5.00368 4.5 5.625C4.5 6.24632 5.00368 6.75 5.625 6.75C6.24632 6.75 6.75 6.24632 6.75 5.625C6.75 5.00368 6.24632 4.5 5.625 4.5ZM3.375 5.625C3.375 4.38236 4.38236 3.375 5.625 3.375C6.86764 3.375 7.875 4.38236 7.875 5.625C7.875 6.86764 6.86764 7.875 5.625 7.875C4.38236 7.875 3.375 6.86764 3.375 5.625Z" fill="#0666C6"/>
                     </svg>
                   </div>
-                  <span className={styles.contactText}>Berlin &amp; 100 km around</span>
+                  <span className={styles.contactText}>{t("coverage")}</span>
                 </li>
               </ul>
             </div>
@@ -167,14 +168,13 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className={styles.bottomBar}>
         <div className={styles.bottomInner}>
-          <span className={styles.copyright}>© 2026 Luxsora. All rights reserved.</span>
+          <span className={styles.copyright}>{t("copyright")}</span>
           <div className={styles.legalLinks}>
-            <a href="/impressum" className={styles.legalLink}>Impressum</a>
-            <a href="/datenschutz" className={styles.legalLink}>Datenschutzerklärung</a>
-            <a href="/agb" className={styles.legalLink}>AGB</a>
+            <a href="/impressum" className={styles.legalLink}>{t("impressum")}</a>
+            <a href="/datenschutz" className={styles.legalLink}>{t("datenschutz")}</a>
+            <a href="/agb" className={styles.legalLink}>{t("agb")}</a>
           </div>
         </div>
       </div>

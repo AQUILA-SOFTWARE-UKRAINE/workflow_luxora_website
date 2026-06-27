@@ -1,10 +1,13 @@
 import Image from "next/image";
-import Link from "next/link";
-import { HERO_BULLETS } from "@/data/home";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { LocationPinIcon, CheckIcon, ArrowRightIcon } from "@/components/ui/icons";
 import styles from "./HeroSection.module.css";
 
-export default function HeroSection() {
+export default async function HeroSection() {
+  const t = await getTranslations("hero");
+  const bullets = t.raw("bullets") as string[];
+
   return (
     <section className={styles.section}>
 
@@ -14,19 +17,16 @@ export default function HeroSection() {
         <div className={styles.mobileTextBlock}>
           <div className={styles.location}>
             <LocationPinIcon className={styles.locationPin} />
-            Berlin &amp; Surrounding Areas
+            {t("location")}
           </div>
           <h1 className={styles.mobileH1}>
-            Professional{" "}
+            {t("h1Line1")}{" "}
             <br />
-            <span className={styles.mobileH1Accent}>Home Cleaning</span>
+            <span className={styles.mobileH1Accent}>{t("h1Line2")}</span>
             <br />
-            You Can Trust
+            {t("h1Line3")}
           </h1>
-          <p className={styles.mobilePara}>
-            From sofas and windows to full apartments, driveways and car
-            interiors. Professional cleaning at your door across Berlin
-          </p>
+          <p className={styles.mobilePara}>{t("para")}</p>
         </div>
 
         <div className={styles.mobileImage}>
@@ -40,7 +40,7 @@ export default function HeroSection() {
             sizes="100vw"
           />
           <div className={styles.mobileBullets}>
-            {HERO_BULLETS.map((b) => (
+            {bullets.map((b) => (
               <div key={b} className={styles.mobileBullet}>
                 <CheckIcon className={styles.bulletIcon} />
                 {b}
@@ -67,20 +67,17 @@ export default function HeroSection() {
           <div className={styles.desktopContentBlock}>
             <div className={styles.desktopTextBlock}>
               <h1 className={styles.desktopH1}>
-                Professional
+                {t("h1Line1")}
                 <br />
-                <span className={styles.desktopH1Accent}>Home Cleaning</span>
+                <span className={styles.desktopH1Accent}>{t("h1Line2")}</span>
                 <br />
-                You Can Trust
+                {t("h1Line3")}
               </h1>
-              <p className={styles.desktopPara}>
-                From sofas and windows to full apartments, driveways and car
-                interiors. Professional cleaning at your door across Berlin
-              </p>
+              <p className={styles.desktopPara}>{t("para")}</p>
             </div>
             <div className={styles.desktopActionsBlock}>
               <div className={styles.desktopBullets}>
-                {HERO_BULLETS.map((b) => (
+                {bullets.map((b) => (
                   <div key={b} className={styles.desktopBullet}>
                     <CheckIcon className={styles.desktopBulletIcon} />
                     {b}
@@ -88,7 +85,7 @@ export default function HeroSection() {
                 ))}
               </div>
               <Link href="/contact" className={styles.cta}>
-                Request a Free Estimate
+                {t("cta")}
                 <ArrowRightIcon className={styles.ctaArrow} />
               </Link>
             </div>

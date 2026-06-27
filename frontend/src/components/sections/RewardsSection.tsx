@@ -1,10 +1,13 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { REWARD_BUBBLES } from "@/data/home";
 import BubblesLayer from "@/components/BubblesLayer";
 import { ArrowRightIcon } from "@/components/ui/icons";
 import styles from "./RewardsSection.module.css";
 
-export default function RewardsSection() {
+export default async function RewardsSection() {
+  const t = await getTranslations("rewards");
+
   return (
     <section id="discounts" className={styles.section}>
       <div className={styles.circle1} />
@@ -17,88 +20,75 @@ export default function RewardsSection() {
 
       <div className={styles.content}>
         <div className={styles.titleBlock}>
-          <p className={styles.kicker}>Rewards Program</p>
+          <p className={styles.kicker}>{t("kicker")}</p>
           <h2 className={styles.heading}>
-            <span className={styles.accent}>Save More</span>
+            <span className={styles.accent}>{t("heading1")}</span>
             <br />
-            <span className={styles.navy}>With Every Cleaning</span>
+            <span className={styles.navy}>{t("heading2")}</span>
           </h2>
         </div>
 
         <div className={styles.inner}>
 
-          {/* Discount cards */}
           <div className={styles.discountGroup}>
             <div className={styles.discountRow}>
               <div className={styles.discountCardFeatured}>
                 <div className={styles.discountCardBody}>
-                  <p className={styles.discountTitleLight}>New Client</p>
-                  <p className={styles.discountDescLight}>
-                    First time booking with us? Your first booking is 20% off. Applies to any service, taken off before you pay
-                  </p>
+                  <p className={styles.discountTitleLight}>{t("newClient.title")}</p>
+                  <p className={styles.discountDescLight}>{t("newClient.desc")}</p>
                 </div>
                 <span className={styles.badge}>−20%</span>
               </div>
               <div className={styles.discountCard}>
                 <div className={styles.discountCardBody}>
-                  <p className={styles.discountTitle}>2 Services at Once</p>
-                  <p className={styles.discountDesc}>
-                    Book 2 services during the same visit and receive 30% off your third service during the appointment
-                  </p>
+                  <p className={styles.discountTitle}>{t("twoServices.title")}</p>
+                  <p className={styles.discountDesc}>{t("twoServices.desc")}</p>
                 </div>
                 <span className={styles.badge}>−30%</span>
               </div>
               <div className={styles.discountCard}>
                 <div className={styles.discountCardBody}>
-                  <p className={styles.discountTitle}>3 Services at Once</p>
-                  <p className={styles.discountDesc}>
-                    Book 3 services during the same visit and get 50% off your fourth service appointment
-                  </p>
+                  <p className={styles.discountTitle}>{t("threeServices.title")}</p>
+                  <p className={styles.discountDesc}>{t("threeServices.desc")}</p>
                 </div>
                 <span className={styles.badge}>−50%</span>
               </div>
             </div>
-            <p className={styles.discountFootnote}>Save more when booking multiple services in one visit</p>
+            <p className={styles.discountFootnote}>{t("discountFootnote")}</p>
           </div>
 
-          {/* Referral rows + CTA Button */}
           <div className={styles.bottomSection}>
             <div className={styles.referralGroup}>
               <div className={styles.referralRow}>
                 <span className={styles.referralBadge}>−20%</span>
                 <div className={styles.referralBody}>
                   <p className={styles.referralTitle}>
-                    <span className={styles.referralTitleAccent}>Invite Friends </span>
-                    <span className={styles.referralTitleNavy}>&amp; Earn Rewards</span>
+                    <span className={styles.referralTitleAccent}>{t("referral.title1")} </span>
+                    <span className={styles.referralTitleNavy}>{t("referral.title2")}</span>
                   </p>
-                  <p className={styles.referralDesc}>
-                    Know someone whose home could use a good clean? Send them our way. You get 15% off your next booking. They get 20% off their first.
-                  </p>
+                  <p className={styles.referralDesc}>{t("referral.desc")}</p>
                 </div>
-                <button className={styles.referralBtn}>Share With a Friend</button>
+                <button className={styles.referralBtn}>{t("referral.btn")}</button>
               </div>
               <div className={styles.referralRow}>
                 <span className={styles.referralBadge}>−10%</span>
                 <div className={styles.referralBody}>
                   <p className={styles.referralTitle}>
-                    <span className={styles.referralTitleAccent}>Leave a Review </span>
-                    <span className={styles.referralTitleNavy}>&amp; Get Discount</span>
+                    <span className={styles.referralTitleAccent}>{t("review.title1")} </span>
+                    <span className={styles.referralTitleNavy}>{t("review.title2")}</span>
                   </p>
-                  <p className={styles.referralDesc}>
-                    Loved your cleaning? Leave a quick review on Google or Instagram and receive 10% off your next service.
-                  </p>
+                  <p className={styles.referralDesc}>{t("review.desc")}</p>
                 </div>
-                <button className={styles.referralBtn}>Leave a Review</button>
+                <button className={styles.referralBtn}>{t("review.btn")}</button>
               </div>
             </div>
 
-            {/* Call To Action Block */}
             <div className={styles.ctaContainer}>
               <Link href="/contact" className={styles.ctaButton}>
-                Request a Free Estimate
+                {t("cta")}
                 <ArrowRightIcon className={styles.ctaArrow} />
               </Link>
-              <p className={styles.ctaSubtext}>Takes 1 minute. No commitment</p>
+              <p className={styles.ctaSubtext}>{t("ctaSubtext")}</p>
             </div>
           </div>
 

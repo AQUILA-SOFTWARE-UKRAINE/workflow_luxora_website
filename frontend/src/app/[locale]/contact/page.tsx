@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import RequestForm from "@/components/request-form";
 
-export const metadata: Metadata = {
-  title: "Book a Cleaning — Luxora",
-  description:
-    "Get a free estimate. Fill in your details and a manager will call you within 10 minutes to confirm the details and arrange a specialist visit.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "meta" });
+  return {
+    title: t("contactTitle"),
+    description: t("contactDesc"),
+  };
+}
 
 export default async function ContactPage({
   searchParams,
@@ -14,10 +22,10 @@ export default async function ContactPage({
   searchParams: Promise<{ service?: string }>;
 }) {
   const { service } = await searchParams;
+  const t = await getTranslations("contact");
 
   return (
     <>
-      {/* Back link */}
       <div className="px-4 pt-4 min-[744px]:pl-10 min-[744px]:pt-6 min-[1280px]:pl-16">
         <Link
           href="/"
@@ -30,26 +38,23 @@ export default async function ContactPage({
           >
             <path d="M19 12H5M5 12l7 7M5 12l7-7" />
           </svg>
-          Back
+          {t("back")}
         </Link>
       </div>
 
-      {/* Form section */}
       <section className="pt-6 pb-20 px-4 md:pt-[40px] md:pb-[80px] md:px-6">
-        {/* Heading */}
         <div className="flex flex-col items-center gap-2 text-center mb-8 md:mb-10">
           <p className="text-[#0666c6] text-[12px] md:text-[14px] font-[510] uppercase leading-[18px]">
-            Book a Cleaning
+            {t("kicker")}
           </p>
           <h1 className="text-[32px] md:text-[40px] font-bold text-[#032445] leading-[1.1]">
-            Get a Free Estimate
+            {t("heading")}
           </h1>
           <p className="text-[#596067] text-[14px] md:text-[16px] leading-[21px]">
-            Fill in your details — we call you within 10 minutes
+            {t("subtext")}
           </p>
         </div>
 
-        {/* Form */}
         <div className="max-w-[814px] mx-auto">
           <RequestForm preselect={service} />
         </div>
