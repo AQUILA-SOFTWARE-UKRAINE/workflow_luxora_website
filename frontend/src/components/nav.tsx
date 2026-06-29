@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Link, useRouter, usePathname } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { LogoMark, PhoneIcon, LocationPinIcon, ChevronDownIcon } from "@/components/ui/icons";
 import BubblesLayer from "@/components/BubblesLayer";
 import styles from "./nav.module.css";
@@ -51,7 +51,6 @@ function LangDropdownList({
 export default function Nav() {
   const t = useTranslations("nav");
   const locale = useLocale() as LangCode;
-  const router = useRouter();
   const pathname = usePathname();
 
   const [open, setOpen] = useState(false);
@@ -66,13 +65,17 @@ export default function Nav() {
   const currentLang = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
 
   const handleLangSelect = (code: LangCode) => {
-    // Construct the target path directly instead of using { locale } option.
-    // Passing { locale } in next-intl v4 sets forcePrefix=true which navigates
-    // to /de first; the middleware then redirects /de → / using the internal
-    // server address as base URL, producing a localhost:3000 redirect.
+    // Use window.location to navigate directly to the correct locale URL.
+    // next-intl's router.replace() with { locale } sets forcePrefix=true and
+    // navigates to /de first (even for the default locale), then the middleware
+    // redirects /de → / using its internal server address as base URL, producing
+    // a redirect to localhost:3000 in the browser.
+    // Without { locale }, next-intl appends the current locale prefix to the
+    // target path (e.g. from /en, switching to /ru becomes /en/ru → 404).
+    // A direct window.location assignment avoids both issues.
     const p = pathname || "/";
-    const target = code === "de" ? p : `/${code}${p === "/" ? "" : p}`;
-    router.replace(target);
+    // 'de' is the default locale and carries no URL prefix (localePrefix: "as-needed")
+    window.location.href = code === "de" ? p : `/${code}${p === "/" ? "" : p}`;
     setLangOpen(false);
   };
 
