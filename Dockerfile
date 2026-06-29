@@ -1,5 +1,7 @@
 FROM node:22-alpine AS deps
 WORKDIR /app
+# Upgrade npm to match the version used to generate package-lock.json (npm 11)
+RUN npm install -g npm@11
 COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
 
