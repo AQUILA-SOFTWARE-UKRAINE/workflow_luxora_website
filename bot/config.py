@@ -9,4 +9,5 @@ class Settings(BaseSettings):
     supabase_url: str
     supabase_service_role_key: str
     webhook_secret: str
-    port: int = 8080
+    base_url: str  # Public app URL, e.g. https://luxora-website-02f1a17d6356.herokuapp.com
+    port: int = 5000
