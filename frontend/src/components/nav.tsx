@@ -66,7 +66,13 @@ export default function Nav() {
   const currentLang = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
 
   const handleLangSelect = (code: LangCode) => {
-    router.replace(pathname, { locale: code });
+    // Construct the target path directly instead of using { locale } option.
+    // Passing { locale } in next-intl v4 sets forcePrefix=true which navigates
+    // to /de first; the middleware then redirects /de → / using the internal
+    // server address as base URL, producing a localhost:3000 redirect.
+    const p = pathname || "/";
+    const target = code === "de" ? p : `/${code}${p === "/" ? "" : p}`;
+    router.replace(target);
     setLangOpen(false);
   };
 

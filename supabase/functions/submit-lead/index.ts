@@ -57,7 +57,7 @@ serve(async (req: Request) => {
   const { data: lead, error: dbError } = await supabase
     .from("leads")
     .insert({ name, phone, city, address: address || null, message: message || null, services })
-    .select("id")
+    .select()
     .single();
 
   if (dbError) {
@@ -66,6 +66,26 @@ serve(async (req: Request) => {
       status: 500,
       headers: { ...CORS, "Content-Type": "application/json" },
     });
+  }
+
+  // Notify the bot directly (replaces pg_net trigger — no extension needed)
+  const botUrl    = Deno.env.get("BOT_WEBHOOK_URL");
+  const botSecret = Deno.env.get("BOT_WEBHOOK_SECRET");
+  if (botUrl && botSecret && lead) {
+    fetch(botUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type":  "application/json",
+        "Authorization": `Bearer ${botSecret}`,
+      },
+      body: JSON.stringify({
+        type:       "INSERT",
+        table:      "leads",
+        schema:     "public",
+        record:     lead,
+        old_record: null,
+      }),
+    }).catch((err) => console.error("Bot notification failed:", err));
   }
 
   return new Response(JSON.stringify({ ok: true, id: lead.id }), {
