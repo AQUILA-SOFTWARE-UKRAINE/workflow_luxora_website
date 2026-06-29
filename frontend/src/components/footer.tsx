@@ -172,9 +172,9 @@ export default async function Footer() {
         <div className={styles.bottomInner}>
           <span className={styles.copyright}>{t("copyright")}</span>
           <div className={styles.legalLinks}>
-            <a href="/impressum" className={styles.legalLink}>{t("impressum")}</a>
-            <a href="/datenschutz" className={styles.legalLink}>{t("datenschutz")}</a>
-            <a href="/agb" className={styles.legalLink}>{t("agb")}</a>
+            <Link href="/impressum" className={styles.legalLink}>{t("impressum")}</Link>
+            <Link href="/datenschutz" className={styles.legalLink}>{t("datenschutz")}</Link>
+            <Link href="/agb" className={styles.legalLink}>{t("agb")}</Link>
           </div>
         </div>
       </div>
