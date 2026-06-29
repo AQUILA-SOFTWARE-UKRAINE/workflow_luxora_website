@@ -7,7 +7,7 @@ set -e
 envsubst '${PORT}' < /app/nginx.conf.template > /etc/nginx/nginx.conf
 
 # Start Next.js standalone on internal port 3000 (bound to localhost only)
-PORT=3000 HOSTNAME=127.0.0.1 node /app/frontend/server.js &
+PORT=3000 HOSTNAME=localhost node /app/frontend/server.js &
 
 # Start the Telegram/Supabase bot on internal port 5000.
 # Subshell keeps the cd from affecting the script's own working directory.
