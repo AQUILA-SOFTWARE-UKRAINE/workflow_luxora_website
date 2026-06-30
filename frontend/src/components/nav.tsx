@@ -23,6 +23,14 @@ const DRAWER_BUBBLES = [
   { size: 40,  left: 60,  duration: 14, delay: -11, wobble: 2.8 },
 ];
 
+const DROPDOWN_BUBBLES = [
+  { size: 54,  left: 82,  duration: 11, delay: -3,  wobble: 3   },
+  { size: 38,  left: 8,   duration: 14, delay: -7,  wobble: 2.5 },
+  { size: 46,  left: 50,  duration: 10, delay: -5,  wobble: 4   },
+  { size: 30,  left: 28,  duration: 13, delay: -10, wobble: 3.5 },
+  { size: 24,  left: 68,  duration: 12, delay: -1,  wobble: 2.8 },
+];
+
 function LangDropdownList({
   lang,
   langOpen,
@@ -65,16 +73,7 @@ export default function Nav() {
   const currentLang = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
 
   const handleLangSelect = (code: LangCode) => {
-    // Use window.location to navigate directly to the correct locale URL.
-    // next-intl's router.replace() with { locale } sets forcePrefix=true and
-    // navigates to /de first (even for the default locale), then the middleware
-    // redirects /de → / using its internal server address as base URL, producing
-    // a redirect to localhost:3000 in the browser.
-    // Without { locale }, next-intl appends the current locale prefix to the
-    // target path (e.g. from /en, switching to /ru becomes /en/ru → 404).
-    // A direct window.location assignment avoids both issues.
     const p = pathname || "/";
-    // 'de' is the default locale and carries no URL prefix (localePrefix: "as-needed")
     window.location.href = code === "de" ? p : `/${code}${p === "/" ? "" : p}`;
     setLangOpen(false);
   };
@@ -174,24 +173,30 @@ export default function Nav() {
 
           {/* Desktop nav */}
           <nav className={styles.desktopNav}>
+            <Link href="/contact" className={styles.contactLink}>
+              {t("contact")}
+              <PhoneIcon className={styles.phoneIcon} />
+            </Link>
+
             <div className={styles.menuWrapper} ref={menuRef}>
               <button
+                className={`${styles.desktopHamburger} ${menuOpen ? styles.desktopHamburgerActive : ""}`}
                 onClick={() => setMenuOpen((v) => !v)}
+                aria-label="Open menu"
                 aria-expanded={menuOpen}
-                aria-haspopup="true"
-                className={`${styles.menuBtn} ${menuOpen ? styles.menuBtnOpen : ""}`}
               >
-                <svg width="18" height="13" viewBox="0 0 18 13" fill="none">
-                  <path d="M1 1h16M1 6.5h10M1 12h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
-                <span>{t("menu")}</span>
-                <ChevronDownIcon
-                  strokeWidth={2.2}
-                  className={`${styles.menuChevron} ${menuOpen ? styles.menuChevronOpen : ""}`}
-                />
               </button>
 
               <div className={`${styles.dropdown} ${menuOpen ? styles.dropdownVisible : styles.dropdownHidden}`}>
+                <div className={styles.dropdownBubbles}>
+                  <div className={styles.dropdownCircle} style={{ width: 150, height: 150, top: -65, right: -55 }} />
+                  <div className={styles.dropdownCircle} style={{ width: 100, height: 100, bottom: -40, left: -30 }} />
+                  <div className={styles.dropdownCircle} style={{ width: 70,  height: 70,  bottom: 100, right: -20 }} />
+                  <BubblesLayer bubbles={DROPDOWN_BUBBLES} />
+                </div>
                 {LINKS.map((l) => (
                   <Link
                     key={l.href}
@@ -199,17 +204,11 @@ export default function Nav() {
                     onClick={() => setMenuOpen(false)}
                     className={styles.dropdownItem}
                   >
-                    <span className={styles.dropdownDot} />
                     {l.label}
                   </Link>
                 ))}
               </div>
             </div>
-
-            <Link href="/contact" className={styles.contactLink}>
-              {t("contact")}
-              <PhoneIcon className={styles.phoneIcon} />
-            </Link>
           </nav>
 
           <Link href="/contact" className={styles.tabletContactLink}>
