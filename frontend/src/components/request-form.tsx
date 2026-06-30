@@ -7,6 +7,32 @@ import styles from "./request-form.module.css";
 
 const SERVICE_IDS = ["upholstery", "apartment", "windows", "driveway", "car", "other"] as const;
 
+function compressPhoto(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    const objectUrl = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      const MAX = 1600;
+      let { width, height } = img;
+      if (width > MAX || height > MAX) {
+        const r = Math.min(MAX / width, MAX / height);
+        width = Math.round(width * r);
+        height = Math.round(height * r);
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) { reject(new Error("no 2d context")); return; }
+      ctx.drawImage(img, 0, 0, width, height);
+      resolve(canvas.toDataURL("image/jpeg", 0.82).split(",")[1]);
+    };
+    img.onerror = () => { URL.revokeObjectURL(objectUrl); reject(new Error("image load failed")); };
+    img.src = objectUrl;
+  });
+}
+
 const MODAL_BUBBLES = [
   { size: 18, left: 8,  duration: 10, delay: -2,  wobble: 3   },
   { size: 12, left: 22, duration: 13, delay: -7,  wobble: 2.5 },
@@ -79,6 +105,10 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
     const data = new FormData(form);
 
     try {
+      const photoBase64s = photos.length > 0
+        ? await Promise.all(photos.map(({ file }) => compressPhoto(file)))
+        : [];
+
       const res = await fetch(
         "https://wkvqirxbzryysbeczzmd.supabase.co/functions/v1/submit-lead",
         {
@@ -91,6 +121,7 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
             address:  data.get("address") || null,
             message:  data.get("message") || null,
             services: [...selected],
+            photos:   photoBase64s,
             _trap:    data.get("_trap"),
           }),
         },

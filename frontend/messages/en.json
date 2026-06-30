@@ -332,5 +332,12 @@
     "successDesc": "We will call you within 10 minutes to confirm the details and discuss your booking",
     "successBack": "Back to Home",
     "errorMsg": "Something went wrong. Please try again or call us directly."
+  },
+  "legal": {
+    "impressumTitle": "Legal Notice",
+    "datenschutzTitle": "Privacy Policy",
+    "agbTitle": "Terms and Conditions",
+    "placeholder": "This page will be available soon.",
+    "backHome": "Back to Home"
   }
 }

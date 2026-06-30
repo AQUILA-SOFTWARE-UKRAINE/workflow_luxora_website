@@ -332,5 +332,12 @@
     "successDesc": "Wir rufen Sie innerhalb von 10 Minuten an, um die Details zu bestätigen und Ihre Buchung zu besprechen",
     "successBack": "Zur Startseite",
     "errorMsg": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an."
+  },
+  "legal": {
+    "impressumTitle": "Impressum",
+    "datenschutzTitle": "Datenschutzerklärung",
+    "agbTitle": "Allgemeine Geschäftsbedingungen",
+    "placeholder": "Diese Seite wird in Kürze verfügbar sein.",
+    "backHome": "Zurück zur Startseite"
   }
 }

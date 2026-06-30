@@ -4,6 +4,7 @@ from typing import Any
 
 from aiohttp import web
 from aiogram import Bot
+from aiogram.types import InputMediaPhoto, URLInputFile
 
 from config import Settings
 
@@ -62,6 +63,7 @@ async def handle_supabase_webhook(
     logger.info("New lead: id=%s services=%s", lead.get("id"), lead.get("services"))
 
     text = _format_lead(lead)
+    photo_urls: list[str] = lead.get("photos") or []
 
     try:
         await bot.send_message(
@@ -69,6 +71,17 @@ async def handle_supabase_webhook(
             text=text,
             parse_mode="HTML",
         )
+        if len(photo_urls) == 1:
+            await bot.send_photo(
+                chat_id=settings.manager_chat_id,
+                photo=URLInputFile(photo_urls[0]),
+            )
+        elif len(photo_urls) > 1:
+            media = [InputMediaPhoto(media=URLInputFile(url)) for url in photo_urls[:10]]
+            await bot.send_media_group(
+                chat_id=settings.manager_chat_id,
+                media=media,
+            )
     except Exception as exc:
         # Return 5xx so Supabase retries. The lead is already in the DB — no data loss.
         logger.error("Failed to forward lead to Telegram: %s", exc)

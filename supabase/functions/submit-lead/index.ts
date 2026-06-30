@@ -41,6 +41,9 @@ serve(async (req: Request) => {
   const services = Array.isArray(body.services)
     ? (body.services as unknown[]).filter((s): s is string => typeof s === "string")
     : [];
+  const photosB64 = Array.isArray(body.photos)
+    ? (body.photos as unknown[]).filter((p): p is string => typeof p === "string").slice(0, 5)
+    : [];
 
   if (!name || !phone || !city) {
     return new Response(JSON.stringify({ error: "Missing required fields" }), {
@@ -54,9 +57,39 @@ serve(async (req: Request) => {
     Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
   );
 
+  // Upload photos to Storage and collect public URLs
+  const photoUrls: string[] = [];
+  for (const b64 of photosB64) {
+    try {
+      const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+      const filename = `${crypto.randomUUID()}.jpg`;
+      const { error } = await supabase.storage
+        .from("lead-photos")
+        .upload(filename, bytes, { contentType: "image/jpeg" });
+      if (error) {
+        console.error("Storage upload error:", error.message);
+      } else {
+        const { data: { publicUrl } } = supabase.storage
+          .from("lead-photos")
+          .getPublicUrl(filename);
+        photoUrls.push(publicUrl);
+      }
+    } catch (e) {
+      console.error("Photo processing error:", e);
+    }
+  }
+
   const { data: lead, error: dbError } = await supabase
     .from("leads")
-    .insert({ name, phone, city, address: address || null, message: message || null, services })
+    .insert({
+      name,
+      phone,
+      city,
+      address: address || null,
+      message: message || null,
+      services,
+      photos: photoUrls,
+    })
     .select()
     .single();
 

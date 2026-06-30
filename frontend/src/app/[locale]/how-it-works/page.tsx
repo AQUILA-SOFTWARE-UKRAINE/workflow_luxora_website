@@ -1,5 +1,11 @@
 import { redirect } from "next/navigation";
 
-export default function HowItWorksPage() {
-  redirect("/#services");
+export default async function HowItWorksPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const prefix = locale === "de" ? "" : `/${locale}`;
+  redirect(`${prefix}/#services`);
 }
