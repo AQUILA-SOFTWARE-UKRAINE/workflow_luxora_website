@@ -54,12 +54,40 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
   const [dragging, setDragging] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone]         = useState(false);
+  
+  // Додаємо стан для відформатованого значення телефону (дефолтно з плюсом)
+  const [phoneValue, setPhoneValue] = useState("+");
   const [phoneError, setPhoneError] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
 
+  // Допоміжна функція для форматування маски на льоту
+  const formatPhoneNumber = (value: string): string => {
+    const digits = value.replace(/\D/g, "").slice(0, 12);
+    let formatted = "+";
+    
+    if (digits.length > 0) {
+      formatted += digits.substring(0, 3);
+    }
+    if (digits.length > 3) {
+      formatted += " " + digits.substring(3, 5);
+    }
+    if (digits.length > 5) {
+      formatted += " " + digits.substring(5, 8);
+    }
+    if (digits.length > 8) {
+      formatted += " " + digits.substring(8, 10);
+    }
+    if (digits.length > 10) {
+      formatted += " " + digits.substring(10, 12);
+    }
+    
+    return formatted;
+  };
+
   const validatePhone = (value: string): string => {
     const digits = value.replace(/\D/g, "");
-    if (digits.length < 7 || digits.length > 15) return t("phoneError");
+    // Перевіряємо, щоб було введено рівно 12 цифр
+    if (digits.length !== 12) return t("phoneError");
     return "";
   };
 
@@ -104,12 +132,27 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
     [addFiles],
   );
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    setPhoneValue(formatted);
+    
+    // Якщо помилка вже відображається, валідуємо на льоту під час виправлення
+    if (phoneError) {
+      setPhoneError(validatePhone(formatted));
+    }
+  };
+
+  const handlePhoneBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    setPhoneError(validatePhone(e.target.value));
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     const form = e.currentTarget as HTMLFormElement;
     const data = new FormData(form);
 
+    // Отримуємо значення з formData
     const phoneVal = (data.get("phone") as string) || "";
     const phoneValidationError = validatePhone(phoneVal);
     if (phoneValidationError) {
@@ -131,7 +174,7 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             name:     data.get("name"),
-            phone:    data.get("phone"),
+            phone:    data.get("phone"), // На бекенд піде рядок з пробілами, наприклад "+380 99 123 45 67"
             city:     data.get("city"),
             address:  data.get("address") || null,
             message:  data.get("message") || null,
@@ -265,10 +308,17 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
             name="phone"
             type="tel"
             required
-            placeholder={t("phonePlaceholder")}
+            placeholder="+380 00 000 00 00"
             className={`${styles.input} ${phoneError ? styles.inputError : ""}`}
-            onBlur={(e) => setPhoneError(validatePhone(e.target.value))}
-            onChange={(e) => { if (phoneError) setPhoneError(validatePhone(e.target.value)); }}
+            value={phoneValue}
+            onBlur={handlePhoneBlur}
+            onChange={handlePhoneChange}
+            onKeyDown={(e) => {
+              // Захист від видалення початкового знаку плюса через Backspace
+              if (e.key === "Backspace" && phoneValue === "+") {
+                e.preventDefault();
+              }
+            }}
           />
           {phoneError && (
             <div className={styles.fieldError}>
