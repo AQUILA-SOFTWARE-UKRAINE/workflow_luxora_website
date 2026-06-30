@@ -66,18 +66,28 @@ async def handle_supabase_webhook(
     photo_urls: list[str] = lead.get("photos") or []
 
     try:
-        await bot.send_message(
-            chat_id=settings.manager_chat_id,
-            text=text,
-            parse_mode="HTML",
-        )
-        if len(photo_urls) == 1:
+        if not photo_urls:
+            await bot.send_message(
+                chat_id=settings.manager_chat_id,
+                text=text,
+                parse_mode="HTML",
+            )
+        elif len(photo_urls) == 1:
             await bot.send_photo(
                 chat_id=settings.manager_chat_id,
                 photo=URLInputFile(photo_urls[0]),
+                caption=text,
+                parse_mode="HTML",
             )
-        elif len(photo_urls) > 1:
-            media = [InputMediaPhoto(media=URLInputFile(url)) for url in photo_urls[:10]]
+        else:
+            media = [
+                InputMediaPhoto(
+                    media=URLInputFile(photo_urls[0]),
+                    caption=text,
+                    parse_mode="HTML",
+                ),
+                *[InputMediaPhoto(media=URLInputFile(url)) for url in photo_urls[1:10]],
+            ]
             await bot.send_media_group(
                 chat_id=settings.manager_chat_id,
                 media=media,
