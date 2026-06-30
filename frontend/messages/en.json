@@ -331,7 +331,8 @@
     "successTitle": "Your Request Has Been Sent",
     "successDesc": "We will call you within 10 minutes to confirm the details and discuss your booking",
     "successBack": "Back to Home",
-    "errorMsg": "Something went wrong. Please try again or call us directly."
+    "errorMsg": "Something went wrong. Please try again or call us directly.",
+    "phoneError": "Please enter a valid phone number (7–15 digits)"
   },
   "legal": {
     "impressumTitle": "Legal Notice",

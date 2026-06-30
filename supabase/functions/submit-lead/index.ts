@@ -88,7 +88,7 @@ serve(async (req: Request) => {
       address: address || null,
       message: message || null,
       services,
-      photos: photoUrls,
+      ...(photoUrls.length > 0 ? { photos: photoUrls } : {}),
     })
     .select()
     .single();

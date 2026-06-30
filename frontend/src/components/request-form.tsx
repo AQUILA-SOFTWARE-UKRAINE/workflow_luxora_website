@@ -54,7 +54,14 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
   const [dragging, setDragging] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone]         = useState(false);
+  const [phoneError, setPhoneError] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
+
+  const validatePhone = (value: string): string => {
+    const digits = value.replace(/\D/g, "");
+    if (digits.length < 7 || digits.length > 15) return t("phoneError");
+    return "";
+  };
 
   const cities = t.raw("cities") as string[];
 
@@ -99,10 +106,18 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitting(true);
 
     const form = e.currentTarget as HTMLFormElement;
     const data = new FormData(form);
+
+    const phoneVal = (data.get("phone") as string) || "";
+    const phoneValidationError = validatePhone(phoneVal);
+    if (phoneValidationError) {
+      setPhoneError(phoneValidationError);
+      return;
+    }
+
+    setSubmitting(true);
 
     try {
       const photoBase64s = photos.length > 0
@@ -127,7 +142,11 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
         },
       );
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const body = await res.text().catch(() => "");
+        console.error(`Submit failed HTTP ${res.status}:`, body);
+        throw new Error(`HTTP ${res.status}`);
+      }
       setDone(true);
     } catch (err) {
       console.error("Submit error:", err);
@@ -241,7 +260,26 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
           <label htmlFor="phone" className={styles.label}>
             {t("phone")} <span className={styles.required}>*</span>
           </label>
-          <input id="phone" name="phone" type="tel" required placeholder={t("phonePlaceholder")} className={styles.input} />
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            required
+            placeholder={t("phonePlaceholder")}
+            className={`${styles.input} ${phoneError ? styles.inputError : ""}`}
+            onBlur={(e) => setPhoneError(validatePhone(e.target.value))}
+            onChange={(e) => { if (phoneError) setPhoneError(validatePhone(e.target.value)); }}
+          />
+          {phoneError && (
+            <div className={styles.fieldError}>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" style={{ flexShrink: 0 }}>
+                <circle cx="7" cy="7" r="7" fill="#e53935" />
+                <path d="M7 3.5v4" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                <circle cx="7" cy="10" r="0.9" fill="white" />
+              </svg>
+              {phoneError}
+            </div>
+          )}
         </div>
 
         {/* City */}

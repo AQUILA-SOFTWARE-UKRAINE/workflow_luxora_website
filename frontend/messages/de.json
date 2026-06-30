@@ -331,7 +331,8 @@
     "successTitle": "Ihre Anfrage wurde gesendet",
     "successDesc": "Wir rufen Sie innerhalb von 10 Minuten an, um die Details zu bestätigen und Ihre Buchung zu besprechen",
     "successBack": "Zur Startseite",
-    "errorMsg": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an."
+    "errorMsg": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.",
+    "phoneError": "Bitte geben Sie eine gültige Telefonnummer ein (7–15 Ziffern)"
   },
   "legal": {
     "impressumTitle": "Impressum",

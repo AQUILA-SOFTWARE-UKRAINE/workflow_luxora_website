@@ -304,6 +304,22 @@
   border-color: #0666c6;
   box-shadow: 0 0 0 2px rgba(6, 102, 198, 0.2);
 }
+.inputError {
+  border-color: #e53935;
+}
+.inputError:focus {
+  border-color: #e53935;
+  box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.18);
+}
+.fieldError {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #e53935;
+}
 
 .selectWrap { position: relative; }
 
