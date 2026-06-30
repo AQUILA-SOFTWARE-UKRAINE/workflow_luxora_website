@@ -31,7 +31,7 @@ export default async function HeroSection() {
 
         <div className={styles.mobileImage}>
           <Image
-            src="/images/hero-bg.png"
+            src="/images/hero-bg.webp"
             alt="Professional cleaning service"
             fill
             priority
@@ -54,7 +54,7 @@ export default async function HeroSection() {
       {/* ── Desktop/Tablet layout (>= 744px): full-bleed image with overlay ── */}
       <div className={styles.desktop}>
         <Image
-          src="/images/hero-bg.png"
+          src="/images/hero-bg.webp"
           alt="Professional cleaning service"
           fill
           priority

@@ -8,7 +8,7 @@ import BubblesLayer from "@/components/BubblesLayer";
 import styles from "./nav.module.css";
 
 const LANGUAGES = [
-  { code: "de" as const, label: "Deutsch",  flag: "🇩🇪", flagImg: "/images/flag-de.png" },
+  { code: "de" as const, label: "Deutsch",  flag: "🇩🇪", flagImg: "/images/flag-de.webp" },
   { code: "en" as const, label: "English",  flag: "🇬🇧", flagImg: "/images/flag-en.svg" },
   { code: "ru" as const, label: "Русский",  flag: "🇷🇺", flagImg: "/images/flag-ru.svg" },
 ];

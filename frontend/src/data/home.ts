@@ -1,8 +1,8 @@
 export const WHY_US_PHOTOS = [
-  { src: "/images/why-1.jpg", name: "Anna Müller",         service: "Sofa Cleaning, Berlin" },
-  { src: "/images/why-2.jpg", name: "Laura Schreiber",     service: "Apartment Cleaning, Mitte" },
-  { src: "/images/why-3.jpg", name: "Felix & Jana Becker", service: "Apartment Cleaning, Berlin" },
-  { src: "/images/why-4.jpg", name: "Markus Hoffmann",     service: "Window Cleaning, Kreuzberg" },
+  { src: "/images/why-1.webp", name: "Anna Müller",         service: "Sofa Cleaning, Berlin" },
+  { src: "/images/why-2.webp", name: "Laura Schreiber",     service: "Apartment Cleaning, Mitte" },
+  { src: "/images/why-3.webp", name: "Felix & Jana Becker", service: "Apartment Cleaning, Berlin" },
+  { src: "/images/why-4.webp", name: "Markus Hoffmann",     service: "Window Cleaning, Kreuzberg" },
 ];
 
 export type ServiceCardAsset = {
@@ -13,11 +13,11 @@ export type ServiceCardAsset = {
 };
 
 export const SERVICE_CARD_ASSETS: ServiceCardAsset[] = [
-  { id: "windows",    img: "/images/service-windows.jpg",    price: "€60" },
-  { id: "upholstery", img: "/images/service-upholstery.jpg", price: "€80" },
-  { id: "apartment",  img: "/images/service-apartment.jpg",  price: "€120" },
-  { id: "driveway",   img: "/images/service-driveway.jpg",   price: "€90" },
-  { id: "car",        img: "/images/service-car.jpg",        price: "€80", hasFootnote: true },
+  { id: "windows",    img: "/images/service-windows.webp",    price: "€60" },
+  { id: "upholstery", img: "/images/service-upholstery.webp", price: "€80" },
+  { id: "apartment",  img: "/images/service-apartment.webp",  price: "€120" },
+  { id: "driveway",   img: "/images/service-driveway.webp",   price: "€90" },
+  { id: "car",        img: "/images/service-car.webp",        price: "€80", hasFootnote: true },
 ];
 
 export type BeforeAfterAsset = {
@@ -27,9 +27,9 @@ export type BeforeAfterAsset = {
 };
 
 export const BEFORE_AFTER_ASSETS: BeforeAfterAsset[] = [
-  { id: "sofa",    before: "/images/before-sofa.jpg",    after: "/images/after-sofa.jpg" },
-  { id: "kitchen", before: "/images/before-kitchen.jpg", after: "/images/after-kitchen.jpg" },
-  { id: "windows", before: "/images/before-windows.jpg", after: "/images/after-windows.jpg" },
+  { id: "sofa",    before: "/images/before-sofa.webp",    after: "/images/after-sofa.webp" },
+  { id: "kitchen", before: "/images/before-kitchen.webp", after: "/images/after-kitchen.webp" },
+  { id: "windows", before: "/images/before-windows.webp", after: "/images/after-windows.webp" },
 ];
 
 export const REWARD_BUBBLES = [
@@ -57,9 +57,9 @@ export type ReviewAsset = {
 };
 
 export const REVIEWS: ReviewAsset[] = [
-  { name: "Lena Fischer",   location: "Friedrichshain, Berlin",   photo: "/images/review-lena.jpg" },
-  { name: "Petra Hartmann", location: "Kreuzberg, Berlin",        photo: "/images/review-petra.jpg" },
-  { name: "Sandra Müller",  location: "Charlottenburg, Berlin",   photo: "/images/review-sandra.jpg" },
-  { name: "Tobias Schulz",  location: "Prenzlauer Berg, Berlin",  photo: "/images/review-tobias.jpg" },
-  { name: "Jan Weber",      location: "Mitte, Berlin",            photo: "/images/review-jan.jpg" },
+  { name: "Lena Fischer",   location: "Friedrichshain, Berlin",   photo: "/images/review-lena.webp" },
+  { name: "Petra Hartmann", location: "Kreuzberg, Berlin",        photo: "/images/review-petra.webp" },
+  { name: "Sandra Müller",  location: "Charlottenburg, Berlin",   photo: "/images/review-sandra.webp" },
+  { name: "Tobias Schulz",  location: "Prenzlauer Berg, Berlin",  photo: "/images/review-tobias.webp" },
+  { name: "Jan Weber",      location: "Mitte, Berlin",            photo: "/images/review-jan.webp" },
 ];
