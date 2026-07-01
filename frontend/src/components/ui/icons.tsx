@@ -37,18 +37,22 @@ export function PhoneIcon({ className }: { className?: string }) {
 
 export function MessageIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" clipRule="evenodd" d="M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7l-5 4V5z" fill="#0666C6" />
-    </svg>
+   <svg className={className} width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path 
+    fillRule="evenodd" 
+    clipRule="evenodd" 
+    d="M4 3.5h16c1.38 0 2.5 1.12 2.5 2.5v10c0 1.38-1.12 2.5-2.5 2.5H7.71l-4.21 4.21V6c0-1.38 1.12-2.5 2.5-2.5zM5.5 6.5v11.83L8.33 15.5H20v-9H5.5z" 
+    fill="#0666C6" 
+  />
+</svg>
   );
 }
 
 export function LocationPinIcon({ className }: { className?: string }) {
   return (
-    <svg className={className} width="12.5" height="17.5" viewBox="0 0 12.5 17.4992" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fillRule="evenodd" clipRule="evenodd" d={LOCATION_PIN_OUTER} fill="#0666C6" />
-      <path fillRule="evenodd" clipRule="evenodd" d={LOCATION_PIN_INNER} fill="#0666C6" />
-    </svg>
+  <svg className={className} width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fillRule="evenodd" clipRule="evenodd" d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7l-4 4V6a2 2 0 0 1 2-2zm0 2v11.17L5.17 16H20V6H4z" fill="#0666C6" />
+</svg>
   );
 }
 
