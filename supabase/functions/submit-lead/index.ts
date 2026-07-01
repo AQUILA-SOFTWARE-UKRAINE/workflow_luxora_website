@@ -33,6 +33,30 @@ serve(async (req: Request) => {
     });
   }
 
+  // Cloudflare Turnstile verification
+  const turnstileToken = typeof body.turnstileToken === "string" ? body.turnstileToken : "";
+  const turnstileSecret = Deno.env.get("TURNSTILE_SECRET_KEY");
+  if (!turnstileToken || !turnstileSecret) {
+    return new Response(JSON.stringify({ error: "Missing CAPTCHA token" }), {
+      status: 400,
+      headers: { ...CORS, "Content-Type": "application/json" },
+    });
+  }
+  const verifyForm = new FormData();
+  verifyForm.append("secret", turnstileSecret);
+  verifyForm.append("response", turnstileToken);
+  const verifyRes = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    body: verifyForm,
+  });
+  const verifyData = await verifyRes.json() as { success: boolean };
+  if (!verifyData.success) {
+    return new Response(JSON.stringify({ error: "CAPTCHA verification failed" }), {
+      status: 403,
+      headers: { ...CORS, "Content-Type": "application/json" },
+    });
+  }
+
   const name    = typeof body.name    === "string" ? body.name.trim()    : "";
   const phone   = typeof body.phone   === "string" ? body.phone.trim()   : "";
   const city    = typeof body.city    === "string" ? body.city.trim()    : "";

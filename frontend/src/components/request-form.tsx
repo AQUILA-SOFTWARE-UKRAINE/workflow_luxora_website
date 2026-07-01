@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState, type FormEvent } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { Turnstile } from "@marsidev/react-turnstile";
 import styles from "./request-form.module.css";
 
 const SERVICE_IDS = ["upholstery", "apartment", "windows", "driveway", "car", "other"] as const;
@@ -54,7 +55,8 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
   const [dragging, setDragging] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone]         = useState(false);
-  
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+
   // Додаємо стан для відформатованого значення телефону (дефолтно з плюсом)
   const [phoneValue, setPhoneValue] = useState("+");
   const [phoneError, setPhoneError] = useState("");
@@ -160,6 +162,8 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
       return;
     }
 
+    if (!turnstileToken) return;
+
     setSubmitting(true);
 
     try {
@@ -178,9 +182,10 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
             city:     data.get("city"),
             address:  data.get("address") || null,
             message:  data.get("message") || null,
-            services: [...selected],
-            photos:   photoBase64s,
-            _trap:    data.get("_trap"),
+            services:        [...selected],
+            photos:          photoBase64s,
+            _trap:           data.get("_trap"),
+            turnstileToken,
           }),
         },
       );
@@ -435,12 +440,21 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
         {/* Honeypot */}
         <input type="text" name="_trap" tabIndex={-1} className="hidden" aria-hidden="true" />
 
+        {/* Turnstile */}
+        <Turnstile
+          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          onSuccess={setTurnstileToken}
+          onExpire={() => setTurnstileToken(null)}
+          onError={() => setTurnstileToken(null)}
+          options={{ theme: "light" }}
+        />
+
         {/* Actions */}
         <div className={styles.actions}>
           <button
             type="submit"
-            disabled={submitting}
-            className={`${styles.submitBtn} ${submitting ? styles.submitBtnDisabled : ""}`}
+            disabled={submitting || !turnstileToken}
+            className={`${styles.submitBtn} ${submitting || !turnstileToken ? styles.submitBtnDisabled : ""}`}
           >
             {submitting ? t("submitting") : t("submit")}
           </button>
