@@ -62,11 +62,16 @@ export default async function WhyUsSection() {
                     <p className={styles.photoCaptionName}>{photo.name}</p>
                     <p className={styles.photoCaptionService}>{photoServices[i]}</p>
                   </div>
+                  <span className={styles.aiIcon} title="AI-generated">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+                    </svg>
+                  </span>
                 </div>
               ))}
             </div>
             <div className={styles.badge}>
-              <p className={styles.badgeCount}>500+</p>
+              <p className={styles.badgeCount}>100+</p>
               <p className={styles.badgeLabel}>{t("badge")}</p>
             </div>
           </div>

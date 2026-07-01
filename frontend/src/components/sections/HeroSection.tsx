@@ -47,6 +47,7 @@ export default async function HeroSection() {
               </div>
             ))}
           </div>
+          <span className={styles.aiLabel}>AI-generated</span>
         </div>
 
       </div>
@@ -63,6 +64,7 @@ export default async function HeroSection() {
           sizes="100vw"
         />
         <div className={styles.desktopOverlay} />
+        <span className={styles.aiLabel}>AI-generated</span>
         <div className={styles.desktopInner}>
           <div className={styles.desktopContentBlock}>
             <div className={styles.desktopTextBlock}>
