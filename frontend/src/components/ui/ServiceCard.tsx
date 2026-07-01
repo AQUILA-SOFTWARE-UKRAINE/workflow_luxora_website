@@ -17,6 +17,7 @@ export default function ServiceCard({ id, img, name, price, priceLabel, bullets,
     <Link href={`/contact?service=${id}`} className={styles.card}>
       <div className={styles.imageWrap}>
         <Image src={img} alt={name} fill className="object-cover" sizes="(max-width: 744px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+        <span className={styles.aiLabel}>AI-generated</span>
       </div>
       <div className={styles.body}>
         <h3 className={styles.name}>{name}</h3>

@@ -73,6 +73,7 @@ export default function BeforeAfterSlider({ before, after, title, location, befo
 
         <span className={`${styles.badge} ${styles.badgeBefore}`}>{beforeLabel}</span>
         <span className={`${styles.badge} ${styles.badgeAfter}`}>{afterLabel}</span>
+        <span className={styles.aiLabel}>AI-generated</span>
 
         <div className={styles.divider} style={{ left: `${position}%` }} />
 
