@@ -62,9 +62,9 @@ export default async function WhyUsSection() {
                     <p className={styles.photoCaptionName}>{photo.name}</p>
                     <p className={styles.photoCaptionService}>{photoServices[i]}</p>
                   </div>
-                  <span className={styles.aiIcon} title="AI-generated">
+                 <span className={styles.aiIcon} title="AI-generated">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+                      <path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2Z"/>
                     </svg>
                   </span>
                 </div>
