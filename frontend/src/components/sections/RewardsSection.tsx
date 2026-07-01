@@ -83,7 +83,7 @@ export default async function RewardsSection() {
               <p className={styles.reviewDesc}>{t("review.desc")}</p>
             </div>
             <a
-              href="https://maps.app.goo.gl/W1utgtK8RQDZk2PF6"
+              href="https://maps.app.goo.gl/QKwJPfG19feNm9xAA"
               target="_blank"
               rel="noreferrer"
               className={styles.reviewBtn}
