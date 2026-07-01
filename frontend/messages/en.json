@@ -5,7 +5,7 @@
     "homeTitle": "Luxora — Professional Home Cleaning Berlin",
     "homeDesc": "From sofas and windows to full apartments, driveways and car interiors. Professional cleaning at your door across Berlin. New clients get 20% off.",
     "contactTitle": "Book a Cleaning — Luxora",
-    "contactDesc": "Get a free estimate. Fill in your details and a manager will call you within 10 minutes to confirm the details and arrange a specialist visit."
+    "contactDesc": "Get a free estimate. Fill in your details and a manager will write to you within 10 minutes to confirm the details and arrange a specialist visit."
   },
   "nav": {
     "location": "Berlin & Surrounding Areas",
@@ -13,7 +13,7 @@
     "contact": "Contact Us",
     "bookCleaning": "Book a cleaning",
     "requestEstimate": "Request a Free Estimate",
-    "orderCall": "Order a call",
+    "orderCall": "Send a message",
     "links": {
       "whyUs": "Why Choose Us?",
       "services": "Our Services",
@@ -97,7 +97,7 @@
     "kicker": "OUR SERVICES",
     "heading1": "Easy Booking.",
     "heading2": "Spotless Results",
-    "subtext": "Fill the form → We call you within 10 min → You get a fixed price",
+    "subtext": "Fill the form → We write you within 10 min → You get a fixed price",
     "cta": "Request a Free Estimate",
     "priceLabel": "From (incl. VAT)",
     "footnoteText": "Final price depends on size and condition. VAT Includes: travel, cleaning products, all equipment",
@@ -238,11 +238,11 @@
       },
       {
         "q": "How do I pay?",
-        "a": "We accept cash, bank transfer and PayPal. Payment is made after the service is completed and you are happy with the result. We will confirm the payment details when we call to confirm your booking."
+        "a": "We accept cash, bank transfer and PayPal. Payment is made after the service is completed and you are happy with the result. We will confirm the payment details when we write to confirm your booking."
       },
       {
         "q": "Can I cancel or reschedule?",
-        "a": "Yes, you can cancel or reschedule free of charge up to 24 hours before the appointment. For cancellations with less than 24 hours notice, a small travel fee may apply. Just call or message us and we will sort it out."
+        "a": "Yes, you can cancel or reschedule free of charge up to 24 hours before the appointment. For cancellations with less than 24 hours notice, a small travel fee may apply. Just message us and we will sort it out."
       },
       {
         "q": "How much does a cleaning cost?",
@@ -275,7 +275,7 @@
     "back": "Back",
     "kicker": "Book a Cleaning",
     "heading": "Get a Free Estimate",
-    "subtext": "Fill in your details — we call you within 10 minutes"
+    "subtext": "Fill in your details — we will write to you within 10 minutes"
   },
   "form": {
     "selectServices": "Select one or more services",
@@ -326,12 +326,12 @@
     "submit": "Request a Free Estimate",
     "submitting": "Sending…",
     "whatsapp": "Write on WhatsApp",
-    "call": "Call Us: +49 163 432 5808",
+    "call": "Write Us: +49 163 432 5808",
     "agreement": "By submitting this form you agree to our Terms & Conditions",
     "successTitle": "Your Request Has Been Sent",
-    "successDesc": "We will call you within 10 minutes to confirm the details and discuss your booking",
+    "successDesc": "We will write to you within 10 minutes to confirm the details and discuss your booking",
     "successBack": "Back to Home",
-    "errorMsg": "Something went wrong. Please try again or call us directly.",
+    "errorMsg": "Something went wrong. Please try again or write us directly.",
     "phoneError": "Please enter a valid phone number (7–15 digits)"
   },
   "legal": {

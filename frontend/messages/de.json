@@ -5,7 +5,7 @@
     "homeTitle": "Luxora — Professionelle Hausreinigung Berlin",
     "homeDesc": "Von Sofas und Fenstern bis hin zu ganzen Wohnungen, Einfahrten und Fahrzeuginnenräumen. Professionelle Reinigung direkt bei Ihnen in Berlin. Neukunden erhalten 20% Rabatt.",
     "contactTitle": "Reinigung buchen — Luxora",
-    "contactDesc": "Kostenloses Angebot anfordern. Füllen Sie Ihre Daten aus und ein Mitarbeiter ruft Sie innerhalb von 10 Minuten zurück."
+    "contactDesc": "Kostenloses Angebot anfordern. Füllen Sie Ihre Daten aus und ein Mitarbeiter schreibt Ihnen innerhalb von 10 Minuten."
   },
   "nav": {
     "location": "Berlin & Umgebung",
@@ -13,7 +13,7 @@
     "contact": "Kontakt",
     "bookCleaning": "Reinigung buchen",
     "requestEstimate": "Kostenloses Angebot",
-    "orderCall": "Rückruf anfordern",
+    "orderCall": "Nachricht senden",
     "links": {
       "whyUs": "Warum wir?",
       "services": "Unsere Leistungen",
@@ -97,7 +97,7 @@
     "kicker": "UNSERE LEISTUNGEN",
     "heading1": "Einfach buchen.",
     "heading2": "Makellose Ergebnisse",
-    "subtext": "Formular ausfüllen → Wir rufen in 10 Min. an → Sie erhalten einen Festpreis",
+    "subtext": "Formular ausfüllen → Wir schreiben in 10 Min. → Sie erhalten einen Festpreis",
     "cta": "Kostenloses Angebot anfordern",
     "priceLabel": "Ab (inkl. MwSt.)",
     "footnoteText": "Endpreis abhängig von Größe und Zustand. Inkl. MwSt.: Anfahrt, Reinigungsmittel, alle Geräte",
@@ -275,7 +275,7 @@
     "back": "Zurück",
     "kicker": "Reinigung buchen",
     "heading": "Kostenloses Angebot erhalten",
-    "subtext": "Füllen Sie Ihre Daten aus — wir rufen Sie innerhalb von 10 Minuten an"
+    "subtext": "Füllen Sie Ihre Daten aus — wir schreiben Ihnen innerhalb von 10 Minuten"
   },
   "form": {
     "selectServices": "Eine oder mehrere Leistungen auswählen",
@@ -329,9 +329,9 @@
     "call": "Anrufen: +49 163 432 5808",
     "agreement": "Mit dem Absenden dieses Formulars stimmen Sie unseren AGB zu",
     "successTitle": "Ihre Anfrage wurde gesendet",
-    "successDesc": "Wir rufen Sie innerhalb von 10 Minuten an, um die Details zu bestätigen und Ihre Buchung zu besprechen",
+    "successDesc": "Wir werden Ihnen innerhalb von 10 Minuten schreiben, um die Details zu bestätigen und Ihre Buchung zu besprechen",
     "successBack": "Zur Startseite",
-    "errorMsg": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.",
+    "errorMsg": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt.",
     "phoneError": "Bitte geben Sie eine gültige Telefonnummer ein (7–15 Ziffern)"
   },
   "legal": {

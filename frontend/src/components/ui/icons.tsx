@@ -35,6 +35,14 @@ export function PhoneIcon({ className }: { className?: string }) {
   );
 }
 
+export function MessageIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fillRule="evenodd" clipRule="evenodd" d="M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7l-5 4V5z" fill="#0666C6" />
+    </svg>
+  );
+}
+
 export function LocationPinIcon({ className }: { className?: string }) {
   return (
     <svg className={className} width="12.5" height="17.5" viewBox="0 0 12.5 17.4992" fill="none" xmlns="http://www.w3.org/2000/svg">
