@@ -14,7 +14,7 @@ export default function HomePage() {
       <WhyUsSection />
       <ServicesSection />
       <BeforeAfterSection />
-      <ReviewsSection />
+      {/* <ReviewsSection /> */}
       <RewardsSection />
       <FaqSection />
       <FinalCtaSection />
