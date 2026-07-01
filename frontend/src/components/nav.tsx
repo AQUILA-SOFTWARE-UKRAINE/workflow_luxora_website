@@ -62,7 +62,6 @@ export default function Nav() {
   const pathname = usePathname();
 
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [heroPassed, setHeroPassed] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
@@ -89,7 +88,6 @@ export default function Nav() {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 8);
       setHeroPassed(window.scrollY > 380);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -126,7 +124,7 @@ export default function Nav() {
 
   return (
     <>
-      <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ""}`}>
+      <header className={styles.header}>
         <div className={styles.inner}>
 
           {/* Logo */}
