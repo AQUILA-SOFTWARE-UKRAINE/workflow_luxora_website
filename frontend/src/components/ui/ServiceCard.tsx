@@ -12,7 +12,7 @@ type Props = {
   footnote?: string;
 };
 
-export default function ServiceCard({ id, img, name, price, priceLabel, bullets, footnote }: Props) {
+export default function ServiceCard({ id, img, name, price, bullets, footnote }: Props) {
   return (
     <Link href={`/contact?service=${id}`} className={styles.card}>
       <div className={styles.imageWrap}>

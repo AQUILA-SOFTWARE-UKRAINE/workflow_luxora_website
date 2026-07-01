@@ -104,7 +104,7 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
   const toggleService = (id: string) =>
     setSelected((prev) => {
       const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) { next.delete(id); } else { next.add(id); }
       return next;
     });
 
@@ -412,6 +412,7 @@ export default function RequestForm({ preselect }: { preselect?: string }) {
               <div className={styles.previewGrid}>
                 {photos.map((p, i) => (
                   <div key={i} className={styles.previewItem}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={p.url} alt={p.file.name} className={styles.previewImg} />
                     <button
                       type="button"

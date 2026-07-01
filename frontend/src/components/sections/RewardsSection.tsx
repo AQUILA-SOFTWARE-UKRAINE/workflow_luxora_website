@@ -35,7 +35,7 @@ export default async function RewardsSection() {
             <div className={styles.featuredCard}>
               <p className={styles.featuredTitle}>{t("newClient.title")}</p>
               <p className={styles.featuredDesc}>{t("newClient.desc")}</p>
-              <p className={styles.promoCode}>"{t("newClient.promoCode")}"</p>
+              <p className={styles.promoCode}>&ldquo;{t("newClient.promoCode")}&rdquo;</p>
               <div className={styles.badgeRow}>
                 <span className={styles.badge}>−20%</span>
                 <span className={styles.orLabel}>OR</span>
