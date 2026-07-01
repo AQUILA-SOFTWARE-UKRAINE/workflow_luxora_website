@@ -44,11 +44,11 @@ export default async function BeforeAfterSection() {
             ))}
           </p>
           <div className={styles.ctaButtons}>
-            <a href="#" className={styles.socialBtn}>
+            <a href="https://www.facebook.com/profile.php?id=61588783384456" target="_blank" rel="noreferrer" className={styles.socialBtn}>
               {t("facebook")}
               <FacebookIcon className={styles.socialIcon} />
             </a>
-            <a href="#" className={styles.socialBtn}>
+            <a href="https://www.instagram.com/luxora.reinigung?igsh=Nms2ZnpyZGd0Y3V1&utm_source=qr" target="_blank" rel="noreferrer" className={styles.socialBtn}>
               {t("instagram")}
               <InstagramIcon className={styles.socialIcon} />
             </a>

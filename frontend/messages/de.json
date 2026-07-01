@@ -39,7 +39,7 @@
       "driveway": "Einfahrt- & Terrassenreinigung",
       "car": "Fahrzeuginnenreinigung"
     },
-    "address": "Adresse",
+    "address": "Biesenbrower Straße 130, 13057 Berlin, Deutschland",
     "hours": "Mo–Sa: 8:00 – 20:00",
     "coverage": "Berlin & 100 km Umkreis",
     "copyright": "© 2026 Luxora. Alle Rechte vorbehalten.",
@@ -175,7 +175,8 @@
     "heading2": "bei jeder Reinigung",
     "newClient": {
       "title": "Neukunde",
-      "desc": "Zum ersten Mal bei uns? Ihre erste Buchung ist 20% günstiger. Gilt für alle Leistungen"
+      "desc": "Zum ersten Mal bei uns? Ihre erste Buchung ist 20% günstiger oder eine Leistung kostenlos. Gilt für alle Leistungen. Verwenden Sie den Promo-Code:",
+      "promoCode": "LUXORA"
     },
     "twoServices": {
       "title": "2 Leistungen auf einmal",
@@ -186,16 +187,10 @@
       "desc": "Bestellen Sie 3 Leistungen bei einem Besuch und erhalten Sie 50 % Rabatt"
     },
     "discountFootnote": "Mehr sparen, wenn Sie mehrere Leistungen in einem Besuch buchen",
-    "referral": {
-      "title1": "Freunde einladen",
-      "title2": "& Prämien erhalten",
-      "desc": "Kennen Sie jemanden, dessen Zuhause eine gründliche Reinigung braucht? Empfehlen Sie uns. Sie erhalten 15% Rabatt. Ihr Freund bekommt 20% auf seine erste Buchung.",
-      "btn": "Mit einem Freund teilen"
-    },
     "review": {
       "title1": "Bewertung hinterlassen",
       "title2": "& Rabatt erhalten",
-      "desc": "Hat Ihnen die Reinigung gefallen? Hinterlassen Sie eine Bewertung auf Google oder Instagram und erhalten Sie 10% Rabatt auf Ihre nächste Leistung.",
+      "desc": "Hat Ihnen die Reinigung gefallen? Hinterlassen Sie eine Bewertung auf Google und erhalten Sie 10% Rabatt auf Ihre nächste Leistung.",
       "btn": "Bewertung schreiben"
     },
     "cta": "Kostenloses Angebot anfordern",

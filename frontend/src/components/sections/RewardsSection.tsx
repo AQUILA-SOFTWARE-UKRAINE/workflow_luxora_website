@@ -29,69 +29,77 @@ export default async function RewardsSection() {
         </div>
 
         <div className={styles.inner}>
-
-          <div className={styles.discountGroup}>
-            <div className={styles.discountRow}>
-              <div className={styles.discountCardFeatured}>
-                <div className={styles.discountCardBody}>
-                  <p className={styles.discountTitleLight}>{t("newClient.title")}</p>
-                  <p className={styles.discountDescLight}>{t("newClient.desc")}</p>
-                </div>
+          {/* ── Cards grid ── */}
+          <div className={styles.cardGrid}>
+            {/* Featured – New Client */}
+            <div className={styles.featuredCard}>
+              <p className={styles.featuredTitle}>{t("newClient.title")}</p>
+              <p className={styles.featuredDesc}>{t("newClient.desc")}</p>
+              <p className={styles.promoCode}>"{t("newClient.promoCode")}"</p>
+              <div className={styles.badgeRow}>
                 <span className={styles.badge}>−20%</span>
-              </div>
-              <div className={styles.discountCard}>
-                <div className={styles.discountCardBody}>
-                  <p className={styles.discountTitle}>{t("twoServices.title")}</p>
-                  <p className={styles.discountDesc}>{t("twoServices.desc")}</p>
-                </div>
-                <span className={styles.badge}>−30%</span>
-              </div>
-              <div className={styles.discountCard}>
-                <div className={styles.discountCardBody}>
-                  <p className={styles.discountTitle}>{t("threeServices.title")}</p>
-                  <p className={styles.discountDesc}>{t("threeServices.desc")}</p>
-                </div>
-                <span className={styles.badge}>−50%</span>
-              </div>
-            </div>
-            <p className={styles.discountFootnote}>{t("discountFootnote")}</p>
-          </div>
-
-          <div className={styles.bottomSection}>
-            <div className={styles.referralGroup}>
-              <div className={styles.referralRow}>
-                <span className={styles.referralBadge}>−20%</span>
-                <div className={styles.referralBody}>
-                  <p className={styles.referralTitle}>
-                    <span className={styles.referralTitleAccent}>{t("referral.title1")} </span>
-                    <span className={styles.referralTitleNavy}>{t("referral.title2")}</span>
-                  </p>
-                  <p className={styles.referralDesc}>{t("referral.desc")}</p>
-                </div>
-                <button className={styles.referralBtn}>{t("referral.btn")}</button>
-              </div>
-              <div className={styles.referralRow}>
-                <span className={styles.referralBadge}>−10%</span>
-                <div className={styles.referralBody}>
-                  <p className={styles.referralTitle}>
-                    <span className={styles.referralTitleAccent}>{t("review.title1")} </span>
-                    <span className={styles.referralTitleNavy}>{t("review.title2")}</span>
-                  </p>
-                  <p className={styles.referralDesc}>{t("review.desc")}</p>
-                </div>
-                <button className={styles.referralBtn}>{t("review.btn")}</button>
+                <span className={styles.orLabel}>OR</span>
+                <span className={styles.giftBadge}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M20 12v10H4V12" stroke="#032445" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M22 7H2v5h20V7z" stroke="#032445" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M12 22V7" stroke="#032445" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" stroke="#032445" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" stroke="#032445" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
               </div>
             </div>
 
-            <div className={styles.ctaContainer}>
-              <Link href="/contact" className={styles.ctaButton}>
-                {t("cta")}
-                <ArrowRightIcon className={styles.ctaArrow} />
-              </Link>
-              <p className={styles.ctaSubtext}>{t("ctaSubtext")}</p>
+            {/* 2 Services at Once */}
+            <div className={styles.whiteCard}>
+              <div className={styles.whiteCardBody}>
+                <p className={styles.cardTitle}>{t("twoServices.title")}</p>
+                <p className={styles.cardDesc}>{t("twoServices.desc")}</p>
+              </div>
+              <span className={styles.badge}>−30%</span>
+            </div>
+
+            {/* 3 Services at Once */}
+            <div className={styles.whiteCard}>
+              <div className={styles.whiteCardBody}>
+                <p className={styles.cardTitle}>{t("threeServices.title")}</p>
+                <p className={styles.cardDesc}>{t("threeServices.desc")}</p>
+              </div>
+              <span className={styles.badge}>−50%</span>
             </div>
           </div>
 
+          <p className={styles.footnote}>{t("discountFootnote")}</p>
+
+          {/* ── Review banner ── */}
+          <div className={styles.reviewBanner}>
+            <span className={styles.reviewBadge}>−10%</span>
+            <div className={styles.reviewBody}>
+              <p className={styles.reviewTitle}>
+                <span className={styles.reviewAccent}>{t("review.title1")} </span>
+                <span className={styles.reviewNavy}>{t("review.title2")}</span>
+              </p>
+              <p className={styles.reviewDesc}>{t("review.desc")}</p>
+            </div>
+            <a
+              href="https://maps.app.goo.gl/W1utgtK8RQDZk2PF6"
+              target="_blank"
+              rel="noreferrer"
+              className={styles.reviewBtn}
+            >
+              {t("review.btn")}
+            </a>
+          </div>
+
+          {/* ── CTA ── */}
+          <div className={styles.ctaContainer}>
+            <Link href="/contact" className={styles.ctaButton}>
+              {t("cta")}
+              <ArrowRightIcon className={styles.ctaArrow} />
+            </Link>
+            <p className={styles.ctaSubtext}>{t("ctaSubtext")}</p>
+          </div>
         </div>
       </div>
     </section>

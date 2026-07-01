@@ -39,7 +39,7 @@
       "driveway": "Driveway & Patio Washing",
       "car": "Car Interior Detailing"
     },
-    "address": "Address",
+    "address": "Biesenbrower Straße 130, 13057 Berlin, Germany",
     "hours": "Mon–Sat: 8:00 – 20:00",
     "coverage": "Berlin & 100 km around",
     "copyright": "© 2026 Luxora. All rights reserved.",
@@ -174,7 +174,8 @@
     "heading2": "With Every Cleaning",
     "newClient": {
       "title": "New Client",
-      "desc": "First time booking with us? Your first booking is 20% off. Applies to any service"
+      "desc": "First time booking with us? Your first booking is 20% off or one free service. Applies to any service. Use promo code:",
+      "promoCode": "LUXORA"
     },
     "twoServices": {
       "title": "2 Services at Once",
@@ -185,16 +186,10 @@
       "desc": "Order 3 services in one visit and get a 50% discount"
     },
     "discountFootnote": "Save more when booking multiple services in one visit",
-    "referral": {
-      "title1": "Invite Friends",
-      "title2": "& Earn Rewards",
-      "desc": "Know someone whose home could use a good clean? Send them our way. You get 15% off your next booking. They get 20% off their first.",
-      "btn": "Share With a Friend"
-    },
     "review": {
       "title1": "Leave a Review",
       "title2": "& Get Discount",
-      "desc": "Loved your cleaning? Leave a quick review on Google or Instagram and receive 10% off your next service.",
+      "desc": "Loved your cleaning? Leave a quick review on Google and receive 10% off your next service.",
       "btn": "Leave a Review"
     },
     "cta": "Request a Free Estimate",
