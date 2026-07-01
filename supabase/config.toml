@@ -36,3 +36,6 @@ enabled = false
 [edge_runtime]
 enabled = true
 inspector_port = 8083
+
+[functions.submit-lead]
+verify_jwt = false
