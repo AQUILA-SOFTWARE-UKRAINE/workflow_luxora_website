@@ -9,6 +9,8 @@ COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci
 
 ENV NEXT_TELEMETRY_DISABLED=1
+ARG NEXT_PUBLIC_TURNSTILE_SITE_KEY
+ENV NEXT_PUBLIC_TURNSTILE_SITE_KEY=$NEXT_PUBLIC_TURNSTILE_SITE_KEY
 COPY frontend/ ./
 RUN npm run build
 

@@ -1,3 +1,5 @@
 build:
   docker:
     web: Dockerfile
+  config:
+    NEXT_PUBLIC_TURNSTILE_SITE_KEY: NEXT_PUBLIC_TURNSTILE_SITE_KEY
