@@ -22,7 +22,6 @@ export default function ServiceCard({ id, img, name, price, priceLabel, bullets,
       <div className={styles.body}>
         <h3 className={styles.name}>{name}</h3>
         <div className={styles.priceRow}>
-          <span className={styles.priceLabel}>{priceLabel}</span>
           <span className={styles.price}>{price}</span>
         </div>
         <div className={styles.divider} />

@@ -129,13 +129,7 @@ export default function Nav() {
 
           {/* Logo */}
           <Link href="/" className={styles.logoLink}>
-            <div className={styles.logoIcon}>
-              <LogoMark />
-            </div>
-            <div className={styles.logoText}>
-              <span className={styles.logoName}>Luxora</span>
-              <span className={styles.logoSub}>Reinigungsservice</span>
-            </div>
+            <LogoMark />
           </Link>
 
           {/* Location — tablet S+ */}

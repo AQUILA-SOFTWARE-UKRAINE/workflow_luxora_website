@@ -99,8 +99,7 @@
     "heading2": "Spotless Results",
     "subtext": "Fill the form → We write you within 10 min → You get a fixed price",
     "cta": "Request a Free Estimate",
-    "priceLabel": "From (incl. VAT)",
-    "footnoteText": "Final price depends on size and condition. VAT Includes: travel, cleaning products, all equipment",
+    "footnoteText": "Final price depends on size and condition.",
     "cards": {
       "windows": {
         "name": "Window Cleaning",
@@ -141,7 +140,7 @@
           "Extractor deep clean removes dirt and odors from deep in the fabric",
           "Leather and plastic care: protected and refreshed"
         ],
-        "footnote": "Access to a standard 220V outlet required"
+        "footnote": "A 220V socket is required for the washing vacuum cleaner when washing textiles"
       }
     }
   },
@@ -175,15 +174,15 @@
     "heading2": "With Every Cleaning",
     "newClient": {
       "title": "New Client",
-      "desc": "First time booking with us? Your first booking is 20% off. Applies to any service, taken off before you pay"
+      "desc": "First time booking with us? Your first booking is 20% off. Applies to any service"
     },
     "twoServices": {
       "title": "2 Services at Once",
-      "desc": "Book 2 services during the same visit and receive 30% off your third service during the appointment"
+      "desc": "Order 2 services in one visit and get a 30% discount"
     },
     "threeServices": {
       "title": "3 Services at Once",
-      "desc": "Book 3 services during the same visit and get 50% off your fourth service appointment"
+      "desc": "Order 3 services in one visit and get a 50% discount"
     },
     "discountFootnote": "Save more when booking multiple services in one visit",
     "referral": {
@@ -288,12 +287,12 @@
       "other": "Other"
     },
     "servicePrices": {
-      "upholstery": "From €80 incl. VAT",
-      "apartment": "From €120 incl. VAT",
-      "windows": "From €60 incl. VAT",
-      "driveway": "From €90 incl. VAT",
-      "car": "From €80 incl. VAT",
-      "other": "From €60 incl. VAT"
+      "upholstery": "From €80",
+      "apartment": "From €120",
+      "windows": "From €60",
+      "driveway": "From €90",
+      "car": "From €80",
+      "other": "From €60"
     },
     "name": "Full Name",
     "namePlaceholder": "e.g. Anna Müller",
@@ -326,7 +325,7 @@
     "submit": "Request a Free Estimate",
     "submitting": "Sending…",
     "whatsapp": "Write on WhatsApp",
-    "call": "Write Us: +49 163 432 5808",
+    "call": "Write Us: +49 151 47409329",
     "agreement": "By submitting this form you agree to our Terms & Conditions",
     "successTitle": "Your Request Has Been Sent",
     "successDesc": "We will write to you within 10 minutes to confirm the details and discuss your booking",
