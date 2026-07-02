@@ -1,0 +1,338 @@
+{
+  "meta": {
+    "siteTitle": "Luxora Reinigungsservice — Professional Home Cleaning Berlin",
+    "siteDesc": "Professional cleaning services in Berlin and surrounding areas. Sofas, windows, apartments, driveways, car interiors. Free estimate. Reply in 10 minutes.",
+    "homeTitle": "Luxora — Professional Home Cleaning Berlin",
+    "homeDesc": "From sofas and windows to full apartments, driveways and car interiors. Professional cleaning at your door across Berlin. New clients get 20% off.",
+    "contactTitle": "Book a Cleaning — Luxora",
+    "contactDesc": "Get a free estimate. Fill in your details and a manager will write to you within 10 minutes to confirm the details and arrange a specialist visit."
+  },
+  "nav": {
+    "location": "Berlin & Surrounding Areas",
+    "menu": "Menu",
+    "contact": "Contact Us",
+    "bookCleaning": "Book a cleaning",
+    "requestEstimate": "Request a Free Estimate",
+    "orderCall": "Send a message",
+    "links": {
+      "whyUs": "Why Choose Us?",
+      "services": "Our Services",
+      "results": "See Results",
+      "reviews": "Client's Reviews",
+      "discounts": "Discounts",
+      "faq": "FAQ"
+    }
+  },
+  "footer": {
+    "brandDesc": "Professional cleaning services in Berlin and surrounding areas. Trusted, certified and always on time.",
+    "company": "Company",
+    "services": "Services",
+    "contact": "Contact",
+    "links": {
+      "aboutUs": "About Us",
+      "pricing": "Pricing",
+      "reviews": "Reviews",
+      "contactUs": "Contact Us",
+      "upholstery": "Upholstery & Carpet Cleaning",
+      "windows": "Window Cleaning",
+      "apartment": "Apartment & House Cleaning",
+      "driveway": "Driveway & Patio Washing",
+      "car": "Car Interior Detailing"
+    },
+    "address": "Biesenbrower Straße 130, 13057 Berlin, Germany",
+    "hours": "Mon–Sat: 8:00 – 20:00",
+    "coverage": "Berlin & 100 km around",
+    "copyright": "© 2026 Luxora. All rights reserved.",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutzerklärung",
+    "agb": "AGB"
+  },
+  "hero": {
+    "location": "Berlin & Surrounding Areas",
+    "h1Line1": "Professional",
+    "h1Line2": "Home Cleaning",
+    "h1Line3": "You Can Trust",
+    "para": "From sofas and windows to full apartments, driveways and car interiors. Professional cleaning at your door across Berlin",
+    "cta": "Request a Free Estimate",
+    "bullets": [
+      "Discount for new clients",
+      "Reply in 10 min",
+      "100+ clients"
+    ]
+  },
+  "whyUs": {
+    "kicker": "WHY CLIENTS TRUST US",
+    "heading1": "We Don't Just Clean.",
+    "heading2": "We",
+    "headingAccent": "Care For Your Space",
+    "desc": "Trusted professionals, consistent quality, and attention to every detail — creating a home that feels fresh, comfortable, and cared for.",
+    "cta": "Book a Cleaning",
+    "badge": "Happy Homeowners",
+    "features": {
+      "schedule": {
+        "title": "Cleaning On Your Schedule",
+        "desc": "Whether you're home or away, our trusted team cleans your space safely, securely, and professionally."
+      },
+      "punctual": {
+        "title": "Punctual & Reliable",
+        "desc": "Your time matters. We arrive as scheduled and complete every service with efficiency and care."
+      },
+      "certified": {
+        "title": "Certified & Insured Team",
+        "desc": "Our professional cleaners are carefully vetted, fully insured, and trained to deliver exceptional service."
+      },
+      "safe": {
+        "title": "Safe For Families & Pets",
+        "desc": "We use eco-friendly, fabric-safe products that are gentle on your home and safe for children and pets."
+      }
+    },
+    "photoServices": [
+      "Sofa Cleaning, Berlin",
+      "Apartment Cleaning, Mitte",
+      "Apartment Cleaning, Berlin",
+      "Window Cleaning, Kreuzberg"
+    ]
+  },
+  "services": {
+    "kicker": "OUR SERVICES",
+    "heading1": "Easy Booking.",
+    "heading2": "Spotless Results",
+    "subtext": "Fill the form → We write you within 10 min → You get a fixed price",
+    "cta": "Request a Free Estimate",
+    "footnoteText": "Final price depends on size and condition.",
+    "cards": {
+      "windows": {
+        "name": "Window Cleaning",
+        "bullets": [
+          "Interior and exterior cleaning of all panes, including hard-to-reach areas",
+          "Streak-free result using professional squeegee equipment and cleaning solution",
+          "Frames, window sills and tracks carefully cleaned by hand after each panel"
+        ]
+      },
+      "upholstery": {
+        "name": "Upholstery & Carpet Cleaning",
+        "bullets": [
+          "Deep cleaning for sofas, mattresses, carpets, rugs and soft furniture",
+          "Removes stubborn stains, odors, pet hair and allergens from deep in the fabric",
+          "Safe for all fabric types including delicate, mixed and everyday upholstery"
+        ]
+      },
+      "apartment": {
+        "name": "Apartment & House Cleaning",
+        "bullets": [
+          "Thorough cleaning of every room including hallways, storage areas and balconies",
+          "Kitchens, bathrooms, floors and all surfaces cleaned carefully with professional products",
+          "Available as a one-time deep clean or as a regular recurring service"
+        ]
+      },
+      "driveway": {
+        "name": "Driveway & Patio Washing",
+        "bullets": [
+          "High-pressure washing for brick driveways, patios and yard surfaces",
+          "Removes moss, dirt, oil stains and weathering from paving stones",
+          "Includes kerbs, path edges and hard-to-reach corners"
+        ]
+      },
+      "car": {
+        "name": "Car Interior Detailing",
+        "bullets": [
+          "Full interior cleaning: seats, ceiling, door panels and trunk",
+          "Extractor deep clean removes dirt and odors from deep in the fabric",
+          "Leather and plastic care: protected and refreshed"
+        ],
+        "footnote": "A 220V socket is required for the washing vacuum cleaner when washing textiles"
+      }
+    }
+  },
+  "beforeAfter": {
+    "kicker": "Before & After",
+    "heading1": "The Results Speak",
+    "heading2": "For Themselves",
+    "ctaText": "Want to see our work in detail?\nFollow us to see before-and-after cleaning results",
+    "facebook": "Our Facebook",
+    "instagram": "Our Instagram",
+    "slides": {
+      "sofa": {
+        "title": "Sofa Deep Cleaning",
+        "location": "Deep-cleaned fabric sofa · Charlottenburg"
+      },
+      "kitchen": {
+        "title": "Deep Kitchen Cleaning",
+        "location": "Residential kitchen cleaning · Mitte"
+      },
+      "windows": {
+        "title": "Professional Window Cleaning",
+        "location": "Full interior & exterior cleaning · Kreuzberg"
+      }
+    },
+    "before": "Before",
+    "after": "After"
+  },
+  "rewards": {
+    "kicker": "Rewards Program",
+    "heading1": "Save More",
+    "heading2": "With Every Cleaning",
+    "newClient": {
+      "title": "New Client",
+      "desc": "First time booking with us? Your first booking is 20% off or one free service. Applies to any service. Use promo code:",
+      "promoCode": "LUXORA"
+    },
+    "twoServices": {
+      "title": "2 Services at Once",
+      "desc": "Order 2 services in one visit and get a 30% discount"
+    },
+    "threeServices": {
+      "title": "3 Services at Once",
+      "desc": "Order 3 services in one visit and get a 50% discount"
+    },
+    "discountFootnote": "Save more when booking multiple services in one visit",
+    "review": {
+      "title1": "Leave a Review",
+      "title2": "& Get Discount",
+      "desc": "Loved your cleaning? Leave a quick review on Google and receive 10% off your next service.",
+      "btn": "Leave a Review"
+    },
+    "cta": "Request a Free Estimate",
+    "ctaSubtext": "Takes 1 minute. No commitment"
+  },
+  "reviews": {
+    "kicker": "CLIENT REVIEWS",
+    "heading1": "What Our",
+    "headingAccent": "Clients",
+    "heading2": "Say",
+    "subtext": "Real feedback from real people across Berlin and surrounding areas",
+    "items": [
+      {
+        "text": "Had my sofa deep cleaned after two years. The difference is incredible — no more stains or pet hair. Done in under two hours, no mess left behind. Worth every penny!"
+      },
+      {
+        "text": "Booked them for a full apartment clean before my parents visited. Kitchen, bathroom, floors — all spotless. They even cleaned behind the furniture. My mother was absolutely delighted!"
+      },
+      {
+        "text": "Used their window cleaning for our floor-to-ceiling windows. Eight large panes, inside and out, zero streaks. The apartment looks completely different when the light pours in!"
+      },
+      {
+        "text": "Had the driveway and patio pressure-washed after years of moss and grime. Completely unrecognizable — like a new surface. Fast, tidy, and exactly what we needed."
+      },
+      {
+        "text": "Booked a full apartment clean after renovation work. Dust everywhere, paint residue on floors — they tackled everything in one visit. Would absolutely recommend to anyone."
+      }
+    ]
+  },
+  "faq": {
+    "kicker": "FAQ",
+    "heading1": "Got",
+    "headingAccent": "Questions?",
+    "heading2": "We Have Answers",
+    "subtext": "Can't find your answer here? Write to us. We reply within 10 minutes",
+    "items": [
+      {
+        "q": "What should I prepare before the cleaning?",
+        "a": "Please ensure access to water and electricity, and clear the areas to be cleaned from personal items. This helps us work efficiently and deliver the best result."
+      },
+      {
+        "q": "How do I pay?",
+        "a": "We accept cash, bank transfer and PayPal. Payment is made after the service is completed and you are happy with the result. We will confirm the payment details when we write to confirm your booking."
+      },
+      {
+        "q": "Can I cancel or reschedule?",
+        "a": "Yes, you can cancel or reschedule free of charge up to 24 hours before the appointment. For cancellations with less than 24 hours notice, a small travel fee may apply. Just message us and we will sort it out."
+      },
+      {
+        "q": "How much does a cleaning cost?",
+        "a": "Prices start from €60 for window cleaning, €80 for upholstery/carpet, €120 for apartments. Final price depends on size and condition — we give you an exact quote before starting."
+      },
+      {
+        "q": "Do you bring your own equipment?",
+        "a": "Yes, absolutely. Our team brings all professional cleaning equipment and eco-friendly products. You don't need to provide anything except access to water and a standard power outlet."
+      },
+      {
+        "q": "What areas do you cover?",
+        "a": "We cover Berlin and all surrounding areas within a 100 km radius. If you're unsure whether we service your area, just ask — we'll confirm within minutes."
+      }
+    ]
+  },
+  "finalCta": {
+    "eyebrow": "Just One Step Away",
+    "heading1": "Your First Cleaning",
+    "heading2": "Is",
+    "headingAccent": "20% Off",
+    "subtext": "First booking with us? New clients get 20% off. Leave a request and we'll reach out to discuss the details",
+    "cta": "Claim Your 20% Discount",
+    "badges": {
+      "certified": "Certified professionals",
+      "reply": "Reply Within 10 Minutes",
+      "key": "Flexible Key Handover"
+    }
+  },
+  "contact": {
+    "back": "Back",
+    "kicker": "Book a Cleaning",
+    "heading": "Get a Free Estimate",
+    "subtext": "Fill in your details — we will write to you within 10 minutes"
+  },
+  "form": {
+    "selectServices": "Select one or more services",
+    "services": {
+      "upholstery": "Upholstery & Carpet Cleaning",
+      "apartment": "Apartment & House Cleaning",
+      "windows": "Window Cleaning",
+      "driveway": "Driveway & Patio Washing",
+      "car": "Car Interior Detailing",
+      "other": "Other"
+    },
+    "servicePrices": {
+      "upholstery": "From €80",
+      "apartment": "From €120",
+      "windows": "From €60",
+      "driveway": "From €90",
+      "car": "From €80",
+      "other": "From €60"
+    },
+    "name": "Full Name",
+    "namePlaceholder": "e.g. Anna Müller",
+    "phone": "Phone Number",
+    "phonePlaceholder": "+49 ___ _______",
+    "city": "City or Town",
+    "cityPlaceholder": "Select your city",
+    "cities": [
+      "Berlin",
+      "Potsdam",
+      "Brandenburg an der Havel",
+      "Cottbus",
+      "Frankfurt (Oder)",
+      "Eberswalde",
+      "Oranienburg",
+      "Other"
+    ],
+    "address": "Street Address",
+    "addressOptional": "(optional)",
+    "addressPlaceholder": "e.g. Hauptstraße 12, Berlin",
+    "message": "Message",
+    "messageOptional": "(optional)",
+    "messagePlaceholder": "Tell us about your space, rooms, or anything we should know",
+    "addPhoto": "Add a photo",
+    "photoOptional": "(optional)",
+    "photoCount": "{count}/5",
+    "photoHint": "Drag & drop · JPG/PNG up to 10 MB",
+    "uploadedPhoto": "Uploaded {count} photo",
+    "uploadPhoto": "Upload a photo",
+    "submit": "Request a Free Estimate",
+    "submitting": "Sending…",
+    "whatsapp": "Write on WhatsApp",
+    "call": "Write Us: +49 151 47409329",
+    "agreement": "By submitting this form you agree to our Terms & Conditions",
+    "successTitle": "Your Request Has Been Sent",
+    "successDesc": "We will write to you within 10 minutes to confirm the details and discuss your booking",
+    "successBack": "Back to Home",
+    "errorMsg": "Something went wrong. Please try again or write us directly.",
+    "phoneError": "Please enter a valid phone number (7–15 digits)"
+  },
+  "legal": {
+    "impressumTitle": "Legal Notice",
+    "datenschutzTitle": "Privacy Policy",
+    "agbTitle": "Terms and Conditions",
+    "placeholder": "This page will be available soon.",
+    "backHome": "Back to Home"
+  }
+}

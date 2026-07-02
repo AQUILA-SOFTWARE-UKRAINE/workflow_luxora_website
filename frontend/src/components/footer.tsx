@@ -1,24 +1,27 @@
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import FooterBottomPad from "./FooterBottomPad";
 import { LogoMark, InstagramIcon, FacebookIcon } from "@/components/ui/icons";
 import styles from "./footer.module.css";
 
-const COMPANY_LINKS = [
-  { href: "/#why-us", label: "About Us" },
-  { href: "/#services", label: "Pricing" },
-  { href: "/#reviews", label: "Reviews" },
-  { href: "/contact", label: "Contact Us" },
-];
+export default async function Footer() {
+  const t = await getTranslations("footer");
 
-const SERVICE_LINKS = [
-  { href: "/contact?service=upholstery", label: "Upholstery & Carpet Cleaning" },
-  { href: "/contact?service=windows",    label: "Window Cleaning" },
-  { href: "/contact?service=apartment",  label: "Apartment & House Cleaning" },
-  { href: "/contact?service=driveway",   label: "Driveway & Patio Washing" },
-  { href: "/contact?service=car",        label: "Car Interior Detailing" },
-];
+  const COMPANY_LINKS = [
+    { href: "/#why-us",  label: t("links.aboutUs") },
+    { href: "/#services", label: t("links.pricing") },
+    { href: "/#reviews",  label: t("links.reviews") },
+    { href: "/contact",   label: t("links.contactUs") },
+  ];
 
-export default function Footer() {
+  const SERVICE_LINKS = [
+    { href: "/contact?service=upholstery", label: t("links.upholstery") },
+    { href: "/contact?service=windows",    label: t("links.windows") },
+    { href: "/contact?service=apartment",  label: t("links.apartment") },
+    { href: "/contact?service=driveway",   label: t("links.driveway") },
+    { href: "/contact?service=car",        label: t("links.car") },
+  ];
+
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
@@ -28,29 +31,21 @@ export default function Footer() {
           {/* Left — brand block */}
           <div className={styles.brand}>
             <Link href="/" className={styles.logoLink}>
-              <div className={styles.logoIcon}>
-                <LogoMark />
-              </div>
-              <div className={styles.logoText}>
-                <span className={styles.logoName}>Luxora </span>
-                <span className={styles.logoSub}>Reinigungsservice</span>
-              </div>
+              <LogoMark />
             </Link>
 
-            <p className={styles.brandDesc}>
-              Professional cleaning services in Berlin and surrounding areas. Trusted, certified and always on time.
-            </p>
+            <p className={styles.brandDesc}>{t("brandDesc")}</p>
 
             <div className={styles.socials}>
-              <a href="#" aria-label="Instagram" className={styles.socialIcon}>
+              <a href="https://www.instagram.com/luxora.reinigung?igsh=Nms2ZnpyZGd0Y3V1&utm_source=qr" target="_blank" rel="noreferrer" aria-label="Instagram" className={styles.socialIcon}>
                 <InstagramIcon className={styles.socialSvg} />
               </a>
-              <a href="#" aria-label="WhatsApp" className={styles.socialIcon}>
+              <a href="https://wa.me/4915147409329" target="_blank" rel="noreferrer" aria-label="WhatsApp" className={styles.socialIcon}>
                 <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
               </a>
-              <a href="#" aria-label="Facebook" className={styles.socialIcon}>
+              <a href="https://www.facebook.com/profile.php?id=61588783384456" target="_blank" rel="noreferrer" aria-label="Facebook" className={styles.socialIcon}>
                 <FacebookIcon className={styles.socialSvg} />
               </a>
             </div>
@@ -60,10 +55,10 @@ export default function Footer() {
           <div className={styles.navColumns}>
 
             <div className={`${styles.navCol} ${styles.navColCompany}`}>
-              <p className={styles.navHeading}>Company</p>
+              <p className={styles.navHeading}>{t("company")}</p>
               <ul className={styles.navList}>
                 {COMPANY_LINKS.map((l) => (
-                  <li key={l.label}>
+                  <li key={l.href}>
                     <Link href={l.href} className={styles.navLink}>{l.label}</Link>
                   </li>
                 ))}
@@ -71,10 +66,10 @@ export default function Footer() {
             </div>
 
             <div className={styles.navCol}>
-              <p className={styles.navHeading}>Services</p>
+              <p className={styles.navHeading}>{t("services")}</p>
               <ul className={styles.navList}>
                 {SERVICE_LINKS.map((l) => (
-                  <li key={l.label}>
+                  <li key={l.href}>
                     <Link href={l.href} className={styles.navLink}>{l.label}</Link>
                   </li>
                 ))}
@@ -82,7 +77,7 @@ export default function Footer() {
             </div>
 
             <div className={styles.navCol}>
-              <p className={styles.navHeading}>Contact</p>
+              <p className={styles.navHeading}>{t("contact")}</p>
               <ul className={styles.navList}>
                 <li className={styles.contactItem}>
                   <div className={styles.contactIcon}>
@@ -119,7 +114,7 @@ export default function Footer() {
                       </defs>
                     </svg>
                   </div>
-                  <span className={styles.contactText}>Address</span>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Biesenbrower+Stra%C3%9Fe+130%2C+13057+Berlin" target="_blank" rel="noreferrer" className={styles.contactTextLink}>{t("address")}</a>
                 </li>
 
                 <li className={styles.contactItem}>
@@ -128,7 +123,7 @@ export default function Footer() {
                       <path fillRule="evenodd" clipRule="evenodd" d="M3.68709 0.249818C3.80502 0.342438 3.93747 0.467045 4.08985 0.617552C4.41631 0.93886 4.79506 1.45365 5.12005 1.94785C5.44869 2.44758 5.75321 2.97366 5.92389 3.33982C6.02064 3.54787 6.10805 3.73686 6.16934 3.9021C6.23159 4.0699 6.28331 4.25447 6.28365 4.45589C6.28435 4.8775 6.05551 5.20289 5.83508 5.50302C5.77175 5.58924 5.71794 5.65989 5.67157 5.72079C5.5716 5.85205 5.50607 5.9381 5.45361 6.03762C5.40244 6.1347 5.3875 6.20478 5.41172 6.31761C5.44665 6.48031 5.59849 6.83644 5.89333 7.30232C6.17846 7.75288 6.56886 8.26107 7.03531 8.72605C7.50166 9.19091 8.00178 9.57102 8.44336 9.84606C8.89837 10.1295 9.24878 10.275 9.41615 10.3107C9.53264 10.3355 9.60537 10.32 9.70264 10.2693C9.80525 10.2159 9.89654 10.1462 10.0385 10.0379C10.0943 9.99526 10.1579 9.9467 10.2331 9.8908L10.2389 9.88649C10.54 9.66274 10.8746 9.41415 11.2988 9.4146C11.5083 9.41482 11.6964 9.47399 11.862 9.54158C12.0202 9.60617 12.202 9.69774 12.4014 9.79818L12.418 9.80659C12.7675 9.98282 13.2871 10.2814 13.7902 10.6068C14.2843 10.9265 14.8057 11.2997 15.1304 11.6268C15.2813 11.7792 15.4067 11.9122 15.4996 12.0301C15.5895 12.1442 15.6881 12.2918 15.7297 12.4754C15.7766 12.6822 15.7341 12.8543 15.6905 12.9737C15.6709 13.0275 15.6477 13.0791 15.6311 13.1161C15.6285 13.1218 15.626 13.1275 15.6235 13.133C15.6081 13.1672 15.5946 13.1971 15.5803 13.2314L15.5799 13.2322L15.5796 13.233C15.4326 13.5815 15.2539 13.9156 15.0456 14.2313L15.045 14.2322L15.0444 14.2332C14.6374 14.8446 14.2546 15.244 13.6595 15.5212C13.3502 15.6653 12.9084 15.8108 12.2217 15.7251C11.5612 15.6428 10.7019 15.3503 9.52915 14.6935C7.65247 13.641 6.35001 12.7334 4.67023 11.0584C2.99538 9.38818 2.17215 8.29812 1.01894 6.20314C-0.142018 4.09409 -0.140355 2.79349 0.191187 2.08503C0.469557 1.49019 0.873034 1.1091 1.48239 0.704261L1.48359 0.703464L1.4848 0.702673C1.80078 0.495066 2.13511 0.316833 2.48361 0.170206L2.48476 0.169722L2.48591 0.169244C2.52039 0.154913 2.55056 0.141391 2.58505 0.12593C2.59046 0.123505 2.59597 0.121033 2.60163 0.118503C2.63869 0.101919 2.69037 0.0788629 2.74414 0.0593304C2.86333 0.0160358 3.03507 -0.0262549 3.24151 0.0202965C3.42507 0.0616854 3.57273 0.160004 3.68709 0.249818ZM2.91884 1.2076C2.63448 1.32732 2.36164 1.47276 2.10374 1.64211C1.58896 1.98426 1.36828 2.22393 1.21013 2.56187C1.10503 2.78645 0.910525 3.67328 2.00449 5.66063C3.1062 7.66206 3.865 8.66661 5.46461 10.2617C7.0592 11.8519 8.27487 12.7002 10.0789 13.712C11.1828 14.3303 11.8986 14.5511 12.3609 14.6088C12.797 14.6632 13.0258 14.5754 13.1844 14.5014C13.525 14.3428 13.7657 14.1237 14.1073 13.6106C14.2771 13.3532 14.4228 13.0807 14.5427 12.7965C14.5589 12.7579 14.5747 12.7221 14.5881 12.6923C14.5357 12.63 14.4553 12.544 14.3317 12.4191C14.0981 12.1837 13.6644 11.8653 13.1791 11.5513C12.7026 11.2431 12.2183 10.9658 11.9117 10.8112C11.6904 10.6997 11.5487 10.6288 11.4368 10.5831C11.328 10.5387 11.2963 10.5396 11.2976 10.5396C11.3077 10.5396 11.273 10.5197 10.9041 10.7938C10.8664 10.8218 10.8257 10.853 10.7826 10.8861C10.6183 11.012 10.4193 11.1646 10.2221 11.2672C9.92743 11.4206 9.58919 11.4979 9.18149 11.4109C8.82469 11.3348 8.34347 11.1092 7.84857 10.801C7.34022 10.4843 6.77212 10.0522 6.24108 9.5228C5.71015 8.99356 5.2684 8.41859 4.9427 7.90393C4.6267 7.4046 4.38901 6.91347 4.31178 6.55374C4.22386 6.14415 4.30402 5.80589 4.45842 5.513C4.55792 5.32425 4.70666 5.12923 4.82908 4.96873C4.8651 4.9215 4.89883 4.87727 4.92837 4.83705C5.16484 4.51508 5.15929 4.46376 5.15868 4.45816C5.15866 4.45798 5.15868 4.45826 5.15868 4.45816C5.15867 4.44732 5.15613 4.40538 5.11457 4.29336C5.07208 4.17879 5.00592 4.03381 4.90406 3.81477C4.76497 3.51646 4.49232 3.04077 4.18009 2.56598C3.86424 2.0857 3.53847 1.65327 3.30043 1.41908L3.29962 1.41828C3.17402 1.29421 3.08763 1.2138 3.02526 1.16146C2.99496 1.17501 2.95844 1.19113 2.91884 1.2076Z" fill="#0666C6"/>
                     </svg>
                   </div>
-                  <a href="tel:+4916343250808" className={styles.contactTextLink}>+49 163 432 5808</a>
+                  <a href="tel:+4915147409329" className={styles.contactTextLink}>+49 151 47409329</a>
                 </li>
 
                 <li className={styles.contactItem}>
@@ -138,7 +133,7 @@ export default function Footer() {
                       <path fillRule="evenodd" clipRule="evenodd" d="M2.36852 2.46718C2.55924 2.22196 2.91265 2.17779 3.15787 2.36852L7.87503 6.03742L12.5922 2.36852C12.8374 2.17779 13.1908 2.22196 13.3815 2.46718C13.5723 2.7124 13.5281 3.06581 13.2829 3.25654L8.22037 7.19404C8.01724 7.35202 7.73281 7.35202 7.52968 7.19404L2.46718 3.25654C2.22196 3.06581 2.17779 2.7124 2.36852 2.46718Z" fill="#0666C6"/>
                     </svg>
                   </div>
-                  <a href="mailto:hello@luxsora.de" className={styles.contactTextLink}>hello@luxsora.de</a>
+                  <a href="mailto:luxorareiningung@gmail.com" className={styles.contactTextLink}>luxorareiningung@gmail.com</a>
                 </li>
 
                 <li className={styles.contactItem}>
@@ -148,7 +143,7 @@ export default function Footer() {
                       <path fillRule="evenodd" clipRule="evenodd" d="M7.3125 2.25C7.62316 2.25 7.875 2.50184 7.875 2.8125V7.3125H10.6875C10.9982 7.3125 11.25 7.56434 11.25 7.875C11.25 8.18566 10.9982 8.4375 10.6875 8.4375H7.3125C7.00184 8.4375 6.75 8.18566 6.75 7.875V2.8125C6.75 2.50184 7.00184 2.25 7.3125 2.25Z" fill="#0666C6"/>
                     </svg>
                   </div>
-                  <span className={styles.contactText}>Mon–Sat: 8:00 – 20:00</span>
+                  <span className={styles.contactText}>{t("hours")}</span>
                 </li>
 
                 <li className={styles.contactItem}>
@@ -158,7 +153,7 @@ export default function Footer() {
                       <path fillRule="evenodd" clipRule="evenodd" d="M5.625 4.5C5.00368 4.5 4.5 5.00368 4.5 5.625C4.5 6.24632 5.00368 6.75 5.625 6.75C6.24632 6.75 6.75 6.24632 6.75 5.625C6.75 5.00368 6.24632 4.5 5.625 4.5ZM3.375 5.625C3.375 4.38236 4.38236 3.375 5.625 3.375C6.86764 3.375 7.875 4.38236 7.875 5.625C7.875 6.86764 6.86764 7.875 5.625 7.875C4.38236 7.875 3.375 6.86764 3.375 5.625Z" fill="#0666C6"/>
                     </svg>
                   </div>
-                  <span className={styles.contactText}>Berlin &amp; 100 km around</span>
+                  <span className={styles.contactText}>{t("coverage")}</span>
                 </li>
               </ul>
             </div>
@@ -167,14 +162,13 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className={styles.bottomBar}>
         <div className={styles.bottomInner}>
-          <span className={styles.copyright}>© 2026 Luxsora. All rights reserved.</span>
+          <span className={styles.copyright}>{t("copyright")}</span>
           <div className={styles.legalLinks}>
-            <a href="/impressum" className={styles.legalLink}>Impressum</a>
-            <a href="/datenschutz" className={styles.legalLink}>Datenschutzerklärung</a>
-            <a href="/agb" className={styles.legalLink}>AGB</a>
+            <Link href="/impressum" className={styles.legalLink}>{t("impressum")}</Link>
+            <Link href="/datenschutz" className={styles.legalLink}>{t("datenschutz")}</Link>
+            <Link href="/agb" className={styles.legalLink}>{t("agb")}</Link>
           </div>
         </div>
       </div>

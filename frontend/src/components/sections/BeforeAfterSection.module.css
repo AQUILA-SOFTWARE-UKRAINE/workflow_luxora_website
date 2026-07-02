@@ -7,7 +7,7 @@
 @media (min-width: 744px) {
   .section {
     padding-top: 64px;
-    padding-bottom: 0;
+    padding-bottom: 64px;
     padding-inline: 40px;
   }
 }
@@ -184,7 +184,7 @@
     width: 320px; 
   }
    .section {
-    padding-bottom: 0;
+    padding-bottom: 64px;
   }
   .socialBtn:hover { 
     background: #ebf5ff; 

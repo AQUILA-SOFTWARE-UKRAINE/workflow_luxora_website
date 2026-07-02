@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-import Nav from "@/components/nav";
-import Footer from "@/components/footer";
+import { getLocale } from "next-intl/server";
 import "./globals.css";
 
 const inter = Inter({
@@ -15,47 +14,24 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
 });
 
-export const metadata: Metadata = {
-  title: "Luxora Reinigungsservice — Professional Home Cleaning Berlin",
-  description:
-    "Professional cleaning services in Berlin and surrounding areas. Sofas, windows, apartments, driveways, car interiors. Free estimate. Reply in 10 minutes.",
-  openGraph: {
-    siteName: "Luxora Reinigungsservice",
-    type: "website",
-    locale: "de_DE",
-    title: "Luxora — Professional Home Cleaning Berlin",
-    description:
-      "From sofas and windows to full apartments. Professional cleaning at your door across Berlin. New clients get 20% off.",
-  },
-  robots: { index: true, follow: true },
-};
-
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   name: "Luxora Reinigungsservice",
-  description:
-    "Professional cleaning services in Berlin and surrounding areas.",
+  description: "Professional cleaning services in Berlin and surrounding areas.",
   url: "https://luxsora.de",
-  telephone: "+4916343250808",
+  telephone: "+4915147409329",
   email: "hello@luxsora.de",
   areaServed: { "@type": "City", name: "Berlin" },
   priceRange: "€€",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const locale = await getLocale();
   return (
-    <html lang="de" className={`${inter.variable} ${plusJakartaSans.variable}`}>
+    <html lang={locale} className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <body className="font-sans bg-white overflow-x-hidden">
-        <Nav />
-        <>
-          {children}
-          <Footer />
-        </>
+        {children}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 
 export default function FooterBottomPad() {
   const pathname = usePathname();

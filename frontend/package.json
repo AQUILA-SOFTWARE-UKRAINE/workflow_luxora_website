@@ -5,12 +5,14 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p ${PORT:-3000}",
     "lint": "next lint",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^1.5.3",
     "next": "^15.3.0",
+    "next-intl": "^4.13.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

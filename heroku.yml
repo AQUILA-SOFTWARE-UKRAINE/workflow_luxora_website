@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: Dockerfile
+  config:
+    NEXT_PUBLIC_TURNSTILE_SITE_KEY: 0x4AAAAAADt09WaZILAIlIR0

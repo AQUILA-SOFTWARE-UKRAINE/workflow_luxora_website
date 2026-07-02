@@ -1,7 +1,13 @@
 "use client";
 
-import { REVIEWS } from "@/data/home";
 import styles from "./reviews-carousel.module.css";
+
+type ReviewItem = {
+  name: string;
+  location: string;
+  photo: string;
+  text: string;
+};
 
 function Star() {
   return (
@@ -12,18 +18,7 @@ function Star() {
   );
 }
 
-function GoogleG() {
-  return (
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M33.5 18.37c0-1.12-.1-2.2-.28-3.24H18v6.12h8.7a7.44 7.44 0 01-3.23 4.88v4.06h5.23c3.06-2.82 4.82-6.97 4.82-11.82z" fill="#4285F4" />
-      <path d="M18 34c4.37 0 8.04-1.45 10.72-3.93l-5.23-4.06c-1.45.97-3.3 1.54-5.49 1.54-4.22 0-7.8-2.85-9.08-6.69H3.53v4.19A16.19 16.19 0 0018 34z" fill="#34A853" />
-      <path d="M8.92 20.86A9.72 9.72 0 018.42 18c0-.99.17-1.95.5-2.86V10.95H3.53A16.19 16.19 0 002 18c0 2.62.63 5.1 1.53 7.05l5.39-4.19z" fill="#FBBC05" />
-      <path d="M18 8.45c2.38 0 4.51.82 6.19 2.42l4.64-4.64C26.03 3.64 22.36 2 18 2A16.19 16.19 0 003.53 10.95l5.39 4.19C10.2 11.3 13.78 8.45 18 8.45z" fill="#EA4335" />
-    </svg>
-  );
-}
-
-function ReviewCard({ r }: { r: typeof REVIEWS[number] }) {
+function ReviewCard({ r }: { r: ReviewItem }) {
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
@@ -37,7 +32,6 @@ function ReviewCard({ r }: { r: typeof REVIEWS[number] }) {
             <p className={styles.location}>{r.location}</p>
           </div>
         </div>
-        <GoogleG />
       </div>
       <div className={styles.stars}>
         {Array.from({ length: 5 }).map((_, i) => <Star key={i} />)}
@@ -47,17 +41,17 @@ function ReviewCard({ r }: { r: typeof REVIEWS[number] }) {
   );
 }
 
-export default function ReviewsCarousel() {
+export default function ReviewsCarousel({ reviews }: { reviews: ReviewItem[] }) {
   return (
     <div className={styles.viewport}>
       <div className={styles.fadeLeft} />
       <div className={styles.fadeRight} />
       <div className={styles.track}>
         <div className={styles.row}>
-          {REVIEWS.map((r, i) => <ReviewCard key={`first-${i}`} r={r} />)}
+          {reviews.map((r, i) => <ReviewCard key={`first-${i}`} r={r} />)}
         </div>
         <div className={styles.row}>
-          {REVIEWS.map((r, i) => <ReviewCard key={`second-${i}`} r={r} />)}
+          {reviews.map((r, i) => <ReviewCard key={`second-${i}`} r={r} />)}
         </div>
       </div>
     </div>

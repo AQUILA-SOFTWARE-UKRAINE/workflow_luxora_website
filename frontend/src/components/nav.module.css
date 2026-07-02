@@ -1,11 +1,8 @@
 .header {
-  position: sticky;
-  top: 0;
   z-index: 50;
   background: #fafcff;
-  transition: box-shadow 200ms;
 }
-.headerScrolled { box-shadow: 0 1px 4px rgba(3, 36, 69, 0.08); }
+.headerScrolled {}
 
 .inner {
   width: 100%;
@@ -19,7 +16,7 @@
   .inner { padding-inline: 40px; padding-block: 16px; }
 }
 @media (min-width: 1280px) {
-  .inner { padding-inline: 64px; padding-block: 24px; }
+  .inner { padding-inline: 64px; padding-block: 30px; }
 }
 
 .logoLink {
@@ -30,35 +27,6 @@
   text-decoration: none;
 }
 
-.logoIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: #0666c6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.logoText { display: flex; flex-direction: column; line-height: 1; }
-
-.logoName {
-  font-family: var(--font-plus-jakarta-sans);
-  font-weight: 800;
-  color: #032445;
-  font-size: 20px;
-  letter-spacing: -0.2px;
-}
-
-.logoSub {
-  font-family: var(--font-plus-jakarta-sans);
-  font-weight: 600;
-  color: #032445;
-  font-size: 12px;
-  letter-spacing: -0.12px;
-}
 
 .locationBadge {
   display: none;
@@ -127,7 +95,6 @@
 .langChevronOpen { transform: rotate(180deg); }
 
 .flagEmoji  { font-size: 20px; line-height: 1; display: inline-block; }
-.flagEmojiSm { font-size: 16px; line-height: 1; display: inline-block; }
 
 .flagCircle {
   width: 32px;
@@ -161,16 +128,8 @@
   transition: opacity 200ms, transform 200ms;
   transform-origin: top right;
 }
-.langDropdownVisible {
-  opacity: 1;
-  transform: scaleY(1);
-  pointer-events: auto;
-}
-.langDropdownHidden {
-  opacity: 0;
-  transform: scaleY(0.9);
-  pointer-events: none;
-}
+.langDropdownVisible { opacity: 1; transform: scaleY(1); pointer-events: auto; }
+.langDropdownHidden { opacity: 0; transform: scaleY(0.9); pointer-events: none; }
 
 .langOption {
   display: flex;
@@ -198,9 +157,35 @@
   .desktopNav {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 32px; /* 32px між Contact Us та Гамбургером за макетом */
     flex-shrink: 0;
   }
+}
+
+.menuWrapper { position: relative; }
+
+/* Десктопна кнопка гамбургера замість старої "Menu" */
+.desktopHamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid #DFE0E2;
+  color: #032445;
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 150ms, border-color 150ms;
+}
+@media (max-width: 1279px) {
+  .desktopHamburger { display: none; }
+}
+.desktopHamburger:hover, .desktopHamburgerActive {
+  background: #ebf5ff;
+  border-color: #0666c6;
+  color: #0666c6;
 }
 
 .tabletContactLink {
@@ -225,33 +210,6 @@
   .tabletContactLink { display: none; }
 }
 
-.menuBtn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 40px;
-  padding-inline: 16px;
-  border-radius: 10px;
-  border: 1px solid #e2eaf0;
-  background: white;
-  color: #032445;
-  font-size: 15px;
-  font-weight: 590;
-  line-height: 1;
-  cursor: pointer;
-  transition: background-color 150ms, border-color 150ms, color 150ms;
-}
-.menuBtn:hover, .menuBtnOpen {
-  background: #ebf5ff;
-  border-color: #0666c6;
-  color: #0666c6;
-}
-
-.menuChevron { width: 14px; height: 14px; transition: transform 200ms; }
-.menuChevronOpen { transform: rotate(180deg); }
-
-.menuWrapper { position: relative; }
-
 .phoneIcon    { width: 18px; height: 18px; flex-shrink: 0; }
 .phoneIconLg  { width: 20px; height: 20px; flex-shrink: 0; }
 .callBtnIcon  { width: 24px; height: 24px; }
@@ -263,61 +221,66 @@
   width: 12.5px;
   height: 17.5px;
 }
-
 .drawerPinSvg { width: 16px; height: 16px; }
 
+/* Велике меню на десктопі (W: 329px, H: auto/hug, фон блакитний) */
 .dropdown {
   position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  z-index: 50;
-  width: 230px;
-  background: white;
-  border-radius: 16px;
-  border: 1px solid #e2eaf0;
-  box-shadow: 0 8px 40px rgba(3, 36, 69, 0.12);
-  padding-block: 8px;
+  top: calc(100% + 26px);
+  right: 0;
+  z-index: 60;
+  width: 329px;
+  background: #e6f0fa;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(3, 36, 69, 0.06);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
   transition: opacity 200ms, transform 200ms;
-  transform-origin: top;
+  transform-origin: top right;
 }
-.dropdownVisible {
-  opacity: 1;
-  transform: scaleY(1);
-  pointer-events: auto;
+.dropdownVisible { opacity: 1; transform: scale(1); pointer-events: auto; }
+.dropdownHidden { opacity: 0; transform: scale(0.95); pointer-events: none; }
+
+.dropdownBubbles {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
-.dropdownHidden {
-  opacity: 0;
-  transform: scaleY(0.95);
+.dropdownCircle {
+  position: absolute;
+  border-radius: 50%;
+  background: #c2ddfd;
   pointer-events: none;
 }
 
 .dropdownItem {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding-inline: 20px;
-  padding-block: 11px;
-  font-size: 15px;
-  font-weight: 510;
+  justify-content: flex-start;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
   color: #032445;
   text-decoration: none;
+  border-radius: 12px;
+  position: relative;
+  z-index: 1;
   transition: background-color 150ms, color 150ms;
 }
 .dropdownItem:hover {
-  background: #ebf5ff;
+  background: rgba(6, 102, 198, 0.08);
   color: #0666c6;
 }
 
-.dropdownDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #0666c6;
-  flex-shrink: 0;
-  opacity: 0;
-  transition: opacity 150ms;
+.dropdownContact {
+  margin-top: 12px;
+  color: #0666c6;
+  gap: 8px;
 }
-.dropdownItem:hover .dropdownDot { opacity: 1; }
 
 .contactLink {
   display: flex;
@@ -351,7 +314,6 @@
 @media (min-width: 744px) {
   .mobileFlag { display: none; }
 }
-
 .mobileFlagText { color: #032445; font-size: 14px; line-height: 1; }
 
 .hamburgerBtn {
@@ -363,12 +325,7 @@
   cursor: pointer;
 }
 
-.drawerWrapper {
-  display: block;
-}
-@media (min-width: 1280px) {
-  .drawerWrapper { display: none; }
-}
+.drawerWrapper { display: block; }
 
 .backdrop {
   position: fixed;
@@ -399,7 +356,6 @@
   inset: 0;
   overflow: hidden;
 }
-
 .drawerCircle {
   position: absolute;
   border-radius: 50%;
@@ -417,12 +373,7 @@
   gap: 64px;
 }
 
-.drawerTopBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
+.drawerTopBar { display: flex; align-items: center; justify-content: space-between; }
 .drawerLocation {
   display: flex;
   align-items: center;
@@ -431,19 +382,9 @@
   font-size: 14px;
   line-height: 21px;
 }
+.closeBtn { color: #032445; background: transparent; cursor: pointer; }
 
-.closeBtn {
-  color: #032445;
-  background: transparent;
-  cursor: pointer;
-}
-
-.drawerNav {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
+.drawerNav { display: flex; flex-direction: column; gap: 24px; }
 .drawerNavLink {
   font-size: 16px;
   font-weight: 590;
@@ -480,7 +421,6 @@
 @media (min-width: 744px) {
   .bottomCtaBar { display: none; }
 }
-
 .bottomCtaInner { display: flex; align-items: center; gap: 8px; }
 
 .bottomCtaBtn {
@@ -536,7 +476,6 @@
 @media (min-width: 1024px) {
   .tabletCtaBar { display: none; }
 }
-
 .tabletCtaInner { display: flex; align-items: center; gap: 8px; }
 
 .tabletCtaBtn {

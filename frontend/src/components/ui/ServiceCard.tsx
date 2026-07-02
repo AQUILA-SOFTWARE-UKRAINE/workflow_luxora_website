@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import styles from "./ServiceCard.module.css";
 
 type Props = {
@@ -7,6 +7,7 @@ type Props = {
   img: string;
   name: string;
   price: string;
+  priceLabel: string;
   bullets: string[];
   footnote?: string;
 };
@@ -16,11 +17,11 @@ export default function ServiceCard({ id, img, name, price, bullets, footnote }:
     <Link href={`/contact?service=${id}`} className={styles.card}>
       <div className={styles.imageWrap}>
         <Image src={img} alt={name} fill className="object-cover" sizes="(max-width: 744px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+        <span className={styles.aiLabel}>AI-generated</span>
       </div>
       <div className={styles.body}>
         <h3 className={styles.name}>{name}</h3>
         <div className={styles.priceRow}>
-          <span className={styles.priceLabel}>From (incl. VAT)</span>
           <span className={styles.price}>{price}</span>
         </div>
         <div className={styles.divider} />

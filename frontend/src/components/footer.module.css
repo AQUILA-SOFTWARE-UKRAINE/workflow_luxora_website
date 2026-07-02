@@ -64,37 +64,6 @@
   text-decoration: none;
 }
 
-.logoIcon {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-  background: #0666c6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.logoText {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-
-.logoName {
-  font-family: var(--font-plus-jakarta-sans);
-  font-weight: 800;
-  color: #eaebec;
-  font-size: 20px;
-}
-
-.logoSub {
-  font-family: var(--font-plus-jakarta-sans);
-  font-weight: 600;
-  color: #eaebec;
-  font-size: 12px;
-}
 
 .brandDesc {
   color: #a0aec0;
