@@ -39,7 +39,7 @@
       "driveway": "Einfahrt- & Terrassenreinigung",
       "car": "Fahrzeuginnenreinigung"
     },
-    "address": "Adresse",
+    "address": "Biesenbrower Straße 130, 13057 Berlin, Deutschland",
     "hours": "Mo–Sa: 8:00 – 20:00",
     "coverage": "Berlin & 100 km Umkreis",
     "copyright": "© 2026 Luxora. Alle Rechte vorbehalten.",
@@ -100,7 +100,7 @@
     "subtext": "Formular ausfüllen → Wir schreiben in 10 Min. → Sie erhalten einen Festpreis",
     "cta": "Kostenloses Angebot anfordern",
     "priceLabel": "Ab (inkl. MwSt.)",
-    "footnoteText": "Endpreis abhängig von Größe und Zustand. Inkl. MwSt.: Anfahrt, Reinigungsmittel, alle Geräte",
+    "footnoteText": "Endpreis abhängig von Größe und Zustand.",
     "cards": {
       "windows": {
         "name": "Fensterreinigung",
@@ -141,7 +141,7 @@
           "Extraktor-Tiefenreinigung entfernt Schmutz und Gerüche tief aus dem Gewebe",
           "Leder- und Kunststoffpflege: geschützt und aufgefrischt"
         ],
-        "footnote": "Zugang zu einer Standard-220V-Steckdose erforderlich"
+        "footnote": "Zum Waschen von Textilien wird eine 220-V-Steckdose für den Waschstaubsauger benötigt."
       }
     }
   },
@@ -175,27 +175,22 @@
     "heading2": "bei jeder Reinigung",
     "newClient": {
       "title": "Neukunde",
-      "desc": "Zum ersten Mal bei uns? Ihre erste Buchung ist 20% günstiger. Gilt für alle Leistungen, wird vor der Zahlung abgezogen"
+      "desc": "Zum ersten Mal bei uns? Ihre erste Buchung ist 20% günstiger oder eine Leistung kostenlos. Gilt für alle Leistungen. Verwenden Sie den Promo-Code:",
+      "promoCode": "LUXORA"
     },
     "twoServices": {
       "title": "2 Leistungen auf einmal",
-      "desc": "Buchen Sie 2 Leistungen beim selben Besuch und erhalten Sie 30% Rabatt auf Ihre dritte Leistung"
+      "desc": "Bestellen Sie 2 Leistungen bei einem Besuch und erhalten Sie 30 % Rabatt"
     },
     "threeServices": {
       "title": "3 Leistungen auf einmal",
-      "desc": "Buchen Sie 3 Leistungen beim selben Besuch und erhalten Sie 50% Rabatt auf Ihre vierte Leistung"
+      "desc": "Bestellen Sie 3 Leistungen bei einem Besuch und erhalten Sie 50 % Rabatt"
     },
     "discountFootnote": "Mehr sparen, wenn Sie mehrere Leistungen in einem Besuch buchen",
-    "referral": {
-      "title1": "Freunde einladen",
-      "title2": "& Prämien erhalten",
-      "desc": "Kennen Sie jemanden, dessen Zuhause eine gründliche Reinigung braucht? Empfehlen Sie uns. Sie erhalten 15% Rabatt. Ihr Freund bekommt 20% auf seine erste Buchung.",
-      "btn": "Mit einem Freund teilen"
-    },
     "review": {
       "title1": "Bewertung hinterlassen",
       "title2": "& Rabatt erhalten",
-      "desc": "Hat Ihnen die Reinigung gefallen? Hinterlassen Sie eine Bewertung auf Google oder Instagram und erhalten Sie 10% Rabatt auf Ihre nächste Leistung.",
+      "desc": "Hat Ihnen die Reinigung gefallen? Hinterlassen Sie eine Bewertung auf Google und erhalten Sie 10% Rabatt auf Ihre nächste Leistung.",
       "btn": "Bewertung schreiben"
     },
     "cta": "Kostenloses Angebot anfordern",
@@ -288,12 +283,12 @@
       "other": "Sonstiges"
     },
     "servicePrices": {
-      "upholstery": "Ab €80 inkl. MwSt.",
-      "apartment": "Ab €120 inkl. MwSt.",
-      "windows": "Ab €60 inkl. MwSt.",
-      "driveway": "Ab €90 inkl. MwSt.",
-      "car": "Ab €80 inkl. MwSt.",
-      "other": "Ab €60 inkl. MwSt."
+      "upholstery": "Ab €80",
+      "apartment": "Ab €120",
+      "windows": "Ab €60",
+      "driveway": "Ab €90",
+      "car": "Ab €80",
+      "other": "Ab €60"
     },
     "name": "Vollständiger Name",
     "namePlaceholder": "z.B. Anna Müller",
@@ -326,7 +321,7 @@
     "submit": "Kostenloses Angebot anfordern",
     "submitting": "Wird gesendet…",
     "whatsapp": "WhatsApp schreiben",
-    "call": "Anrufen: +49 163 432 5808",
+    "call": "Anrufen: +49 151 47409329",
     "agreement": "Mit dem Absenden dieses Formulars stimmen Sie unseren AGB zu",
     "successTitle": "Ihre Anfrage wurde gesendet",
     "successDesc": "Wir werden Ihnen innerhalb von 10 Minuten schreiben, um die Details zu bestätigen und Ihre Buchung zu besprechen",

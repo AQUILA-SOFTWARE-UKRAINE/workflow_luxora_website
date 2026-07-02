@@ -20,7 +20,7 @@ const jsonLd = {
   name: "Luxora Reinigungsservice",
   description: "Professional cleaning services in Berlin and surrounding areas.",
   url: "https://luxsora.de",
-  telephone: "+4916343250808",
+  telephone: "+4915147409329",
   email: "hello@luxsora.de",
   areaServed: { "@type": "City", name: "Berlin" },
   priceRange: "€€",

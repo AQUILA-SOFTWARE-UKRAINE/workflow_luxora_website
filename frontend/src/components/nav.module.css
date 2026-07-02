@@ -27,35 +27,6 @@
   text-decoration: none;
 }
 
-.logoIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: #0666c6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.logoText { display: flex; flex-direction: column; line-height: 1; }
-
-.logoName {
-  font-family: var(--font-plus-jakarta-sans);
-  font-weight: 800;
-  color: #032445;
-  font-size: 20px;
-  letter-spacing: -0.2px;
-}
-
-.logoSub {
-  font-family: var(--font-plus-jakarta-sans);
-  font-weight: 600;
-  color: #032445;
-  font-size: 12px;
-  letter-spacing: -0.12px;
-}
 
 .locationBadge {
   display: none;
